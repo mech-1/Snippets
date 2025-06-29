@@ -29,23 +29,17 @@
                     </tr>
                     </thead>
                     <tbody>
-
+                    {% for snippet in snippets %}
                     <tr>
-                        <td scope="row">1</td>
-                        <td><a href="/snippets/1">Пример сниппета</a></td>
-                        <td>23.05.2019 11:32</td>
+                        <td scope="row">{{ snippet.id }}</td>
+                        <td><a href="{% url 'view_snippet' snippet.id  %}">{{ snippet.name }}</a></td>
+                        <td>{{ snippet.creation_date }}</td>
                     </tr>
-
-                    <tr>
-                        <td scope="row">2</td>
-                        <td><a href="/snippets/2">И ещё один пример</a></td>
-                        <td>23.05.2019 11:34</td>
-                    </tr>
-
+                    {% endfor %}
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-end">
-                    <i class="text-muted">Всего сниппетов: 2</i></div>
+                    <i class="text-muted">Всего сниппетов: {{ snippets | length }}</i></div>
             </div>
         </div>
     </div>
