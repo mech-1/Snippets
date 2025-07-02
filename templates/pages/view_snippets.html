@@ -1,7 +1,18 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {#{% load static %}#}
+{% block style %}
+    {{ block.super }}
+    <style>
+    .fa-trash {
+        color: red;
+    }
+    .fa-brands {
+        color: orange;
+    }
+    </style>
+{% endblock %}
 {% block content %}
-<!-- Begin page content -->
+    <!-- Begin page content -->
     <div class="container">
         <div class="row">
             <div class="col text-center">
@@ -25,16 +36,22 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Название</th>
+                        <th scope="col">Язык</th>
                         <th scope="col">Дата создания</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for snippet in snippets %}
-                    <tr>
-                        <td scope="row">{{ snippet.id }}</td>
-                        <td><a href="{% url 'view_snippet' snippet.id  %}">{{ snippet.name }}</a></td>
-                        <td>{{ snippet.creation_date }}</td>
-                    </tr>
+                        <tr>
+                            <td scope="row">{{ snippet.id }}</td>
+                            <td>
+                                <a href="{% url 'view_snippet' snippet.id %}">{{ snippet.name }}</a>
+                                <a href="{% url 'snippet_delete' snippet.id %}"><i class="fa-solid fa-trash"></i></a>
+                                <a href="{% url 'snippet_edit' snippet.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                            </td>
+                            <td><i class="fa-brands {{ snippet.icon_class }}"></i> {{ snippet.lang }}</td>
+                            <td>{{ snippet.creation_date }}</td>
+                        </tr>
                     {% endfor %}
                     </tbody>
                 </table>
