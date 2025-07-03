@@ -13,4 +13,5 @@ urlpatterns = [
     path('snippet/<int:id>/delete', views.snippet_delete, name='snippet_delete'),
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
+    path('registration', views.user_registration, name='registration'),
 ]

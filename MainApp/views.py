@@ -5,8 +5,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.template.context_processors import request
 from django.contrib import auth
 from MainApp.models import Snippet, LANG_ICONS
-from MainApp.forms import SnippetForm
-
+from MainApp.forms import SnippetForm, UserRegistrationForm
+from django.contrib.auth.forms import UserCreationForm
 
 def get_icon_class(lang):
     return LANG_ICONS.get(lang)
@@ -15,6 +15,31 @@ def get_icon_class(lang):
 def index_page(request):
     context = {'pagename': 'PythonBin'}
     return render(request, 'pages/index.html', context)
+
+
+def user_registration(request):
+    if request.method == 'GET':
+        form = UserRegistrationForm()
+        context = {'pagename': 'Добавление нового поьзователя', 'form': form}
+        return render(request, 'pages/registration.html', context)
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+            # name = form.cleaned_data['name']
+            # lang = form.cleaned_data['lang']
+            # code = form.cleaned_data['code']
+            # # save object Snippet to db
+            # Snippet.objects.create(name=name, lang=lang, code=code)
+            # snippet = form.save(commit=False)
+            # snippet.user = request.user
+            # snippet.save()
+            # return redirect('snippets_list')
+        else:
+            context = {'form': form, "pagename": "Создание сниппета"}
+            return render(request, 'pages/registration.html', context)
+
 
 @login_required
 def add_snippet_page(request):
@@ -85,7 +110,6 @@ def snippet_delete(request, id):
     snippet = get_object_or_404(Snippet, pk=id)
     snippet.delete()
     return redirect('snippets_list')
-
 
 def login(request):
     if request.method == 'POST':
