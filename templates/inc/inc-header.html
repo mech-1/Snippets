@@ -5,42 +5,79 @@
                 <img src="/static/images/logo.png" width="32" height="32" alt="">
                 PythonBin
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item me-2">
                         <a class="btn btn-outline-secondary" href="{% url 'add_snippet' %}">
                             Добавить сниппет
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item me-2">
+                        <a class="btn btn-outline-secondary" href="{% url 'snippets_my' %}">
+                            Мои сниппеты
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item me-2">
                         <a class="btn btn-outline-info" href="{% url 'snippets_list' %}">
                             Посмотреть сниппеты
                         </a>
                     </li>
-                    <li>
+{#                    <li>#}
                         {% if request.user.is_authenticated %}
                             <div style="color: white">Welcome, {{ request.user.username }}</div>
                             <a style="color: white !important;" href="{% url 'logout' %}">Logout</a>
                         {% else %}
-                        <form action="{% url 'login' %}" method="POST">
-                        {% csrf_token %}
-                            <input type="text" name="username" value="{{ username }}" placeholder="username">
-                            <input type="password" name="password" placeholder="password">
-                            {% if errors %}
-                            	<ul style="color:red">
-                                {% for error in errors  %}
-                                	<li>{{ error }}</li>
-                                {% endfor %}
+                            <li class="nav-item dropdown">
+                                <a class="btn btn-outline-primary dropdown-toggle" href="#" id="navbarDropdown"
+                                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Авторизация
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" style="min-width: 300px;">
+                                    <form class="px-4 py-3" action="{% url 'login' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group mb-2">
+                                            <input type="text" class="form-control" id="usernameInput" name="username"
+                                                   placeholder="Имя пользователя" value="{{ username }}" required>
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <input type="password" class="form-control" id="passwordInput"
+                                                   name="password"
+                                                   placeholder="Пароль" required>
+                                        </div>
+                                        {% if errors %}
+                                            <ul style="color:red">
+                                                {% for error in errors %}
+                                                    <li>{{ error }}</li>
+                                                {% endfor %}
 
-                                </ul>
-                            {% endif %}
-                            <input type="submit" value="login">
-                        </form>
+                                            </ul>
+                                        {% endif %}
+                                        <button type="submit" class="btn btn-primary btn-block">Войти</button>
+                                    </form>
+                                    <div class="dropdown-divider"></div>
+                                </div>
+                            </li>
+{#                            <form action="{% url 'login' %}" method="POST">#}
+{#                                {% csrf_token %}#}
+{#                                <input type="text" name="username" value="{{ username }}" placeholder="username">#}
+{#                                <input type="password" name="password" placeholder="password">#}
+{#                                {% if errors %}#}
+{#                                    <ul style="color:red">#}
+{#                                        {% for error in errors %}#}
+{#                                            <li>{{ error }}</li>#}
+{#                                        {% endfor %}#}
+{##}
+{#                                    </ul>#}
+{#                                {% endif %}#}
+{#                                <input type="submit" value="login">#}
+{#                            </form>#}
                         {% endif %}
-                    </li>
                 </ul>
             </div>
         </div>

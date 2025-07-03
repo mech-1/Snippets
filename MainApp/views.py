@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.db.models import F
 from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
@@ -15,7 +16,7 @@ def index_page(request):
     context = {'pagename': 'PythonBin'}
     return render(request, 'pages/index.html', context)
 
-
+@login_required
 def add_snippet_page(request):
     # form = SnippetForm(request.POST or None)
     if request.method == 'GET':
@@ -30,7 +31,9 @@ def add_snippet_page(request):
             # code = form.cleaned_data['code']
             # # save object Snippet to db
             # Snippet.objects.create(name=name, lang=lang, code=code)
-            form.save()
+            snippet = form.save(commit=False)
+            snippet.user = request.user
+            snippet.save()
             return redirect('snippets_list')
         else:
             context = {'form': form, "pagename": "Создание сниппета"}
@@ -53,6 +56,14 @@ def snippets_page(request):
     for snippet in snippets:
         snippet.icon_class = get_icon_class(snippet.lang)
     context = {'pagename': 'Просмотр сниппетов', 'snippets': snippets}
+    return render(request, 'pages/view_snippets.html', context)
+
+def snippets_my(request):
+    snippets = Snippet.objects.filter(user=request.user)
+    # snippets = Snippet.objects.filter(user_id=request.user.id)
+    for snippet in snippets:
+        snippet.icon_class = get_icon_class(snippet.lang)
+    context = {'pagename': 'Мои сниппеты', 'snippets': snippets}
     return render(request, 'pages/view_snippets.html', context)
 
 

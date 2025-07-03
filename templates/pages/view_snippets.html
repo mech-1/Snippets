@@ -38,6 +38,7 @@
                         <th scope="col">Название</th>
                         <th scope="col">Язык</th>
                         <th scope="col">Дата создания</th>
+                        <th scope="col">Автор</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -51,6 +52,7 @@
                             </td>
                             <td><i class="fa-brands {{ snippet.icon_class }}"></i> {{ snippet.lang }}</td>
                             <td>{{ snippet.creation_date }}</td>
+                            <td>{{ snippet.user | default:"Аноним" }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
