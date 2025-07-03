@@ -8,6 +8,7 @@ from MainApp.models import Snippet, LANG_ICONS
 from MainApp.forms import SnippetForm, UserRegistrationForm
 from django.contrib.auth.forms import UserCreationForm
 
+
 def get_icon_class(lang):
     return LANG_ICONS.get(lang)
 
@@ -20,25 +21,16 @@ def index_page(request):
 def user_registration(request):
     if request.method == 'GET':
         form = UserRegistrationForm()
-        context = {'pagename': 'Добавление нового поьзователя', 'form': form}
-        return render(request, 'pages/registration.html', context)
+        context = {'pagename': 'Регистрация нового пользователя', 'form': form}
+
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('home')
-            # name = form.cleaned_data['name']
-            # lang = form.cleaned_data['lang']
-            # code = form.cleaned_data['code']
-            # # save object Snippet to db
-            # Snippet.objects.create(name=name, lang=lang, code=code)
-            # snippet = form.save(commit=False)
-            # snippet.user = request.user
-            # snippet.save()
-            # return redirect('snippets_list')
         else:
-            context = {'form': form, "pagename": "Создание сниппета"}
-            return render(request, 'pages/registration.html', context)
+            context = {"pagename": "Регистрация нового пользователя", 'form': form}
+    return render(request, 'pages/registration.html', context)
 
 
 @login_required
@@ -77,7 +69,7 @@ def snippet_edit(request, id):
 
 
 def snippets_page(request):
-    if request.user.is_authenticated: # auth: all public + self.private
+    if request.user.is_authenticated:  # auth: all public + self.private
         snippets = Snippet.objects.all().filter(Q(public=True) | Q(public=False, user=request.user))
     else:
         snippets = Snippet.objects.all().filter(public=True)
@@ -86,6 +78,7 @@ def snippets_page(request):
         snippet.icon_class = get_icon_class(snippet.lang)
     context = {'pagename': 'Просмотр сниппетов', 'snippets': snippets}
     return render(request, 'pages/view_snippets.html', context)
+
 
 def snippets_my(request):
     snippets = Snippet.objects.filter(user=request.user)
@@ -111,6 +104,7 @@ def snippet_delete(request, id):
     snippet.delete()
     return redirect('snippets_list')
 
+
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -125,7 +119,8 @@ def login(request):
                 "errors": ["Неверные usernanem или password"],
                 "username": username,
             }
-            return render(request,'pages/index.html', context=context)
+            return render(request, 'pages/index.html', context=context)
+
 
 def logout(request):
     auth.logout(request)
