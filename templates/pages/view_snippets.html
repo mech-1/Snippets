@@ -52,7 +52,14 @@
                             </td>
                             <td><i class="fa-brands {{ snippet.icon_class }}"></i> {{ snippet.lang }}</td>
                             <td>{{ snippet.creation_date }}</td>
-                            <td>{{ snippet.user | default:"Аноним" }}</td>
+                            <td>
+                                {% if snippet.public %}
+                                    <i class="fa-solid fa-lock-open"></i>
+                                {% else %}
+                                    <i class="fa-solid fa-lock"></i>
+                                {% endif %}
+                                {{ snippet.user | default:"Аноним" }}
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

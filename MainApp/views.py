@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.db.models import F
+from django.db.models import F, Q
 from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.context_processors import request
@@ -52,7 +52,11 @@ def snippet_edit(request, id):
 
 
 def snippets_page(request):
-    snippets = Snippet.objects.all()
+    if request.user.is_authenticated: # auth: all public + self.private
+        snippets = Snippet.objects.all().filter(Q(public=True) | Q(public=False, user=request.user))
+    else:
+        snippets = Snippet.objects.all().filter(public=True)
+
     for snippet in snippets:
         snippet.icon_class = get_icon_class(snippet.lang)
     context = {'pagename': 'Просмотр сниппетов', 'snippets': snippets}

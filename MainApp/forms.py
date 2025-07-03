@@ -5,12 +5,13 @@ from MainApp.models import Snippet
 class SnippetForm(forms.ModelForm):
     class Meta:
         model = Snippet
-        fields = ["name", "lang", "code", "description"]
+        fields = ["name", "lang", "code", "description","public"]
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название сниппета'}),
             'lang': forms.Select(attrs={'class': 'form-control'}),
             'code': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Код сниппета'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Описание сниппета'}),
+            'public': forms.CheckboxInput(attrs={'class': 'custom-checkbox'}),
         }
 
     # Пример валидации на уровне поля (опционально)
