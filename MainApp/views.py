@@ -4,8 +4,8 @@ from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.context_processors import request
 from django.contrib import auth
-from MainApp.models import Snippet, LANG_ICONS
-from MainApp.forms import SnippetForm, UserRegistrationForm
+from MainApp.models import Snippet, LANG_ICONS, Comment
+from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -19,6 +19,7 @@ def index_page(request):
 
 
 def user_registration(request):
+    context = {'pagename': 'Регистрация нового пользователя'}
     if request.method == 'GET':
         form = UserRegistrationForm()
         context = {'pagename': 'Регистрация нового пользователя', 'form': form}
@@ -31,6 +32,25 @@ def user_registration(request):
         else:
             context = {"pagename": "Регистрация нового пользователя", 'form': form}
     return render(request, 'pages/registration.html', context)
+
+
+@login_required()
+def comment_add(request):
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        snippet_id = request.POST.get('snippet_id')  # Получаем ID сниппета из формы
+        snippet = get_object_or_404(Snippet, id=snippet_id)
+
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user  # Текущий авторизованный пользователь
+            comment.snippet = snippet
+            comment.save()
+
+        return redirect('view_snippet',
+                        id=snippet_id)  # Предполагаем, что у вас есть URL для деталей сниппета с параметром pk
+
+    raise Http404
 
 
 @login_required
@@ -95,7 +115,13 @@ def view_snippet(request, id):
     snippet.views_count = F('views_count') + 1
     snippet.save(update_fields=['views_count'])
     snippet.refresh_from_db()
-    context = {'pagename': 'Просмотр сниппета', 'snippet': snippet}
+    snippets = Snippet.objects.all().filter(Q(public=True) | Q(public=False, user=request.user))
+
+    comments = Comment.objects.filter(snippet=snippet)  # Получаем все комментарии для данного сниппета
+    comment_form = CommentForm()  # Передаем пустую форму для добавления комментариев
+
+    context = {'pagename': 'Просмотр сниппета', 'snippet': snippet, 'comments': comments,
+               'comment_form': comment_form}
     return render(request, 'pages/view_snippet.html', context)
 
 

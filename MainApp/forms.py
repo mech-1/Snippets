@@ -1,5 +1,5 @@
 from django import forms
-from MainApp.models import Snippet
+from MainApp.models import Snippet, Comment
 
 from django.contrib.auth.models import User
 
@@ -35,6 +35,11 @@ class SnippetForm(forms.ModelForm):
         return cleaned_data
 
 
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']  # Указываем только поле text, остальные будут заполнены автоматически
+
 class UserRegistrationForm(forms.ModelForm):
     class Meta:
         model = User
@@ -64,6 +69,7 @@ class UserRegistrationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
 # class SnippetForm(forms.Form):
 #     name = forms.CharField(
 #         label = '',

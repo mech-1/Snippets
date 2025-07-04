@@ -47,5 +47,30 @@
             </div>
         </fieldset>
 
+    <form action="{% url 'comment_add' %}" method="POST">
+       {% csrf_token %} {{ comment_form }}
+       <input type="hidden" name="snippet_id" value="{{ snippet.id }}"> <button type="submit">Добавить</button>
+    </form>
+
+    <table border="1">
+        <tr>
+            <th>Автор</th>
+            <th>Комментарий</th>
+            <th>Дата</th>
+        </tr>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.author.username }}</td>
+                <td>{{ comment.text }}</td>
+                <td>{{ comment.creation_date|date:"Y-m-d H:i" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Пока нет комментариев. Будьте первым!</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
     </div>
 {% endblock %}

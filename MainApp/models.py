@@ -24,9 +24,16 @@ class Snippet(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     description = models.TextField(default='', blank=True)  # Допустим, description может быть пустым
-    public = models.BooleanField(default=True) #True/False
+    public = models.BooleanField(default=True)  # True/False
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, blank=True, null=True)
     views_count = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name
+
+
+class Comment(models.Model):
+    text = models.TextField()
+    creation_date = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(to=User, on_delete=models.SET_NULL, blank=True, null=True) #blank = True. . при удалении автора будут его комментарии в Null
+    snippet = models.ForeignKey(to=Snippet, on_delete=models.CASCADE)
