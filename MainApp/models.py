@@ -36,4 +36,4 @@ class Comment(models.Model):
     text = models.TextField()
     creation_date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(to=User, on_delete=models.SET_NULL, blank=True, null=True) #blank = True. . при удалении автора будут его комментарии в Null
-    snippet = models.ForeignKey(to=Snippet, on_delete=models.CASCADE)
+    snippet = models.ForeignKey(to=Snippet, on_delete=models.CASCADE, related_name="comments")

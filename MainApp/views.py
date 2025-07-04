@@ -110,14 +110,15 @@ def snippets_my(request):
 
 
 def view_snippet(request, id):
-    snippet = get_object_or_404(Snippet, pk=id)
+    # snippet = get_object_or_404(Snippet, pk=id)
+    snippet = Snippet.objects.prefetch_related('comments').get(id=id)
     # snippet.views_count += 1
     snippet.views_count = F('views_count') + 1
     snippet.save(update_fields=['views_count'])
     snippet.refresh_from_db()
     snippets = Snippet.objects.all().filter(Q(public=True) | Q(public=False, user=request.user))
-
-    comments = Comment.objects.filter(snippet=snippet)  # Получаем все комментарии для данного сниппета
+    # comments = Comment.objects.filter(snippet=snippet)  # Получаем все комментарии для данного сниппета
+    comments = snippet.comments.all()
     comment_form = CommentForm()  # Передаем пустую форму для добавления комментариев
 
     context = {'pagename': 'Просмотр сниппета', 'snippet': snippet, 'comments': comments,
