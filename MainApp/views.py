@@ -47,7 +47,23 @@ def add_snippet_page(request):
 # 2. Сортировка по возрастанию
 # 3. Сортировка по убыванию
 
-def snippets_page(request):
+# @login_required
+# def snippets_my(request):
+#     snippets = Snippet.objects.filter(user=request.user)
+#     context = {
+#         'pagename': 'Мои сниппеты',
+#         'snippets': snippets
+#     }
+#     return render(request, 'pages/view_snippets.html', context)
+
+def snippets_page(request, my_snippets):
+    if my_snippets:
+        if not request.user.is_authenticated:
+            raise PermissionDenied
+        pagename = 'Мои сниппеты'
+        snippets = Snippet.objects.filter(user=request.user)
+    else:
+        pagename = 'Просмотр сниппетов'
     if request.user.is_authenticated:  # auth: all public + self private
         snippets = Snippet.objects.filter(Q(public=True) | Q(public=False, user=request.user))
     else:  # not auth: all public
@@ -74,21 +90,13 @@ def snippets_page(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
-        'pagename': 'Просмотр сниппетов',
+        'pagename': pagename,
         'page_obj': page_obj,
         'sort': sort
     }
     return render(request, 'pages/view_snippets.html', context)
 
 
-@login_required
-def snippets_my(request):
-    snippets = Snippet.objects.filter(user=request.user)
-    context = {
-        'pagename': 'Мои сниппеты',
-        'snippets': snippets
-    }
-    return render(request, 'pages/view_snippets.html', context)
 
 
 def snippet_detail(request, id):
