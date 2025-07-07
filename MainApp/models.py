@@ -1,39 +1,34 @@
-from django.contrib.auth.models import User
 from django.db import models
+from django.contrib.auth.models import User
 
-LANG_CHOICES = (
+LANG_CHOICES = [
     ("python", "Python"),
-    ("java", "Java"),
-    ("js", "JavaScript"),
     ("cpp", "C++"),
-)
+    ("java", "Java"),
+    ("javascript", "JavaScript")
+]
 
 # <i class="fa-brands fa-python"></i>
 LANG_ICONS = {
     "python": "fa-python",
+    "javascript": "fa-js",
     "java": "fa-java",
-    # "cpp": "<UNK>",
-    "js": "fa-js",
 }
 
 
 class Snippet(models.Model):
     name = models.CharField(max_length=100)
-    lang = models.CharField(max_length=10, choices=LANG_CHOICES)
+    lang = models.CharField(max_length=30, choices=LANG_CHOICES)
     code = models.TextField(max_length=5000)
     creation_date = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    description = models.TextField(default='', blank=True)  # Допустим, description может быть пустым
-    public = models.BooleanField(default=True)  # True/False
-    user = models.ForeignKey(to=User, on_delete=models.CASCADE, blank=True, null=True)
     views_count = models.PositiveIntegerField(default=0)
-
-    def __str__(self):
-        return self.name
+    public = models.BooleanField(default=True)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE,
+                             blank=True, null=True)
 
 
 class Comment(models.Model):
     text = models.TextField()
     creation_date = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey(to=User, on_delete=models.SET_NULL, blank=True, null=True) #blank = True. . при удалении автора будут его комментарии в Null
+    author = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True)
     snippet = models.ForeignKey(to=Snippet, on_delete=models.CASCADE, related_name="comments")

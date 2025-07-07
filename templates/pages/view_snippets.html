@@ -1,18 +1,14 @@
 {% extends 'base.html' %}
-{#{% load static %}#}
+{% load static %}
 {% block style %}
     {{ block.super }}
     <style>
-    .fa-trash {
-        color: red;
-    }
-    .fa-brands {
-        color: orange;
-    }
+        .fa-solid {
+            color: #932e2e;
+        }
     </style>
 {% endblock %}
 {% block content %}
-    <!-- Begin page content -->
     <div class="container">
         <div class="row">
             <div class="col text-center">
@@ -34,23 +30,43 @@
                 <table class="table table-striped">
                     <thead class="table-dark">
                     <tr>
+
+
                         <th scope="col">ID</th>
-                        <th scope="col">Название</th>
+                        <th scope="col">
+                            {% if sort == 'name' %}
+                                <a href="?sort=-name">Название</a>
+                                <i style="color: white" class="fa-solid fa-arrow-up-a-z"></i>
+                            {% elif sort == '-name' %}
+                                <a href="?sort=name">Название</a>
+                                <i class="fa-solid fa-arrow-up-z-a"></i>
+                            {% else %}
+                                <a href="?sort=name">Название</a>
+                            {% endif %}
+                        </th>
                         <th scope="col">Язык</th>
                         <th scope="col">Дата создания</th>
                         <th scope="col">Автор</th>
                     </tr>
                     </thead>
                     <tbody>
+
                     {% for snippet in snippets %}
                         <tr>
                             <td scope="row">{{ snippet.id }}</td>
                             <td>
-                                <a href="{% url 'view_snippet' snippet.id %}">{{ snippet.name }}</a>
-                                <a href="{% url 'snippet_delete' snippet.id %}"><i class="fa-solid fa-trash"></i></a>
-                                <a href="{% url 'snippet_edit' snippet.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="{% url 'snippet-detail' snippet.id %}">{{ snippet.name }}</a>
+                                <a href="{% url 'snippet-delete' snippet.id %}">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                                <a href="{% url 'snippet-edit' snippet.id %}">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
                             </td>
-                            <td><i class="fa-brands {{ snippet.icon_class }}"></i> {{ snippet.lang }}</td>
+                            <td>
+                                <i class="fa-brands {{ snippet.icon_class }}"></i>
+                                {{ snippet.lang }}
+                            </td>
                             <td>{{ snippet.creation_date }}</td>
                             <td>
                                 {% if snippet.public %}
@@ -62,11 +78,13 @@
                             </td>
                         </tr>
                     {% endfor %}
+
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-end">
-                    <i class="text-muted">Всего сниппетов: {{ snippets | length }}</i></div>
+                    <i class="text-muted">Всего сниппетов: 2</i></div>
             </div>
         </div>
     </div>
+
 {% endblock %}

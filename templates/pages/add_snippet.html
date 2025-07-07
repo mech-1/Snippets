@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
-{#{% load static %}#}
+
 {% block content %}
-    <!-- Begin page content -->
     <div class="container">
         <div class="row">
             <div class="col">
@@ -11,108 +10,64 @@
         </div>
 
         <div class="row">
-            <div class="col">
+            <div class="col-8">
                 {% if edit %}
-                    <form action="{% url 'snippet_edit' id %}" method="post">
+                    <form action="{% url 'snippet-edit' id %}" method="post">
                 {% else %}
-                    <form action="{% url 'add_snippet' %}" method="post">
+                    <form action="{% url 'snippet-add' %}" method="post">
                 {% endif %}
+
                 {% csrf_token %}
-                {# Отображение общих ошибок формы, если они есть #}
-                {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
                     <div class="alert alert-danger" role="alert">
-                        <strong>Ошибки формы:</strong>
                         <ul>
-                            {% for error in form.non_field_errors %}
-                                <li>{{ error }}</li>
-                            {% endfor %}
+                            <li>{{ error }}</li>
                         </ul>
                     </div>
-                {% endif %}
-
+                {% endfor %}
                 <div class="mb-3">
-                    <label for="{{ form.name.id_for_label }}" class="form-label">{{ form.name.label }}:</label>
                     {{ form.name }}
-                    {% if form.name.errors %}
-                        <div class="alert alert-danger mt-1" role="alert">
-                            {% for error in form.name.errors %}
-                                {{ error }}
-                            {% endfor %}
+                    {% if  form.name.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            <ul>
+                                {% for error in form.name.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
                         </div>
                     {% endif %}
                 </div>
-
                 <div class="mb-3">
-                    <label for="{{ form.lang.id_for_label }}" class="form-label">{{ form.lang.label }}:</label>
                     {{ form.lang }}
-                    {% if form.lang.errors %}
-                        <div class="alert alert-danger mt-1" role="alert">
-                            {% for error in form.lang.errors %}
-                                {{ error }}
-                            {% endfor %}
+                    {% if  form.lang.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            <ul>
+                                {% for error in form.lang.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
                         </div>
                     {% endif %}
                 </div>
                 <div class="mb-3">
-                    <label for="{{ form.public.id_for_label }}" class="form-label">{{ form.public.label }}:</label>
+                    <label>Публичный</label>
                     {{ form.public }}
-                    </div>
+                </div>
                 <div class="mb-3">
-                    <label for="{{ form.code.id_for_label }}" class="form-label">{{ form.code.label }}:</label>
                     {{ form.code }}
-                    {% if form.code.errors %}
-                        <div class="alert alert-danger mt-1" role="alert">
-                            {% for error in form.code.errors %}
-                                {{ error }}
-                            {% endfor %}
+                    {% if  form.code.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            <ul>
+                                {% for error in form.code.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
                         </div>
                     {% endif %}
                 </div>
-
-                <div class="mb-3">
-                    <label for="{{ form.description.id_for_label }}"
-                           class="form-label">{{ form.description.label }}:</label>
-                    {{ form.description }}
-                    {% if form.description.errors %}
-                        <div class="alert alert-danger mt-1" role="alert">
-                            {% for error in form.description.errors %}
-                                {{ error }}
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-                {#                    {{ form }}#}
-                {#                    <div class="form-group row">#}
-                {#                        <div class="col-8">#}
-                {#                            <input type="text" name="name" class="form-control form-control-lg"#}
-                {#                                   placeholder="Название сниппета">#}
-                {#                        </div>#}
-                {#                    </div>#}
-                {#                    <div class="form-group row">#}
-                {#                        <div class="col-8">#}
-                {#                            <select class="form-control" name="lang">#}
-                {#                                <option>Python</option>#}
-                {#                                <option>C++</option>#}
-                {#                                <option>JavaScript</option>#}
-                {#                            </select>#}
-                {#                        </div>#}
-                {#                    </div>#}
-                {#                    <div class="form-group row">#}
-                {#                        <div class="col-8">#}
-                {#                            <textarea cols="96" rows="10" placeholder="Код сниппета"></textarea>#}
-                {#                        </div>#}
-                {#                    </div>#}
-                {#                    <div class="form-group row">#}
-                {#                        <div class="col-8">#}
-                {#                            <input type="submit" class="btn btn-primary btn-block" value="Сохранить">#}
-                {#                        </div>#}
-                {#                    </div>#}
                 <input type="submit" class="btn btn-primary btn-block" value="Сохранить">
                 </form>
-
             </div>
         </div>
     </div>
 {% endblock %}
-
-{% include 'inc/inc-footer.html' %}
