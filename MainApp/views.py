@@ -66,6 +66,7 @@ def snippets_page(request):
     return render(request, 'pages/view_snippets.html', context)
 
 
+@login_required
 def snippets_my(request):
     snippets = Snippet.objects.filter(user=request.user)
     context = {

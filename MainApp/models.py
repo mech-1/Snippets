@@ -17,6 +17,9 @@ LANG_ICONS = {
 
 
 class Snippet(models.Model):
+    class Meta:
+        ordering = ['name', 'lang']
+
     name = models.CharField(max_length=100)
     lang = models.CharField(max_length=30, choices=LANG_CHOICES)
     code = models.TextField(max_length=5000)

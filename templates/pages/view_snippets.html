@@ -39,12 +39,22 @@
                                 <i style="color: white" class="fa-solid fa-arrow-up-a-z"></i>
                             {% elif sort == '-name' %}
                                 <a href="?sort=name">Название</a>
-                                <i class="fa-solid fa-arrow-up-z-a"></i>
+                                <i style="color: white" class="fa-solid fa-arrow-up-z-a"></i>
                             {% else %}
                                 <a href="?sort=name">Название</a>
                             {% endif %}
                         </th>
-                        <th scope="col">Язык</th>
+                        <th scope="col">
+                            {% if sort == 'lang' %}
+                                <a href="?sort=-lang">Язык</a>
+                                <i style="color: white" class="fa-solid fa-arrow-up-a-z"></i>
+                            {% elif sort == '-lang' %}
+                                <a href="?sort=lang">Язык</a>
+                                <i style="color: white" class="fa-solid fa-arrow-up-z-a"></i>
+                            {% else %}
+                                <a  href="?sort=lang">Язык</a>
+                            {% endif %}
+                        </th>
                         <th scope="col">Дата создания</th>
                         <th scope="col">Автор</th>
                     </tr>
