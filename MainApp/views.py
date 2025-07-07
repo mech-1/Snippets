@@ -1,4 +1,5 @@
 from django.http import Http404
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
 from MainApp.models import Snippet, Comment
 from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm
@@ -51,6 +52,14 @@ def snippets_page(request):
     else:  # not auth: all public
         snippets = Snippet.objects.filter(public=True)
 
+    # search
+    search = request.GET.get("search")
+    if search:
+        snippets = snippets.filter(
+            Q(name__icontains=search) |
+            Q(code__icontains=search)
+        )
+
     # sort
     sort = request.GET.get("sort")
     if sort:
@@ -95,6 +104,8 @@ def snippet_detail(request, id):
 
 def snippet_delete(request, id):
     snippet = get_object_or_404(Snippet, id=id)
+    if snippet.user != request.user:
+        raise PermissionDenied()
     snippet.delete()
 
     return redirect('snippets-list')
