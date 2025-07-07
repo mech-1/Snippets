@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{#{% load querystring %}#}
 {% block style %}
     {{ block.super }}
     <style>
@@ -40,9 +41,9 @@
                     <div class="filter-section">
                         <label for="languageFilter" class="form-label">Фильтр по языку:</label>
                         <select class="form-select" id="languageFilter" name="lang">
-                            <option selected value="">Выберите язык</option>
+                            <option value="">Выберите язык</option>
                             {% for LANG_CHOICE in LANG_CHOICES %}
-                                <option value="{{ LANG_CHOICE.0 }}">{{ LANG_CHOICE.1 }}</option>
+                                <option {% if lang == LANG_CHOICE.0 %}selected {% endif %} value="{{ LANG_CHOICE.0 }}">{{ LANG_CHOICE.1 }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -70,8 +71,6 @@
                 <table class="table table-striped">
                     <thead class="table-dark">
                     <tr>
-
-
                         <th scope="col">ID</th>
                         <th scope="col">
                             {% if sort == 'name' %}
@@ -92,7 +91,7 @@
                                 <a href="?sort=lang">Язык</a>
                                 <i style="color: white" class="fa-solid fa-arrow-up-z-a"></i>
                             {% else %}
-                                <a  href="?sort=lang">Язык</a>
+                                <a href="?sort=lang">Язык</a>
                             {% endif %}
                         </th>
                         <th scope="col">Дата создания</th>
