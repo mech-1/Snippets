@@ -1,13 +1,14 @@
 from django.http import Http404
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
-from MainApp.models import Snippet, Comment
+from MainApp.models import Snippet, Comment, LANG_CHOICES
 from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm
 from django.db.models import F, Q
 from MainApp.models import LANG_ICONS
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.contrib.auth.models import User
 
 
 def get_icon_class(lang):
@@ -38,10 +39,13 @@ def add_snippet_page(request):
             return render(request, 'pages/add_snippet.html', context)
 
 
+# sort
 # snippets/list
 # snippets/list?sort=name
 # snippets/list?sort=lang
 # snippets/list?sort=-lang
+# filters:
+# snippets/list?lang=Python&user_id=3
 
 # 1. Сортировка выключена
 # 2. Сортировка по возрастанию
@@ -77,6 +81,15 @@ def snippets_page(request, my_snippets):
             Q(code__icontains=search)
         )
 
+    # filter
+    lang = request.GET.get("lang")
+    if lang:
+        snippets = snippets.filter(lang=lang)
+
+    user_id = request.GET.get("user_id")
+    if user_id:
+        snippets = snippets.filter(user__id=user_id)
+
     # sort
     sort = request.GET.get("sort")
     if sort:
@@ -86,13 +99,15 @@ def snippets_page(request, my_snippets):
         snippet.icon_class = get_icon_class(snippet.lang)
 
     # TODO: работает или пагинация или сортировка по полю!
-    paginator = Paginator(snippets, 5)
+    paginator = Paginator(snippets, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
         'pagename': pagename,
         'page_obj': page_obj,
-        'sort': sort
+        'sort': sort,
+        'LANG_CHOICES': LANG_CHOICES,
+        'users': User.objects.all()
     }
     return render(request, 'pages/view_snippets.html', context)
 

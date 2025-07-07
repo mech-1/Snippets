@@ -34,6 +34,37 @@
             </div>
         </div>
 
+        <div class="row mb-3">
+            <form action="" method="get">
+                <div class="col-md-6">
+                    <div class="filter-section">
+                        <label for="languageFilter" class="form-label">Фильтр по языку:</label>
+                        <select class="form-select" id="languageFilter" name="lang">
+                            <option selected value="">Выберите язык</option>
+                            {% for LANG_CHOICE in LANG_CHOICES %}
+                                <option value="{{ LANG_CHOICE.0 }}">{{ LANG_CHOICE.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="filter-section">
+                        <label for="authorFilter" class="form-label">Фильтр по автору:</label>
+                        <select class="form-select" id="authorFilter" name="user_id">
+                            <option selected value="">Выберите пользователя</option>
+                            {% for user in users %}
+                                <option value="{{ user.id }}">{{ user.username }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <input class="form-control" type="submit" value="OK">
+                </div>
+            </form>
+        </div>
+        </nav>
+
         <div class="row">
             <div class="col">
                 <table class="table table-striped">
