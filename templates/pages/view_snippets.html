@@ -68,6 +68,9 @@
 
         <div class="row">
             <div class="col">
+            {% if page_obj.paginator.count == 0 %}
+                <a href="{% url 'snippet-add' %}">Создайте новый сниппет.</a>
+            {% else %}
                 <table class="table table-striped">
                     <thead class="table-dark">
                     <tr>
@@ -132,6 +135,7 @@
                 </table>
                 <div class="d-flex justify-content-end">
                     <i class="text-muted">Всего сниппетов: 2</i></div>
+            {% endif %}
             </div>
         </div>
         <div class="row">
