@@ -3,7 +3,7 @@ from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
 from MainApp.models import Snippet, Comment, LANG_CHOICES
 from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm
-from django.db.models import F, Q
+from django.db.models import F, Q, Count, Avg
 from MainApp.models import LANG_ICONS
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
@@ -11,8 +11,6 @@ from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 
 
-def get_icon_class(lang):
-    return LANG_ICONS.get(lang)
 
 
 def index_page(request):
@@ -95,23 +93,40 @@ def snippets_page(request, my_snippets):
     if sort:
         snippets = snippets.order_by(sort)
 
-    for snippet in snippets:
-        snippet.icon_class = get_icon_class(snippet.lang)
-
     # TODO: работает или пагинация или сортировка по полю!
     paginator = Paginator(snippets, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    # users = User.objects.filter(snippet__isnull=False).distinct()
+    # users = User.objects.filter(snippet__isnull=False).annotate(snippets_count=Count('snippet'))
+    users = User.objects.filter(snippet__isnull=False).annotate(snippets_count=Count('snippet__id'))
     context = {
         'pagename': pagename,
         'page_obj': page_obj,
         'sort': sort,
         'LANG_CHOICES': LANG_CHOICES,
-        'users': User.objects.all(),
+        'users': users,
         'lang': lang,
         'user_id': user_id
     }
     return render(request, 'pages/view_snippets.html', context)
+
+
+def snippets_stats(request):
+    stats = Snippet.objects.aggregate(total=Count('id'), avg=Avg('id'))
+    public = Snippet.objects.filter(public=True).aggregate(total=Count('id'))
+    top5 = Snippet.objects.order_by('-views_count').values_list('name', 'views_count')[:5]
+    top3user = User.objects.filter(snippet__isnull=False).annotate(created_snippets=Count('snippet__id')).order_by('-created_snippets').values('username','created_snippets')[:3]
+
+    context = {
+        'pagename': 'Статистика сниппетов',
+        'total': stats['total'],
+        'total_public': public['total'],
+        'avg': stats['avg'],
+        'top5': top5,
+        'top3user': top3user
+    }
+    return render(request, 'pages/snippets_stats.html', context)
 
 
 def snippet_detail(request, id):
