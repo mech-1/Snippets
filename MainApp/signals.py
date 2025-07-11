@@ -1,6 +1,12 @@
 from django.contrib.auth.models import User  # Импортируем модель User
+from django.contrib import messages
+from django.db.models import F
 from django.db.models.signals import post_save  # Импортируем post_save
-from django.dispatch import receiver
+from django.dispatch import receiver, Signal
+
+from MainApp.models import Snippet
+
+snippet_view = Signal()
 
 # Декоратор @receiver() связывает функцию send_registration_message
 # с сигналом post_save. Мы указываем, что нас интересуют только сигналы
@@ -20,3 +26,15 @@ def send_registration_message(sender, instance, created, **kwargs):
         print(f"Отправитель: {sender.__name__}")
         print(f"ID пользователя: {instance.id}")
         print(f"--- Конец сигнала ---")
+
+
+@receiver(post_save, sender=Snippet)
+def send_new_snippet_message(sender, instance, created, **kwargs):
+    if created:
+        print('Сниппет успешно добавлен')
+
+@receiver(snippet_view, sender=None)
+def add_views_count(sender, snippet, **kwargs):
+    snippet.views_count = F('views_count') + 1
+    snippet.save(update_fields=["views_count"])  # -> SET v_c = 11 | SET v_c =  v_c + 1
+    snippet.refresh_from_db()

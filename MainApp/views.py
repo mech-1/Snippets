@@ -10,17 +10,17 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 from django.contrib import messages
-
+from MainApp.signals import snippet_view
 
 
 
 def index_page(request):
     context = {'pagename': 'PythonBin'}
-    messages.error(request, f'Error: Ошибка, ! Вы не зарегистрированы.')
-    messages.warning(request, f'Warning: Предупреждение, ! .')
-    messages.success(request, f'Success: Добро пожаловать, ! Вы успешно зарегистрированы.')
-    messages.info(request, f'Info:, ! Вы успешно зарегистрированы.')
-    messages.debug(request, f'Debug: Отладка - дебаг, ! Вы успешно зарегистрированы.')
+    # messages.error(request, f'Error: Ошибка, ! Вы не зарегистрированы.')
+    # messages.warning(request, f'Warning: Предупреждение, ! .')
+    # messages.success(request, f'Success: Добро пожаловать, ! Вы успешно зарегистрированы.')
+    # messages.info(request, f'Info:, ! Вы успешно зарегистрированы.')
+    # messages.debug(request, f'Debug: Отладка - дебаг, ! Вы успешно зарегистрированы.')
 
     return render(request, 'pages/index.html', context)
 
@@ -38,6 +38,7 @@ def add_snippet_page(request):
             snippet = form.save(commit=False)
             snippet.user = request.user
             snippet.save()
+            messages.success(request, 'Сниппет успешно добавлен')
             return redirect('snippets-list')
         else:
             context = {'form': form, "pagename": "Создание сниппета"}
@@ -139,9 +140,11 @@ def snippets_stats(request):
 def snippet_detail(request, id):
     # snippet = get_object_or_404(Snippet, id=id)
     snippet = Snippet.objects.prefetch_related("comments").get(id=id)
-    snippet.views_count = F('views_count') + 1
-    snippet.save(update_fields=["views_count"])  # -> SET v_c = 11 | SET v_c =  v_c + 1
-    snippet.refresh_from_db()
+    # snippet.views_count = F('views_count') + 1
+    # snippet.save(update_fields=["views_count"])  # -> SET v_c = 11 | SET v_c =  v_c + 1
+    # snippet.refresh_from_db()
+    # Отправляем сигнал
+    snippet_view.send(sender=snippet.__class__, snippet=snippet)
     comments = snippet.comments.all()
     comment_form = CommentForm()
     context = {
@@ -158,6 +161,7 @@ def snippet_delete(request, id):
     if snippet.user != request.user:
         raise PermissionDenied()
     snippet.delete()
+    messages.success(request, 'Сниппет успешно удален')
 
     return redirect('snippets-list')
 
@@ -179,6 +183,8 @@ def snippet_edit(request, id):
         form = SnippetForm(request.POST, instance=snippet)
         if form.is_valid():
             form.save()
+            messages.success(request,'Сниппет успешно отредактирован')
+
 
         return redirect('snippets-list')
 
@@ -238,6 +244,8 @@ def comment_add(request):
             comment.author = request.user  # Текущий авторизованный пользователь
             comment.snippet = snippet
             comment.save()
+            messages.success(request,'Комментарий успешно добавлен')
+
 
         return redirect('snippet-detail', id=snippet_id)
     raise Http404
