@@ -1,12 +1,16 @@
+import logging
+
 from django.contrib.auth.models import User  # Импортируем модель User
 from django.contrib import messages
 from django.db.models import F
-from django.db.models.signals import post_save  # Импортируем post_save
+from django.db.models.signals import post_save, pre_save, post_delete  # Импортируем post_save
 from django.dispatch import receiver, Signal
 
 from MainApp.models import Snippet
 
 snippet_view = Signal()
+logger = logging.getLogger(__name__)  # Рекомендуется использовать имя текущего модуля
+
 
 # Декоратор @receiver() связывает функцию send_registration_message
 # с сигналом post_save. Мы указываем, что нас интересуют только сигналы
@@ -33,8 +37,26 @@ def send_new_snippet_message(sender, instance, created, **kwargs):
     if created:
         print('Сниппет успешно добавлен')
 
+
 @receiver(snippet_view, sender=None)
 def add_views_count(sender, snippet, **kwargs):
     snippet.views_count = F('views_count') + 1
     snippet.save(update_fields=["views_count"])  # -> SET v_c = 11 | SET v_c =  v_c + 1
     snippet.refresh_from_db()
+
+
+@receiver(pre_save, sender=Snippet)
+def check_name_length(sender, instance, **kwargs):
+    # print(f"check names {instance} ")
+    # print(f" length {len(instance.name)}")
+    if not 3 <= len(instance.name) <= 20:
+        print('name length should be between 3 and 20 characters')
+
+
+@receiver(post_delete, sender=Snippet)
+def log_delete_snippet(sender, instance, **kwargs):
+    # print(f"snippet deleted: {instance.id} {instance.name}")
+    # print(f"snippet deleted2: {instance}")
+    logger.info(f"Удален сниппет: {instance.id} {instance.name}")
+    # use __str__ for snippet
+    logger.error(f"Удален сниппет: {instance}")

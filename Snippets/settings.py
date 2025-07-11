@@ -146,7 +146,52 @@ USE_TZ = True
 #     }
 # }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False, # Важно: если у вас уже есть логгеры, это позволит их не отключать
 
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+
+    'handlers': {
+        'file': {
+            'level': 'INFO', # Уровень логирования (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'django_debug.log', # Путь к файлу логов
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'backupCount': 5,             # Keep up to 5 files
+            'formatter': 'verbose',
+        },
+        # Вы можете добавить другие обработчики, например, для вывода в консоль:
+        # 'console': {
+        #     'level': 'INFO',
+        #     'class': 'logging.StreamHandler',
+        #     'formatter': 'simple',
+        # },
+    },
+
+    'loggers': {
+        'django': {
+            'handlers': ['file'], # Используем наш обработчик 'file'
+            'level': 'INFO',     # Уровень логирования для логгера 'django'
+            'propagate': False,  # Важно: предотвращает двойное логирование
+        },
+        # Вы можете добавить собственный логгер для вашего приложения:
+        'MainApp': { # Замените 'myapp' на имя вашего приложения
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 

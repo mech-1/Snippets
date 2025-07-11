@@ -39,6 +39,9 @@ class Snippet(models.Model):
     # many to many created additional table . Thats why we don't need default values
     tags = models.ManyToManyField(to='Tag')
 
+    def __str__(self):
+        return f"S: {self.name}|{self.lang} views:{self.views_count} public:{self.public} user:{self.user}"
+
     def __repr__(self):
         return f"S: {self.name}|{self.lang} views:{self.views_count} public:{self.public} user:{self.user}"
 
