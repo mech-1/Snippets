@@ -107,3 +107,5 @@ max and min dates snippets creation date
 In [41]: stats = Snippet.objects.aggregate(min_date=Min('creation_date'),max_date=Max('creation_date'))
 top5 comments:
 In [44]: top5 = Snippet.objects.annotate(comments_count=Count('comments')).order_by('-comments_count')[:5]
+
+(.venv) ijn@MacBook-Air-Evgenij Snippets % pip install pytest-django    
