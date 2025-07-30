@@ -1,3 +1,5 @@
+import logging
+
 from django.http import Http404
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
@@ -12,10 +14,13 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from MainApp.signals import snippet_view
 
-
+logger = logging.getLogger(__name__)
 
 def index_page(request):
     context = {'pagename': 'PythonBin'}
+    logger.debug("1. Отладочное сообщение")
+    logger.info("2. Info сообщение")
+    logger.error("3. Error сообщение")
     # messages.error(request, f'Error: Ошибка, ! Вы не зарегистрированы.')
     # messages.warning(request, f'Warning: Предупреждение, ! .')
     # messages.success(request, f'Success: Добро пожаловать, ! Вы успешно зарегистрированы.')
@@ -41,6 +46,8 @@ def add_snippet_page(request):
             messages.success(request, 'Сниппет успешно добавлен')
             return redirect('snippets-list')
         else:
+            errors = ", ".join(form.errors.get('name'))
+            messages.error(request, errors)
             context = {'form': form, "pagename": "Создание сниппета"}
             return render(request, 'pages/add_snippet.html', context)
 

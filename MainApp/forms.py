@@ -18,8 +18,10 @@ class SnippetForm(forms.ModelForm):
 
     def clean_name(self):
         name = self.cleaned_data["name"]
-        if len(name) < 5:
+        if len(name) < 3:
             raise forms.ValidationError("Name too short")
+        elif len(name) > 20:
+            raise forms.ValidationError("Name too long")
         return name
 
 
