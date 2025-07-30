@@ -82,3 +82,51 @@ class TestAddSnippetPage:
         assert snippet.lang == form_data['lang']
         assert snippet.code == form_data['code']
         assert snippet.public == form_data['public']
+
+
+@pytest.mark.django_db
+class TestDeleteSnippetPage:
+    def setup_method(self, method):
+        self.client = Client()
+
+    def test_delete_not_existing_snippet(self):
+        response = self.client.get(reverse('snippet-delete', kwargs={'id': 1}))
+        assert response.status_code == 404
+
+    def test_delete_other_user_snippet(self):
+        user = User.objects.create_user(
+            username="testuser",
+            email="test@example.com",
+            password="testpass12345",
+        )
+        Snippet.objects.create(
+            name="Test form snippet",
+            lang="python",
+            code="print('Hello, world!')",
+            public=True,
+            user=user
+        )
+
+        response = self.client.get(reverse('snippet-delete', kwargs={'id': 1}))
+        assert response.status_code == 403
+
+    def test_delete_existing_snippet(self):
+        user = User.objects.create_user(
+            username="testuser",
+            email="test@example.com",
+            password="testpass12345",
+        )
+        Snippet.objects.create(
+            name="Test form snippet",
+            lang="python",
+            code="print('Hello, world!')",
+            public=True,
+            user=user
+        )
+        self.client.force_login(user)
+        # also work
+        # self.client.login(username="testuser", password="testpass12345")
+        response = self.client.get(reverse('snippet-delete', kwargs={'id': 1}))
+
+        assert response.status_code == 302
+        assert Snippet.objects.count() == 0

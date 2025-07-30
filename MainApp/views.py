@@ -162,7 +162,10 @@ def snippet_detail(request, id):
     }
     return render(request, 'pages/snippet_detail.html', context)
 
-
+# Удалять сниппеты только принадлежащие пользователю
+# 404 not found
+# 403 permission denied
+# 302 redirect
 def snippet_delete(request, id):
     snippet = get_object_or_404(Snippet, id=id)
     if snippet.user != request.user:
