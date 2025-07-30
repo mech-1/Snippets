@@ -16,6 +16,7 @@ from MainApp.signals import snippet_view
 
 logger = logging.getLogger(__name__)
 
+
 def index_page(request):
     context = {'pagename': 'PythonBin'}
     logger.debug("1. Отладочное сообщение")
@@ -73,7 +74,7 @@ def add_snippet_page(request):
 #     }
 #     return render(request, 'pages/view_snippets.html', context)
 
-def snippets_page(request, my_snippets):
+def snippets_page(request, my_snippets, num_snippets_on_page=5):
     if my_snippets:
         if not request.user.is_authenticated:
             raise PermissionDenied
@@ -109,7 +110,7 @@ def snippets_page(request, my_snippets):
         snippets = snippets.order_by(sort)
 
     # TODO: работает или пагинация или сортировка по полю!
-    paginator = Paginator(snippets, 5)
+    paginator = Paginator(snippets, num_snippets_on_page)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     # users = User.objects.filter(snippet__isnull=False).distinct()
@@ -131,7 +132,8 @@ def snippets_stats(request):
     stats = Snippet.objects.aggregate(total=Count('id'), avg=Avg('id'))
     public = Snippet.objects.filter(public=True).aggregate(total=Count('id'))
     top5 = Snippet.objects.order_by('-views_count').values_list('name', 'views_count')[:5]
-    top3user = User.objects.filter(snippet__isnull=False).annotate(created_snippets=Count('snippet__id')).order_by('-created_snippets').values('username','created_snippets')[:3]
+    top3user = User.objects.filter(snippet__isnull=False).annotate(created_snippets=Count('snippet__id')).order_by(
+        '-created_snippets').values('username', 'created_snippets')[:3]
 
     context = {
         'pagename': 'Статистика сниппетов',
@@ -161,6 +163,7 @@ def snippet_detail(request, id):
         'comment_form': comment_form
     }
     return render(request, 'pages/snippet_detail.html', context)
+
 
 # Удалять сниппеты только принадлежащие пользователю
 # 404 not found
@@ -193,8 +196,7 @@ def snippet_edit(request, id):
         form = SnippetForm(request.POST, instance=snippet)
         if form.is_valid():
             form.save()
-            messages.success(request,'Сниппет успешно отредактирован')
-
+            messages.success(request, 'Сниппет успешно отредактирован')
 
         return redirect('snippets-list')
 
@@ -254,8 +256,7 @@ def comment_add(request):
             comment.author = request.user  # Текущий авторизованный пользователь
             comment.snippet = snippet
             comment.save()
-            messages.success(request,'Комментарий успешно добавлен')
-
+            messages.success(request, 'Комментарий успешно добавлен')
 
         return redirect('snippet-detail', id=snippet_id)
     raise Http404
