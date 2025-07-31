@@ -4,6 +4,8 @@ decorator==5.2.1
 Django==5.2.3
 django-extensions==4.1
 executing==2.2.0
+factory_boy==3.3.3
+Faker==37.4.2
 iniconfig==2.1.0
 ipython==8.37.0
 jedi==0.19.2
@@ -21,4 +23,5 @@ pytest-django==4.11.1
 sqlparse==0.5.3
 stack-data==0.6.3
 traitlets==5.14.3
+tzdata==2025.2
 wcwidth==0.2.13

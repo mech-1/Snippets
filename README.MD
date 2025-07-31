@@ -111,3 +111,6 @@ In [44]: top5 = Snippet.objects.annotate(comments_count=Count('comments')).order
 (.venv) ijn@MacBook-Air-Evgenij Snippets % pip install pytest-django    
 
 (.venv) ijn@MacBook-Air-Evgenij Snippets % pytest -v MainApp/test_views.py::TestAddSnippetPage
+
+pip install factory-boy
+pip freeze > requirements.txt 

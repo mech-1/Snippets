@@ -243,7 +243,8 @@ def user_registration(request):
             }
             return render(request, "pages/registration.html", context)
 
-
+# 302 redirect on success or anonymous (redirect to login - @login_required)
+# 404 method on get request
 @login_required
 def comment_add(request):
     if request.method == "POST":
