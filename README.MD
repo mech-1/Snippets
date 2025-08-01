@@ -114,3 +114,7 @@ In [44]: top5 = Snippet.objects.annotate(comments_count=Count('comments')).order
 
 pip install factory-boy
 pip freeze > requirements.txt 
+
+(.venv) ijn@MacBook-Air-Evgenij Snippets % pip install pytest-cov 
+(.venv) ijn@MacBook-Air-Evgenij Snippets % pytest --cov .
+(.venv) ijn@MacBook-Air-Evgenij Snippets % pytest --cov=. --cov-report=html

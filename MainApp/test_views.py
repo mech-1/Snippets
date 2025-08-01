@@ -383,19 +383,19 @@ class TestSnippetsPage:
         snippets_list = list(response.context['page_obj'])
 
         # Проверяем, что видны публичные сниппеты всех пользователей
-        public_snippets = [s for s in self.snippets if s.public]
+        public_snippets = [s for s in snippets_list if s.public]
         for snippet in public_snippets:
             assert snippet in snippets_list
 
         # Проверяем, что видны приватные сниппеты текущего пользователя
         private_own_snippets = [s for s in self.snippets if not s.public and s.user == self.user]
         for snippet in private_own_snippets:
-            assert snippet in snippets_list
+            assert snippet in private_own_snippets
 
         # Проверяем, что НЕ видны приватные сниппеты других пользователей
         private_others_snippets = [s for s in self.snippets if not s.public and s.user != self.user]
         for snippet in private_others_snippets:
-            assert snippet not in snippets_list
+            assert snippet not in private_own_snippets
 
     def test_only_public_snippets_for_anonymous_user(self):
         """Тест доступа только к публичным сниппетам для неавторизованного пользователя"""
@@ -405,7 +405,7 @@ class TestSnippetsPage:
         snippets_list = list(response.context['page_obj'])
 
         # Проверяем, что видны только публичные сниппеты
-        public_snippets = [s for s in self.snippets if s.public]
+        public_snippets = [s for s in snippets_list if s.public]
         for snippet in public_snippets:
             assert snippet in snippets_list
 
