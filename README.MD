@@ -118,3 +118,4 @@ pip freeze > requirements.txt
 (.venv) ijn@MacBook-Air-Evgenij Snippets % pip install pytest-cov 
 (.venv) ijn@MacBook-Air-Evgenij Snippets % pytest --cov .
 (.venv) ijn@MacBook-Air-Evgenij Snippets % pytest --cov=. --cov-report=html
+pip install pytest pytest-django selenium webdriver-manager
