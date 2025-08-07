@@ -19,9 +19,13 @@ logger = logging.getLogger(__name__)
 
 def index_page(request):
     context = {'pagename': 'PythonBin'}
-    logger.debug("1. Отладочное сообщение")
-    logger.info("2. Info сообщение")
-    logger.error("3. Error сообщение")
+    # logger.debug("1. Отладочное сообщение")
+    # logger.info("2. Info сообщение")
+    # logger.error("3. Error сообщение")
+    messages.success(request, "Добро пожаловать на сайт")
+    messages.warning(request, "Доработать закрытие сообщений по таймеру")
+    messages.warning(request, "Доработать закрытие сообщений по таймеру")
+    messages.warning(request, "Доработать закрытие сообщений по таймеру")
     # messages.error(request, f'Error: Ошибка, ! Вы не зарегистрированы.')
     # messages.warning(request, f'Warning: Предупреждение, ! .')
     # messages.success(request, f'Success: Добро пожаловать, ! Вы успешно зарегистрированы.')
