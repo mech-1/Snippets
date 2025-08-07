@@ -54,6 +54,7 @@
                     {{ form.public }}
                 </div>
                 <div class="mb-3">
+                    <button onclick="copyFromInput()">Копировать код</button>
                     {{ form.code }}
                     <div id="count">
                         0/1000
@@ -78,4 +79,5 @@
 {% block scripts %}
 {{ block.super }}
     <script src="{% static 'js/forms.js' %}"></script>
+    <script src="{% static 'js/utils.js' %}"></script>
 {% endblock %}

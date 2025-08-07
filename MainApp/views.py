@@ -1,20 +1,61 @@
 import logging
 
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
-from MainApp.models import Snippet, Comment, LANG_CHOICES
 from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm
+from MainApp.models import Snippet, Comment, LANG_CHOICES
+from MainApp.signals import snippet_view
 from django.db.models import F, Q, Count, Avg
 from MainApp.models import LANG_ICONS
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+
 from django.contrib.auth.models import User
-from django.contrib import messages
-from MainApp.signals import snippet_view
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 logger = logging.getLogger(__name__)
+
+
+@csrf_exempt
+def send_message(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        message = data.get('message', '')
+        level = data.get('level', 'info')  # Default to 'info' level
+        # Map level to Django message levels
+        levels = {
+            'debug': messages.DEBUG,
+            'info': messages.INFO,
+            'success': messages.SUCCESS,
+            'warning': messages.WARNING,
+            'error': messages.ERROR,
+        }
+        # TODO shows only on page reload
+        messages.add_message(request, levels.get(level, messages.INFO), message)
+        return JsonResponse({'status': 'success', 'message': 'Message added'})
+    return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
+
+
+def snippets_stats(request):
+    stats = Snippet.objects.aggregate(total=Count('id'), avg=Avg('id'))
+    public = Snippet.objects.filter(public=True).aggregate(total=Count('id'))
+    top5 = Snippet.objects.order_by('-views_count').values_list('name', 'views_count')[:5]
+    top3user = User.objects.filter(snippet__isnull=False).annotate(created_snippets=Count('snippet__id')).order_by(
+        '-created_snippets').values('username', 'created_snippets')[:3]
+
+    context = {
+        'pagename': 'Статистика сниппетов',
+        'total': stats['total'],
+        'total_public': public['total'],
+        'avg': stats['avg'],
+        'top5': top5,
+        'top3user': top3user
+    }
+    return render(request, 'pages/snippets_stats.html', context)
+
 
 
 def index_page(request):
@@ -31,9 +72,28 @@ def index_page(request):
     # messages.success(request, f'Success: Добро пожаловать, ! Вы успешно зарегистрированы.')
     # messages.info(request, f'Info:, ! Вы успешно зарегистрированы.')
     # messages.debug(request, f'Debug: Отладка - дебаг, ! Вы успешно зарегистрированы.')
-
     return render(request, 'pages/index.html', context)
 
+# sort
+# snippets/list
+# snippets/list?sort=name
+# snippets/list?sort=lang
+# snippets/list?sort=-lang
+# filters:
+# snippets/list?lang=Python&user_id=3
+
+# 1. Сортировка выключена
+# 2. Сортировка по возрастанию
+# 3. Сортировка по убыванию
+
+# @login_required
+# def snippets_my(request):
+#     snippets = Snippet.objects.filter(user=request.user)
+#     context = {
+#         'pagename': 'Мои сниппеты',
+#         'snippets': snippets
+#     }
+#     return render(request, 'pages/view_snippets.html', context)
 
 @login_required
 def add_snippet_page(request):
@@ -56,27 +116,6 @@ def add_snippet_page(request):
             context = {'form': form, "pagename": "Создание сниппета"}
             return render(request, 'pages/add_snippet.html', context)
 
-
-# sort
-# snippets/list
-# snippets/list?sort=name
-# snippets/list?sort=lang
-# snippets/list?sort=-lang
-# filters:
-# snippets/list?lang=Python&user_id=3
-
-# 1. Сортировка выключена
-# 2. Сортировка по возрастанию
-# 3. Сортировка по убыванию
-
-# @login_required
-# def snippets_my(request):
-#     snippets = Snippet.objects.filter(user=request.user)
-#     context = {
-#         'pagename': 'Мои сниппеты',
-#         'snippets': snippets
-#     }
-#     return render(request, 'pages/view_snippets.html', context)
 
 def snippets_page(request, my_snippets, num_snippets_on_page=5):
     if my_snippets:
@@ -130,24 +169,6 @@ def snippets_page(request, my_snippets, num_snippets_on_page=5):
         'user_id': user_id
     }
     return render(request, 'pages/view_snippets.html', context)
-
-
-def snippets_stats(request):
-    stats = Snippet.objects.aggregate(total=Count('id'), avg=Avg('id'))
-    public = Snippet.objects.filter(public=True).aggregate(total=Count('id'))
-    top5 = Snippet.objects.order_by('-views_count').values_list('name', 'views_count')[:5]
-    top3user = User.objects.filter(snippet__isnull=False).annotate(created_snippets=Count('snippet__id')).order_by(
-        '-created_snippets').values('username', 'created_snippets')[:3]
-
-    context = {
-        'pagename': 'Статистика сниппетов',
-        'total': stats['total'],
-        'total_public': public['total'],
-        'avg': stats['avg'],
-        'top5': top5,
-        'top3user': top3user
-    }
-    return render(request, 'pages/snippets_stats.html', context)
 
 
 def snippet_detail(request, id):
@@ -246,6 +267,7 @@ def user_registration(request):
                 "form": form
             }
             return render(request, "pages/registration.html", context)
+
 
 # 302 redirect on success or anonymous (redirect to login - @login_required)
 # 404 method on get request

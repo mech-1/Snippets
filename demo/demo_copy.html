@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример копирования</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        .copy-button {
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            color: #495057;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .copy-button:hover {
+            background-color: #e9ecef;
+            border-color: #adb5bd;
+            color: #212529;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .copy-button:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .copy-button::before {
+            content: "📋";
+            margin-right: 6px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Копирование текста в буфер обмена</h2>
+
+    <h3>Копировать текст из поля</h3>
+    <input type="text" id="myInput" value="Этот текст будет скопирован">
+    <a class="copy-button position-absolute top-0 end-0 m-2" onclick="copyFromInput()" href="#" id="codeCopy">
+        Copy
+    </a>
+
+    <hr style="width: 100%; margin: 20px 0;">
+
+    <h3>Копировать произвольный текст</h3>
+    <p id="arbitraryText">
+        Этот текст тоже можно скопировать.
+        <br> Просто нажмите кнопку ниже.
+    </p>
+    <button onclick="copyArbitraryText('Это текст, который я хочу скопировать!')">
+        Копировать заданную фразу
+    </button>
+</div>
+
+<script>
+    // Функция для копирования текста с использованием промисов
+    function copyToClipboard(text) {
+        if (!navigator.clipboard) {
+            // Если API недоступно, выводим ошибку
+            alert('API буфера обмена недоступно в этом браузере.');
+            return;
+        }
+
+        // Вызываем writeText(), который возвращает промис
+        navigator.clipboard.writeText(text)
+            .then(function () {
+                // Этот код выполнится, если промис разрешился (успешное копирование)
+                alert('Текст успешно скопирован!');
+            })
+            .catch(function (err) {
+                // Этот код выполнится, если промис был отклонён (ошибка копирования)
+                console.error('Ошибка копирования:', err);
+                alert('Не удалось скопировать текст. Проверьте консоль.');
+            });
+    }
+
+    // Функция для копирования текста из поля ввода
+    function copyFromInput() {
+        const input = document.getElementById('myInput');
+        copyToClipboard(input.value);
+    }
+
+    // Функция для копирования произвольного текста
+    function copyArbitraryText(text) {
+        copyToClipboard(text);
+    }
+</script>
+
+</body>
+</html>
