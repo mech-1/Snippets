@@ -1,7 +1,7 @@
 import pytest
 from django.contrib.auth.models import User, AnonymousUser
 
-from .views import add_snippet_page
+from MainApp.views import add_snippet_page
 
 from django.test import Client, RequestFactory
 from django.urls import reverse

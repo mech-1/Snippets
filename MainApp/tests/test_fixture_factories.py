@@ -22,11 +22,6 @@ def test_create_user2(user_factory):
 
 
 # Factory Snippets
-@pytest.fixture
-def user():
-    """Фикстура для создания пользователя"""
-    return UserFactory()
-
 
 @pytest.fixture
 def snippets_factory():

@@ -1,6 +1,6 @@
 import pytest
-from .factories import *
-from .models import User
+from MainApp.factories import *
+from MainApp.models import User
 
 @pytest.mark.django_db
 def test_task1():

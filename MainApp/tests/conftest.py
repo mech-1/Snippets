@@ -4,11 +4,19 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
+from MainApp.factories import UserFactory
+
+
+@pytest.fixture
+def user():
+    """Фикстура для создания пользователя"""
+    return UserFactory()
 
 # Фикстура для настройки и очистки драйвера браузера
 @pytest.fixture(scope="session")
 def browser():
     chrome_options = Options()
+    chrome_options.add_argument("--window-size=1200,800")  # критично для Bootstrap десктопной верстки
     chrome_options.add_argument("--headless")  # Запуск в фоновом режиме
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")

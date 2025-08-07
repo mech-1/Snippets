@@ -1,7 +1,7 @@
 import pytest
 from django.db import transaction
 
-from .models import Snippet, Tag, Comment
+from MainApp.models import Snippet, Tag, Comment
 from django.contrib.auth.models import User
 
 
