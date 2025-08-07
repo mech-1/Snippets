@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
     <div class="container">
         <div class="row">
@@ -55,6 +55,9 @@
                 </div>
                 <div class="mb-3">
                     {{ form.code }}
+                    <div id="count">
+                        0/1000
+                    </div>
                     {% if  form.code.errors %}
                         <div class="alert alert-danger" role="alert">
                             <ul>
@@ -70,4 +73,9 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+    <script src="{% static 'js/forms.js' %}"></script>
 {% endblock %}
