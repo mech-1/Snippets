@@ -292,6 +292,8 @@ def comment_add(request):
 @login_required
 def user_notifications(request):
     """Страница с уведомлениями пользователя"""
+    # Отмечаем все уведомления как прочитанные при переходе на страницу
+    Notification.objects.filter(recipient=request.user, is_read=False).update(is_read=True)
 
     # Получаем все уведомления для авторизованного пользователя, сортируем по дате создания
     notifications = Notification.objects.filter(recipient=request.user)

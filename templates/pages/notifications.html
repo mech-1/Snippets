@@ -29,6 +29,12 @@
                                     </div>
                                     <div class="card-body">
                                         <p class="card-text">{{ notification.message }}</p>
+                                        {% if notification.comment %}
+                                            <a href="{% url 'snippet-detail'  notification.comment.snippet.id %}"
+                                               class="btn btn-sm btn-outline-primary">
+                                                Перейти к сниппету
+                                            </a>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

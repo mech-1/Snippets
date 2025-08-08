@@ -67,6 +67,7 @@ def create_comment_notification(sender, instance, created, **kwargs):
     if created and instance.snippet.user and instance.author != instance.snippet.user:
         Notification.objects.create(
             recipient=instance.snippet.user,
+            comment=instance,
             notification_type='comment',
             title=f'Новый комментарий к сниппету {instance.snippet.name}',
             message=f'Пользователь "{instance.author.username}" оставил комментарий "{instance.text[:50]}{"..." if len(instance.text) > 50 else ""}"'
