@@ -18,17 +18,20 @@
                             </a>
                         </li>
                     {% endif %}
-                    <li class="nav-item">
-                        <a class="btn btn-outline-info" href="{% url 'snippets-list' %}">
-                            Посмотреть сниппеты
-                        </a>
-                    </li>
-                    {% if request.user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="btn btn-outline-info" href="{% url 'snippets-my' %}">
-                            Мои сниппеты
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-info" href="{% url 'snippets-list' %}">
+                                Посмотреть сниппеты
+                            </a>
+                        </li>
+                        {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="btn btn-outline-info" href="{% url 'snippets-my' %}">
+                                Мои сниппеты
+                            </a>
+                        </li>
+                        <li class="ps-3">
+                            <a href="{% url 'notifications' %}" class="btn btn-outline-warning">Уведомления</a>
+                        </li>
                         <li class="ms-4">
                             <div class="pt-2" style="color: white">Welcome, {{ request.user.username }}
                                 <a href="{% url 'logout' %}">Выйти</a>

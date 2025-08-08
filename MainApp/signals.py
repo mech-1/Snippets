@@ -6,7 +6,7 @@ from django.db.models import F
 from django.db.models.signals import post_save, pre_save, post_delete  # Импортируем post_save
 from django.dispatch import receiver, Signal
 
-from MainApp.models import Snippet
+from MainApp.models import Snippet, Comment, Notification
 
 snippet_view = Signal()
 logger = logging.getLogger(__name__)  # Рекомендуется использовать имя текущего модуля
@@ -60,3 +60,14 @@ def log_delete_snippet(sender, instance, **kwargs):
     logger.info(f"Удален сниппет: {instance.id} {instance.name}")
     # use __str__ for snippet
     logger.error(f"Удален сниппет: {instance}")
+
+
+@receiver(post_save, sender=Comment)
+def create_comment_notification(sender, instance, created, **kwargs):
+    if created and instance.snippet.user and instance.author != instance.snippet.user:
+        Notification.objects.create(
+            recipient=instance.snippet.user,
+            notification_type='comment',
+            title=f'Новый комментарий к сниппету {instance.snippet.name}',
+            message=f'Пользователь "{instance.author.username}" оставил комментарий "{instance.text[:50]}{"..." if len(instance.text) > 50 else ""}"'
+        )

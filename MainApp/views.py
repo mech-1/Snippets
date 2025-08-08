@@ -4,7 +4,7 @@ from django.http import Http404, JsonResponse
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
 from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm
-from MainApp.models import Snippet, Comment, LANG_CHOICES
+from MainApp.models import Snippet, Comment, LANG_CHOICES, Notification
 from MainApp.signals import snippet_view
 from django.db.models import F, Q, Count, Avg
 from MainApp.models import LANG_ICONS
@@ -57,22 +57,22 @@ def snippets_stats(request):
     return render(request, 'pages/snippets_stats.html', context)
 
 
-
 def index_page(request):
     context = {'pagename': 'PythonBin'}
     # logger.debug("1. Отладочное сообщение")
     # logger.info("2. Info сообщение")
     # logger.error("3. Error сообщение")
-    messages.success(request, "Добро пожаловать на сайт")
-    messages.warning(request, "Доработать закрытие сообщений по таймеру")
-    messages.warning(request, "Доработать закрытие сообщений по таймеру")
-    messages.warning(request, "Доработать закрытие сообщений по таймеру")
+    # messages.success(request, "Добро пожаловать на сайт")
+    # messages.warning(request, "Доработать закрытие сообщений по таймеру")
+    # messages.warning(request, "Доработать закрытие сообщений по таймеру")
+    # messages.warning(request, "Доработать закрытие сообщений по таймеру")
     # messages.error(request, f'Error: Ошибка, ! Вы не зарегистрированы.')
     # messages.warning(request, f'Warning: Предупреждение, ! .')
     # messages.success(request, f'Success: Добро пожаловать, ! Вы успешно зарегистрированы.')
     # messages.info(request, f'Info:, ! Вы успешно зарегистрированы.')
     # messages.debug(request, f'Debug: Отладка - дебаг, ! Вы успешно зарегистрированы.')
     return render(request, 'pages/index.html', context)
+
 
 # sort
 # snippets/list
@@ -287,3 +287,17 @@ def comment_add(request):
 
         return redirect('snippet-detail', id=snippet_id)
     raise Http404
+
+
+@login_required
+def user_notifications(request):
+    """Страница с уведомлениями пользователя"""
+
+    # Получаем все уведомления для авторизованного пользователя, сортируем по дате создания
+    notifications = Notification.objects.filter(recipient=request.user)
+
+    context = {
+        'pagename': 'Мои уведомления',
+        'notifications': notifications
+    }
+    return render(request, 'pages/notifications.html', context)

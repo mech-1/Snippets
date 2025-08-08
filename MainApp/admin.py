@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db.models import Count
 
-from MainApp.models import Snippet, Tag
+from MainApp.models import Snippet, Tag, Notification
 
 
 class SnippetAdmin(admin.ModelAdmin):
@@ -26,6 +26,14 @@ class SnippetAdmin(admin.ModelAdmin):
 
     # Определение заголовка для пользовательского поля
     num_comments.short_description = 'Кол-во комментариев'
+
+
+@admin.register(Notification)
+class NotificationAdmin(admin.ModelAdmin):
+    list_display = ['recipient', 'notification_type', 'title', 'is_read', 'created_at']
+    list_filter = ['notification_type', 'is_read', 'created_at']
+    search_fields = ['recipient__username', 'title', 'message']
+    readonly_fields = ['created_at']
 
 
 # Register your models here.

@@ -18,5 +18,6 @@ urlpatterns = [
     path('registration', views.user_registration, name='registration'),
     path('comment/add', views.comment_add, name="comment_add"),
     path('send-message/', views.send_message, name='send_message'),
+    path('notifications/', views.user_notifications, name="notifications"),
 ]
 # url: snippet/2/delete
