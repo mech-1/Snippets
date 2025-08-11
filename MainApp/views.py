@@ -1,20 +1,22 @@
+import json
 import logging
 
-from django.http import Http404, JsonResponse
+from datetime import datetime
+from django.contrib import auth, messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.core.exceptions import PermissionDenied
+from django.core.paginator import Paginator
+from django.http import Http404, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
+
 from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm
 from MainApp.models import Snippet, Comment, LANG_CHOICES, Notification
 from MainApp.signals import snippet_view
 from django.db.models import F, Q, Count, Avg
 from MainApp.models import LANG_ICONS
-from django.contrib import auth, messages
-from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator
-
-from django.contrib.auth.models import User
-from django.views.decorators.csrf import csrf_exempt
-import json
 
 logger = logging.getLogger(__name__)
 
@@ -303,3 +305,66 @@ def user_notifications(request):
         'notifications': notifications
     }
     return render(request, 'pages/notifications.html', context)
+
+
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
+def simple_api_view(request):
+    """
+    Простой API endpoint для обработки GET и POST запросов
+    """
+
+    if request.method == 'GET':
+        # Обработка GET запроса
+        try:
+            # Здесь может быть логика получения данных из базы
+            data = {
+                'success': True,
+                'message': 'Данные успешно получены!',
+                'timestamp': str(datetime.now()),
+                'items': [
+                    {'id': 1, 'name': 'Элемент 1'},
+                    {'id': 2, 'name': 'Элемент 2'},
+                    {'id': 3, 'name': 'Элемент 3'}
+                ]
+            }
+            return JsonResponse(data)
+
+        except Exception as e:
+            return JsonResponse({
+                'success': False,
+                'error': str(e)
+            }, status=500)
+
+    elif request.method == 'POST':
+        # Обработка POST запроса
+        try:
+            # Парсим JSON данные из запроса
+            data = json.loads(request.body)
+
+            # Обрабатываем полученные данные
+            received_message = data.get('message', '')
+
+            # Здесь может быть логика сохранения в базу данных
+
+            response_data = {
+                'success': True,
+                'message': f'Получено сообщение: {received_message}',
+                'processed': True
+            }
+
+            return JsonResponse(response_data)
+
+        except json.JSONDecodeError:
+            return JsonResponse({
+                'success': False,
+                'error': 'Неверный формат JSON'
+            }, status=400)
+        except Exception as e:
+            return JsonResponse({
+                'success': False,
+                'error': str(e)
+            }, status=500)
+
+def api_test_page(request):
+    return render(request, "pages/api_test.html")
