@@ -23,5 +23,7 @@ urlpatterns = [
     path('api/simple-data/', views.simple_api_view, name='simple_api'),
     path('api-page/', views.api_test_page, name='apt-test-page'),
     path('api/notifications/unread-count/', views.unread_notifications_count, name='unread_notifications_count'),
+    path('api/is_authenticated', views.is_authenticated, name="unread_notifications_count"),
+
 ]
 # url: snippet/2/delete

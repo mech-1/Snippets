@@ -9,6 +9,7 @@ let isPolling = false;
 // let pollingInterval = null;
 let notificationCounter = document.getElementById('notification-count');
 let lastNotificationCount = 0;
+let isAuth = false;
 
 const BASE_URL = '/api/notifications/unread-count/';
 
@@ -53,5 +54,8 @@ function poll() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    startPolling();
+    let isAuth = document.getElementById('isAuth').textContent;
+    if (isAuth === 'True') {
+        startPolling();
+    }
 });
