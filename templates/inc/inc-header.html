@@ -30,7 +30,10 @@
                             </a>
                         </li>
                         <li class="ps-3">
-                            <a href="{% url 'notifications' %}" class="btn btn-outline-warning">Уведомления</a>
+                            <a class="btn btn-outline-warning" href="{% url 'notifications' %}">
+                                <i class="fas fa-bell"></i> Уведомления
+                                <span id="notification-count" class="badge bg-danger ms-1">0</span>
+                            </a>
                         </li>
                         <li class="ms-4">
                             <div class="pt-2" style="color: white">Welcome, {{ request.user.username }}
