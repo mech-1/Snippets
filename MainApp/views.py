@@ -182,6 +182,7 @@ def snippet_detail(request, id):
     # Отправляем сигнал
     snippet_view.send(sender=snippet.__class__, snippet=snippet)
     comments = snippet.comments.all()
+    # comments = comments.annotate(like_count=Count('likes', filter=Q(likes__vote=LikeDislike.LIKE)))
     comment_form = CommentForm()
     context = {
         'pagename': f'Сниппет: {snippet.name}',
@@ -400,7 +401,7 @@ def unread_notifications_count(request):
     import time
 
     # Максимальное время ожидания (30 секунд)
-    max_wait_time = 10
+    max_wait_time = 30
     check_interval = 1  # Проверяем каждую секунду
     last_count = int(request.GET.get('last_count', 0))
 

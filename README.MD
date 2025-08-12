@@ -119,3 +119,53 @@ pip freeze > requirements.txt
 (.venv) ijn@MacBook-Air-Evgenij Snippets % pytest --cov .
 (.venv) ijn@MacBook-Air-Evgenij Snippets % pytest --cov=. --cov-report=html
 pip install pytest pytest-django selenium webdriver-manager
+
+(.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py shell_plus --ipython
+IPython 8.37.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: comment = Comment.objects.get(id=1)
+
+In [2]: comment.text
+Out[2]: 'Отличный способ начать! Просто и понятно.'
+
+In [3]: comment.snippet.name
+Out[3]: 'Python: Hello World'
+
+In [4]: user = User.objects.get(id=1)
+
+In [5]: user.username
+Out[5]: 'user1'
+
+In [6]: LikeDislike.objects.create(user=user, vote=1, content_object=comment)
+Out[6]: <LikeDislike: LikeDislike object (1)>
+
+
+In [7]: LikeDislike.objects.create(user=user, vote=1, content_object=comment)
+---------------------------------------------------------------------------
+IntegrityError                            Traceback (most recent call last)
+IntegrityError: UNIQUE constraint failed: MainApp_likedislike.user_id, MainApp_likedislike.content_type_id, MainApp_likedislike.object_id
+
+
+In [9]: user2 = User.objects.get(id=2)
+
+In [10]: LikeDislike.objects.create(user=user2, vote=1, content_object=comment)
+Out[10]: <LikeDislike: LikeDislike object (2)>
+
+
+In [11]: user3 = User.objects.get(id=3)
+
+In [12]: LikeDislike.objects.create(user=user3, vote=-1, content_object=comment)
+Out[12]: <LikeDislike: LikeDislike object (3)>
+
+In [13]: comment.likes.filter(vote=1).count()
+    ...: 
+Out[13]: 2
+
+In [14]: comment.likes.filter(vote=-1).count()
+Out[14]: 1
+
+In [15]: comment.likes.filter(vote=LikeDislike.DISLIKE).count()
+Out[15]: 1
+
+In [16]: comment.likes.filter(vote=LikeDislike.LIKE).count()
+Out[16]: 2
