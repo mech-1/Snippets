@@ -2,9 +2,11 @@ import json
 import logging
 
 from datetime import datetime
+from django.db import IntegrityError
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
 from django.http import Http404, JsonResponse
@@ -13,7 +15,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
 from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm
-from MainApp.models import Snippet, Comment, LANG_CHOICES, Notification
+from MainApp.models import Snippet, Comment, LANG_CHOICES, Notification, LikeDislike
 from MainApp.signals import snippet_view
 from django.db.models import F, Q, Count, Avg
 from MainApp.models import LANG_ICONS
@@ -290,6 +292,35 @@ def comment_add(request):
 
         return redirect('snippet-detail', id=snippet_id)
     raise Http404
+
+@login_required
+def comment_like(request, id, vote):
+    comment = get_object_or_404(Comment, id=id)
+    user = request.user
+    # existing_vote, created = LikeDislike.objects.get_or_create(
+    #     user=request.user,
+    #     content_type=ContentType.objects.get_for_model(Comment),
+    #     object_id=comment.id,
+    #     defaults={'vote': LikeDislike.LIKE}
+    # )
+    # print(f"{vote=}")
+    try:
+        LikeDislike.objects.create(
+            user=user,
+            vote=vote,
+            content_object=comment
+        )
+    except IntegrityError:
+        like = LikeDislike.objects.get(user=user, object_id=id, content_type=ContentType.objects.get_for_model(Comment))
+        like.delete()
+
+        LikeDislike.objects.create(
+            user=user,
+            vote=vote,
+            content_object=comment
+        )
+
+    return redirect('snippet-detail', id=comment.snippet.id)
 
 
 @login_required

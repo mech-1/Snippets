@@ -129,7 +129,7 @@
                                     <small class="text-muted">{{ comment.creation_date | date:"j E Y г. в H:i" }}</small>
                                 </div>
                                 <p class="mb-1">
-                                    {{ comment.text }}
+                                    {{ comment.text }}asd
                                 </p>
                                 <small>
                                     <a href="#" class="text-decoration-none me-2">Ответить</a>
@@ -140,16 +140,20 @@
 {#                                        <i class="fa-solid fa-thumbs-down"></i>#}
 {#                                    </a>#}
                                     <div class="d-inline-flex align-items-center me-3">
-                                        <button class="btn btn-sm btn-outline-success me-1"
-                                                title="Лайк">
-                                            <i class="fa-regular fa-thumbs-up"></i>
-                                        </button>
+                                        <a href="{% url 'comment-like' comment.id %}">
+                                            <button class="btn btn-sm btn-outline-success me-1"
+                                                    title="Лайк">
+                                                <i class="fa-regular fa-thumbs-up"></i>
+                                            </button>
+                                        </a>
                                         <span class="badge bg-success me-2">{{ comment.likes_count }}</span>
 
-                                        <button class="btn btn-sm btn-outline-danger me-1"
-                                                title="Дизлайк">
-                                            <i class="fa-solid fa-thumbs-down"></i>
-                                        </button>
+                                        <a href="{% url 'comment-dislike' comment.id %}">
+                                            <button class="btn btn-sm btn-outline-danger me-1"
+                                                    title="Дизлайк">
+                                                <i class="fa-solid fa-thumbs-down"></i>
+                                            </button>
+                                        </a>
                                         <span class="badge bg-danger">{{ comment.dislikes_count }}</span>
                                     </div>
                                 </small>
