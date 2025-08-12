@@ -306,6 +306,15 @@ def user_notifications(request):
         'notifications': notifications,
     }
     return render(request, 'pages/notifications.html', context)
+@login_required()
+def notification_delete(request, id):
+    notification = get_object_or_404(Notification, id=id)
+    if notification.recipient != request.user:
+        raise PermissionDenied()
+    notification.delete()
+    messages.success(request, 'Уведомление успешно удалено')
+
+    return redirect('notifications')
 
 
 @csrf_exempt
@@ -381,12 +390,11 @@ def unread_notifications_count(request):
     import time
 
     # Максимальное время ожидания (30 секунд)
-    max_wait_time = 30
+    max_wait_time = 10
     check_interval = 1  # Проверяем каждую секунду
     last_count = int(request.GET.get('last_count', 0))
 
     start_time = time.time()
-    unread_count = 0
 
     while time.time() - start_time < max_wait_time:
         # Получаем количество непрочитанных уведомлений

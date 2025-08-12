@@ -19,6 +19,7 @@ urlpatterns = [
     path('comment/add', views.comment_add, name="comment_add"),
     path('send-message/', views.send_message, name='send_message'),
     path('notifications/', views.user_notifications, name="notifications"),
+    path('notification/<int:id>/delete', views.notification_delete, name="notification-delete"),
     # API endpoints
     path('api/simple-data/', views.simple_api_view, name='simple_api'),
     path('api-page/', views.api_test_page, name='apt-test-page'),
