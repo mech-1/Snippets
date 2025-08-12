@@ -20,6 +20,7 @@ urlpatterns = [
     path('send-message/', views.send_message, name='send_message'),
     path('notifications/', views.user_notifications, name="notifications"),
     path('notification/<int:id>/delete', views.notification_delete, name="notification-delete"),
+    path('notifications/delete-read', views.notifications_delete_read, name="notifications-delete-read"),
     # API endpoints
     path('api/simple-data/', views.simple_api_view, name='simple_api'),
     path('api-page/', views.api_test_page, name='apt-test-page'),

@@ -306,13 +306,23 @@ def user_notifications(request):
         'notifications': notifications,
     }
     return render(request, 'pages/notifications.html', context)
-@login_required()
+
+
+@login_required
 def notification_delete(request, id):
     notification = get_object_or_404(Notification, id=id)
     if notification.recipient != request.user:
         raise PermissionDenied()
     notification.delete()
     messages.success(request, 'Уведомление успешно удалено')
+
+    return redirect('notifications')
+
+
+@login_required
+def notifications_delete_read(request):
+    Notification.objects.filter(recipient=request.user, is_read=True).delete()
+    messages.success(request, 'Все прочтенные уведомления успешно удалены')
 
     return redirect('notifications')
 
