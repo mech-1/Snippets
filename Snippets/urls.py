@@ -6,8 +6,8 @@ from django.contrib import admin
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', views.index_page, name="home"),
-    path('comment/<int:id>/liked', views.comment_like, {'vote': 1}, name="comment-like"),
-    path('comment/<int:id>/disliked', views.comment_like, {'vote': -1}, name="comment-dislike"),
+    # path('comment/<int:id>/liked', views.comment_like, {'vote': 1}, name="comment-like"),
+    # path('comment/<int:id>/disliked', views.comment_like, {'vote': -1}, name="comment-dislike"),
     path('snippets/add', views.add_snippet_page, name="snippet-add"),
     path('snippets/list', views.snippets_page, {'my_snippets': False}, name="snippets-list"),
     path('snippets/my', views.snippets_page, {'my_snippets': True}, name="snippets-my"),
@@ -28,6 +28,7 @@ urlpatterns = [
     path('api-page/', views.api_test_page, name='apt-test-page'),
     path('api/notifications/unread-count/', views.unread_notifications_count, name='unread_notifications_count'),
     path('api/is_authenticated', views.is_authenticated, name="unread_notifications_count"),
+    path('api/comment/like', views.add_comment_like, name="add_comment_like"),
 
 ]
 # url: snippet/2/delete

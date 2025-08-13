@@ -293,45 +293,74 @@ def comment_add(request):
         return redirect('snippet-detail', id=snippet_id)
     raise Http404
 
-@login_required
-def comment_like(request, id, vote):
-    comment = get_object_or_404(Comment, id=id)
+# @login_required
+# def comment_like(request, id, vote):
+#     comment = get_object_or_404(Comment, id=id)
+#
+#     # Если нет лайка/дизлайка, то мы его создаем
+#     existing_vote, created = LikeDislike.objects.get_or_create(
+#         user=request.user,
+#         content_type=ContentType.objects.get_for_model(comment),
+#         object_id=comment.id,
+#         defaults={'vote': vote}
+#     )
+#     if not created:  # снимаем наш голос
+#         if existing_vote.vote == vote:
+#             # Если стоит лайк, а мы хотим убрать его, то удаляем.
+#             existing_vote.delete()
+#         else:  # меняем голос на противоположный
+#             # Если стоит лайк, а мы хотим создать дизлайк, то лайк удаляем, дизлайк создаем
+#             existing_vote.vote = vote
+#             existing_vote.save()  # -> UPDATE
+#
+#     # print(f"{vote=}")
+#     # try:
+#     #     LikeDislike.objects.create(
+#     #         user=user,
+#     #         vote=vote,
+#     #         content_object=comment
+#     #     )
+#     # except IntegrityError:
+#     #     like = LikeDislike.objects.get(user=user, object_id=id, content_type=ContentType.objects.get_for_model(Comment))
+#     #     like.delete()
+#     #
+#     #     LikeDislike.objects.create(
+#     #         user=user,
+#     #         vote=vote,
+#     #         content_object=comment
+#     #     )
+#
+#     return redirect('snippet-detail', id=comment.snippet.id)
+@require_http_methods(["POST"])
+def add_comment_like(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        comment_id = data.get('comment_id')
+        vote = data.get('vote')
 
-    # Если нет лайка/дизлайка, то мы его создаем
-    existing_vote, created = LikeDislike.objects.get_or_create(
-        user=request.user,
-        content_type=ContentType.objects.get_for_model(comment),
-        object_id=comment.id,
-        defaults={'vote': vote}
-    )
-    if not created:  # снимаем наш голос
-        if existing_vote.vote == vote:
-            # Если стоит лайк, а мы хотим убрать его, то удаляем.
-            existing_vote.delete()
-        else:  # меняем голос на противоположный
-            # Если стоит лайк, а мы хотим создать дизлайк, то лайк удаляем, дизлайк создаем
-            existing_vote.vote = vote
-            existing_vote.save()  # -> UPDATE
+        existing_vote, created = LikeDislike.objects.get_or_create(
+            user=request.user,
+            content_type=ContentType.objects.get_for_model(Comment),
+            object_id=comment_id,
+            defaults={'vote': vote}
+        )
 
-    # print(f"{vote=}")
-    # try:
-    #     LikeDislike.objects.create(
-    #         user=user,
-    #         vote=vote,
-    #         content_object=comment
-    #     )
-    # except IntegrityError:
-    #     like = LikeDislike.objects.get(user=user, object_id=id, content_type=ContentType.objects.get_for_model(Comment))
-    #     like.delete()
-    #
-    #     LikeDislike.objects.create(
-    #         user=user,
-    #         vote=vote,
-    #         content_object=comment
-    #     )
+        if not created:  # снимаем наш голос
+            if existing_vote.vote == vote:
+                # Если стоит лайк, а мы хотим убрать его, то удаляем.
+                existing_vote.delete()
+            else:  # меняем голос на противоположный
+                # Если стоит лайк, а мы хотим создать дизлайк, то лайк удаляем, дизлайк создаем
+                existing_vote.vote = vote
+                existing_vote.save()  # -> UPDATE
 
-    return redirect('snippet-detail', id=comment.snippet.id)
-
+        comment = Comment.objects.get(id=comment_id)
+        response_data ={
+            'success': True,
+            'likes_count': comment.likes_count(),
+            'dislikes_count': comment.dislikes_count(),
+        }
+        return JsonResponse(response_data)
 
 @login_required
 def user_notifications(request):
