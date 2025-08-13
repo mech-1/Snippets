@@ -296,29 +296,39 @@ def comment_add(request):
 @login_required
 def comment_like(request, id, vote):
     comment = get_object_or_404(Comment, id=id)
-    user = request.user
-    # existing_vote, created = LikeDislike.objects.get_or_create(
-    #     user=request.user,
-    #     content_type=ContentType.objects.get_for_model(Comment),
-    #     object_id=comment.id,
-    #     defaults={'vote': LikeDislike.LIKE}
-    # )
-    # print(f"{vote=}")
-    try:
-        LikeDislike.objects.create(
-            user=user,
-            vote=vote,
-            content_object=comment
-        )
-    except IntegrityError:
-        like = LikeDislike.objects.get(user=user, object_id=id, content_type=ContentType.objects.get_for_model(Comment))
-        like.delete()
 
-        LikeDislike.objects.create(
-            user=user,
-            vote=vote,
-            content_object=comment
-        )
+    # Если нет лайка/дизлайка, то мы его создаем
+    existing_vote, created = LikeDislike.objects.get_or_create(
+        user=request.user,
+        content_type=ContentType.objects.get_for_model(comment),
+        object_id=comment.id,
+        defaults={'vote': vote}
+    )
+    if not created:  # снимаем наш голос
+        if existing_vote.vote == vote:
+            # Если стоит лайк, а мы хотим убрать его, то удаляем.
+            existing_vote.delete()
+        else:  # меняем голос на противоположный
+            # Если стоит лайк, а мы хотим создать дизлайк, то лайк удаляем, дизлайк создаем
+            existing_vote.vote = vote
+            existing_vote.save()  # -> UPDATE
+
+    # print(f"{vote=}")
+    # try:
+    #     LikeDislike.objects.create(
+    #         user=user,
+    #         vote=vote,
+    #         content_object=comment
+    #     )
+    # except IntegrityError:
+    #     like = LikeDislike.objects.get(user=user, object_id=id, content_type=ContentType.objects.get_for_model(Comment))
+    #     like.delete()
+    #
+    #     LikeDislike.objects.create(
+    #         user=user,
+    #         vote=vote,
+    #         content_object=comment
+    #     )
 
     return redirect('snippet-detail', id=comment.snippet.id)
 
