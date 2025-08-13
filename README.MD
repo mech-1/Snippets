@@ -169,3 +169,10 @@ Out[15]: 1
 
 In [16]: comment.likes.filter(vote=LikeDislike.LIKE).count()
 Out[16]: 2
+
+flat icons
+https://www.flaticon.com/icons
+https://learndjango.com/tutorials/django-favicon-tutorial
+
+django rest api
+https://www.django-rest-framework.org/
