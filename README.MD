@@ -176,3 +176,36 @@ https://learndjango.com/tutorials/django-favicon-tutorial
 
 django rest api
 https://www.django-rest-framework.org/
+
+In [8]: user1 = User.objects.get(id=1)
+
+In [9]: user1.email
+Out[9]: 'user1@example.com'
+
+In [10]: user1_snippets = Snippet.objects.filter(user=user1)
+
+In [11]: len(user1_snippets)
+
+In [15]: stats = Snippet.objects.filter(user=user1).aggregate(average_snippets=Avg('views_count'))
+
+In [16]: stats
+Out[16]: {'average_snippets': 50.375}
+
+In [17]: round(stats['average_snippets'],1)
+Out[17]: 50.4
+
+In [19]: top_snippets = Snippet.objects.all().order_by('-views_count')[:5]
+
+In [20]: len(top_snippets)
+Out[20]: 5
+
+In [22]: top_snippets = Snippet.objects.order_by('-views_count')[:5]
+
+In [23]: len(top_snippets)
+Out[23]: 5
+
+In [27]: for snippet in top_snippets:
+    ...:     print(snippet.views_count)
+    ...: 
+5000
+925

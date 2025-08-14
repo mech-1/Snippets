@@ -265,11 +265,11 @@
                          <div class="card-body">
                              <div class="row text-center">
                                  <div class="col-6">
-                                     <h3 class="text-primary">17</h3>
+                                     <h3 class="text-primary">{{ snippets_count }}</h3>
                                      <p>Всего сниппетов</p>
                                  </div>
                                  <div class="col-6">
-                                     <h3 class="text-success">45.4</h3>
+                                     <h3 class="text-success">{{ avg_views }}</h3>
                                      <p>Сред. просмотров</p>
                                  </div>
                              </div>
@@ -279,62 +279,18 @@
                  <div class="col-md-6">
                      <h4>Топ сниппетов по просмотрам</h4>
 
-
+                     {% for snippet in top_snippets %}
                      <div class="snippet-card">
-                         <h6><a href="/snippet/1">Python: Hello World</a></h6>
+                         <h6><a href="/snippet/{{ snippet.id }}">{{ snippet.name}}</a></h6>
                          <p class="mb-1">
-                             <span class="badge bg-primary">python</span>
-                             <span class="text-muted">30.06.2025</span>
+                             <span class="badge bg-primary">{{ snippet.lang }}</span>
+                             <span class="text-muted">{{ snippet.creation_date|date:"d.m.Y" }}</span>
                          </p>
                          <p class="mb-0">
-                             <i class="fas fa-eye"></i> 140 просмотров
+                             <i class="fas fa-eye"></i> {{ snippet.views_count }} просмотров
                          </p>
                      </div>
-
-                     <div class="snippet-card">
-                         <h6><a href="/snippet/4">Python: File Reading</a></h6>
-                         <p class="mb-1">
-                             <span class="badge bg-primary">python</span>
-                             <span class="text-muted">30.06.2025</span>
-                         </p>
-                         <p class="mb-0">
-                             <i class="fas fa-eye"></i> 101 просмотров
-                         </p>
-                     </div>
-
-                     <div class="snippet-card">
-                         <h6><a href="/snippet/9">Python: Decorator Example</a></h6>
-                         <p class="mb-1">
-                             <span class="badge bg-primary">python</span>
-                             <span class="text-muted">30.06.2025</span>
-                         </p>
-                         <p class="mb-0">
-                             <i class="fas fa-eye"></i> 93 просмотров
-                         </p>
-                     </div>
-
-                     <div class="snippet-card">
-                         <h6><a href="/snippet/2">Python: List Comprehension</a></h6>
-                         <p class="mb-1">
-                             <span class="badge bg-primary">python</span>
-                             <span class="text-muted">30.06.2025</span>
-                         </p>
-                         <p class="mb-0">
-                             <i class="fas fa-eye"></i> 81 просмотров
-                         </p>
-                     </div>
-
-                     <div class="snippet-card">
-                         <h6><a href="/snippet/5">Python: Function with Args</a></h6>
-                         <p class="mb-1">
-                             <span class="badge bg-primary">python</span>
-                             <span class="text-muted">30.06.2025</span>
-                         </p>
-                         <p class="mb-0">
-                             <i class="fas fa-eye"></i> 75 просмотров
-                         </p>
-                     </div>
-
+                     {% endfor %}
 
                  </div>
              </div>

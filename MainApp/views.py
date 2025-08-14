@@ -399,8 +399,14 @@ def notifications_delete_read(request):
 
 
 def user_profile(request):
+    snippets = Snippet.objects.filter(user=request.user)
+    avg_views = snippets.aggregate(average_snippets = Avg('views_count'))['average_snippets']
+    top_snippets = snippets.order_by('-views_count')[:5]
     context = {
-        'profile_user': request.user
+        'profile_user': request.user,
+        'snippets_count': len(snippets),
+        'top_snippets': top_snippets,
+        'avg_views': avg_views,
     }
     return render(request, 'pages/user_profile.html', context)
 
