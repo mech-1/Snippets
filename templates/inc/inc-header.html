@@ -35,9 +35,22 @@
                                 <span id="notification-count" class="badge bg-danger ms-1">0</span>
                             </a>
                         </li>
-                        <li class="ms-4">
-                            <div class="pt-2" style="color: white">Welcome, {{ request.user.username }}
-                                <a href="{% url 'logout' %}">Выйти</a>
+                        <li class="nav-item dropdown ms-2">
+                            <a class="btn btn-outline-light dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user"></i> {{ request.user.username }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" style="min-width: 200px;">
+                                <a class="dropdown-item" href="{% url 'profile' %}">
+                                    <i class="fas fa-user-circle"></i> Мой профиль
+                                </a>
+                                <a class="dropdown-item" href="{% url 'edit-profile' %}">
+                                    <i class="fas fa-edit"></i> Редактировать профиль
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'logout' %}">
+                                    <i class="fas fa-sign-out-alt"></i> Выйти
+                                </a>
                             </div>
                         </li>
                     {% else %}

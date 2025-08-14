@@ -398,6 +398,21 @@ def notifications_delete_read(request):
     return redirect('notifications')
 
 
+def user_profile(request):
+    context = {
+        'profile_user': request.user
+    }
+    return render(request, 'pages/user_profile.html', context)
+
+
+def edit_profile(request):
+    pass
+
+
+def password_change(request):
+    pass
+
+
 @csrf_exempt
 @require_http_methods(["GET", "POST"])
 def simple_api_view(request):
