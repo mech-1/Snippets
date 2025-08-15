@@ -240,3 +240,34 @@ pip install django-debug-toolbar
 
 https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
 
+----=----
+annotate
+
+snippets = Snippet.objects.annotate(
+   comments_count=Count('comments')
+)
+
+for snippet in snippets:
+   print(f"Сниппет: {snippet.name}, "
+         f"Комментарии: {snippet.comments_count}")
+
+solve problem n+1 queries:
+----=----
+prefetch_related - ManyToManyField, ForeignKey(related_name) many:many , обратная связь 
+snippets = Snippet.objects.prefetch_related('comment').all()
+SELECT * FROM "snippet";
+SELECT * FROM "comment"
+WHERE "comment"."snippet_id" IN (1, 2, 3, ...);
+----=----
+select_related - used for 1:1 many:one - inner join ForeignKey, OneToOneField
+snippets = Snippet.objects.select_related('user').all()
+
+SELECT
+   "snippet"."id",
+   ...
+FROM "snippet"
+INNER JOIN "auth_user" ON (
+   "snippet"."user_id" = "auth_user"."id"
+   )
+
+аутентификация(пароль) вс авторизация(доступ к ресурсам)

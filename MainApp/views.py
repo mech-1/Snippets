@@ -126,13 +126,14 @@ def snippets_page(request, my_snippets, num_snippets_on_page=5):
         if not request.user.is_authenticated:
             raise PermissionDenied
         pagename = 'Мои сниппеты'
-        snippets = Snippet.objects.filter(user=request.user)
+        # selected_related can stay before or after filter
+        snippets = Snippet.objects.select_related('user').filter(user=request.user)
     else:
         pagename = 'Просмотр сниппетов'
         if request.user.is_authenticated:  # auth: all public + self private
-            snippets = Snippet.objects.filter(Q(public=True) | Q(public=False, user=request.user))
+            snippets = Snippet.objects.select_related('user').filter(Q(public=True) | Q(public=False, user=request.user))
         else:  # not auth: all public
-            snippets = Snippet.objects.filter(public=True)
+            snippets = Snippet.objects.filter(public=True).select_related('user')
 
     # search
     search = request.GET.get("search")
