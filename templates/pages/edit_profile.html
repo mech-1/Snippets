@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ pagename }}{% endblock %}
+
+{% block style %}
+    {{ block.super }}
+    <style>
+        .profile-edit-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .form-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .avatar-preview {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #dee2e6;
+            margin-bottom: 1rem;
+        }
+
+        .avatar-upload {
+            position: relative;
+            display: inline-block;
+        }
+
+        .avatar-upload input[type=file] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .avatar-upload-label {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #667eea;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .avatar-upload-label:hover {
+            background: #5a6fd8;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="profile-edit-header">
+                    <h1><i class="fas fa-user-edit"></i> {{ pagename }}</h1>
+                    <p>Обновите информацию о себе</p>
+                </div>
+            </div>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Основная информация -->
+            <div class="form-section">
+                <h3><i class="fas fa-user"></i> Основная информация</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="{{ user_form.first_name.id_for_label }}" class="form-label">Имя</label>
+                            {{ user_form.first_name }}
+                            {% if user_form.first_name.errors %}
+                                <div class="text-danger">
+                                    {% for error in user_form.first_name.errors %}
+                                        <small>{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="{{ user_form.last_name.id_for_label }}" class="form-label">Фамилия</label>
+                            {{ user_form.last_name }}
+                            {% if user_form.last_name.errors %}
+                                <div class="text-danger">
+                                    {% for error in user_form.last_name.errors %}
+                                        <small>{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ user_form.email.id_for_label }}" class="form-label">Email</label>
+                    {{ user_form.email }}
+                    {% if user_form.email.errors %}
+                        <div class="text-danger">
+                            {% for error in user_form.email.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Профиль -->
+            <div class="form-section">
+                <h3><i class="fas fa-id-card"></i> Профиль</h3>
+
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="avatar-preview" id="avatarPreview">
+                            <img src="{{ user.profile.get_avatar_url }}" alt="Текущий аватар" class="avatar-preview">
+                        </div>
+
+                        <div class="avatar-upload">
+                            <label for="{{ profile_form.avatar.id_for_label }}" class="avatar-upload-label">
+                                <i class="fas fa-camera"></i> Выбрать фото
+                            </label>
+                            {{ profile_form.avatar }}
+                        </div>
+
+                        {% if profile_form.avatar.errors %}
+                            <div class="text-danger mt-2">
+                                {% for error in profile_form.avatar.errors %}
+                                    <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="mb-3">
+                            <label for="{{ profile_form.bio.id_for_label }}" class="form-label">О себе</label>
+                            {{ profile_form.bio }}
+                            <div class="form-text">Расскажите немного о себе (максимум 500 символов)</div>
+                            {% if profile_form.bio.errors %}
+                                <div class="text-danger">
+                                    {% for error in profile_form.bio.errors %}
+                                        <small>{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="{{ profile_form.website.id_for_label }}" class="form-label">Веб-сайт</label>
+                            {{ profile_form.website }}
+                            <div class="form-text">URL вашего личного сайта или профиля в социальных сетях</div>
+                            {% if profile_form.website.errors %}
+                                <div class="text-danger">
+                                    {% for error in profile_form.website.errors %}
+                                        <small>{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кнопки действий -->
+            <div class="text-center mb-4">
+                <button type="submit" class="btn btn-primary btn-lg me-3">
+                    <i class="fas fa-save"></i> Сохранить изменения
+                </button>
+                <a href="{% url 'profile' %}" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-times"></i> Отмена
+                </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Предварительный просмотр аватара
+            const avatarInput = document.getElementById('{{ profile_form.avatar.id_for_label }}');
+            const avatarPreview = document.getElementById('avatarPreview');
+
+            if (avatarInput) {
+                avatarInput.addEventListener('change', function (e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            avatarPreview.innerHTML = `<img src="${e.target.result}" alt="Предварительный просмотр" class="avatar-preview">`;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+        });
+    </script>
+{% endblock %}

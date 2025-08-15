@@ -85,6 +85,7 @@ class Comment(models.Model):
     def dislikes_count(self):
         return self.likes.filter(vote=LikeDislike.DISLIKE).count()
 
+
 class Notification(models.Model):
     NOTIFICATION_TYPES = [
         ('comment', 'Новый комментарий'),
@@ -105,3 +106,17 @@ class Notification(models.Model):
 
     def __str__(self):
         return f"Уведомление для {self.recipient.username}: {self.title}"
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
+    bio = models.TextField(max_length=500, blank=True)
+    website = models.URLField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def get_avatar_url(self):
+        if self.avatar:
+            return self.avatar.url
+        return '/static/images/default-avatar.png'

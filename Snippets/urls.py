@@ -25,7 +25,7 @@ urlpatterns = [
     path('notifications/delete-read', views.notifications_delete_read, name="notifications-delete-read"),
     path('profile', views.user_profile, name="profile"),
     path('profile/edit', views.edit_profile, name="edit-profile"),
-    path('password/change', views.password_change, name="password-change"),
+    path('password/change', views.password_change, name="password_change"),
     # API endpoints
     path('api/simple-data/', views.simple_api_view, name='simple_api'),
     path('api-page/', views.api_test_page, name='apt-test-page'),
@@ -34,6 +34,10 @@ urlpatterns = [
     path('api/comment/like', views.add_comment_like, name="add_comment_like"),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 # url: snippet/2/delete
 # /comment/3/like
 # /comment/2/dislike

@@ -209,3 +209,28 @@ In [27]: for snippet in top_snippets:
     ...: 
 5000
 925
+(.venv) ijn@MacBook-Air-Evgenij Snippets % pip install Pillow
+
+(.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py help
+
+python manage.py add_user_profiles
+...
+Создан профиль для пользователя: user_27
+Успешно создано 39 профилей
+
+products = Product.objects.filter(price__gt=100)
+__gte: Greater than or equal to
+__lt: Less than
+__lte: Less than or equal to
+
+
+1 The exclude() method is the most common way to filter out records that match a specific condition.
+
+# Example: Exclude objects where 'status' is 'inactive'
+queryset = MyModel.objects.exclude(status='inactive')
+# Example: Exclude objects where 'status' is 'inactive' and 'category' is 'archived'
+queryset = MyModel.objects.exclude(status='inactive', category='archived')
+
+2 __ne
+queryset = MyModel.objects.filter(status__ne='inactive')
+

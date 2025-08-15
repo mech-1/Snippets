@@ -204,3 +204,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 SHELL_PLUS_PRE_IMPORTS = [
     ('MainApp.factories', ('UserFactory', 'TagFactory', 'SnippetFactory', 'CommentFactory')),
 ]
+
+# Media files (User uploaded content)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"

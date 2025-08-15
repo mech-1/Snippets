@@ -6,7 +6,7 @@ from django.db.models import F
 from django.db.models.signals import post_save, pre_save, post_delete  # Импортируем post_save
 from django.dispatch import receiver, Signal
 
-from MainApp.models import Snippet, Comment, Notification
+from MainApp.models import Snippet, Comment, Notification, UserProfile
 
 snippet_view = Signal()
 logger = logging.getLogger(__name__)  # Рекомендуется использовать имя текущего модуля
@@ -72,3 +72,9 @@ def create_comment_notification(sender, instance, created, **kwargs):
             title=f'Новый комментарий к сниппету {instance.snippet.name}',
             message=f'Пользователь "{instance.author.username}" оставил комментарий "{instance.text[:50]}{"..." if len(instance.text) > 50 else ""}"'
         )
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+   if created:
+       UserProfile.objects.create(user=instance)

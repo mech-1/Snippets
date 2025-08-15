@@ -1,0 +1,192 @@
+<!doctype html>
+
+
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>PythonBin</title>
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+        crossorigin="anonymous">
+  <!-- Fontawessome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <!-- Custom styles for this template -->
+  <style>
+      main > .container {
+          padding: 60px 15px 0;
+      }
+
+      .footer {
+          background-color: #f5f5f5;
+      }
+
+      .footer > .container {
+          padding-right: 15px;
+          padding-left: 15px;
+      }
+
+      .alerts-fixed-container {
+          position: fixed; /* Фиксирует контейнер относительно окна просмотра */
+          top: 20px; /* Отступ сверху */
+          right: -100px;
+          transform: translateX(-50%); /* Точное центрирование */
+          z-index: 1080;
+          width: 100%;
+          max-width: 500px; /* Ограничим ширину сообщений для лучшего внешнего вида */
+          padding: 0 15px; /* Небольшие отступы по бокам */
+          pointer-events: none; /* Позволяет кликать сквозь контейнер, если нет сообщений */
+      }
+
+      .alerts-fixed-container .alert {
+          pointer-events: auto; /* Возвращает кликабельность для самих алертов */
+          margin-bottom: 15px; /* Отступ между сообщениями */
+      }
+  </style>
+
+  <style>
+      .profile-edit-header {
+          padding: 2rem 0;
+          margin-bottom: 2rem;
+      }
+
+      .form-section {
+          background: #f8f9fa;
+          padding: 2rem;
+          border-radius: 10px;
+          margin-bottom: 2rem;
+      }
+
+      .avatar-preview {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid #dee2e6;
+          margin-bottom: 1rem;
+      }
+
+      .avatar-upload {
+          position: relative;
+          display: inline-block;
+      }
+
+      .avatar-upload input[type=file] {
+          position: absolute;
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+      }
+
+      .avatar-upload-label {
+          display: inline-block;
+          padding: 0.5rem 1rem;
+          background: #667eea;
+          color: white;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background 0.3s;
+      }
+
+      .avatar-upload-label:hover {
+          background: #5a6fd8;
+      }
+  </style>
+</head>
+
+<body class="d-flex flex-column h-100">
+<!-- Begin page content -->
+<main role="main" class="mt-3 flex-shrink-0">
+  <div id="isAuth" hidden="hidden">True</div>
+  <div class="alerts-fixed-container" id="alertsFixedContainer">
+  </div>
+  <div class="container">
+      <div class="row">
+          <div class="col text-center">
+              <div class="profile-edit-header">
+                  <h1><i class="fas fa-user-edit"></i> Редактирование профиля</h1>
+                  <p>Обновите информацию о себе</p>
+              </div>
+          </div>
+      </div>
+
+      <form method="post" enctype="multipart/form-data">
+          <!-- Основная информация -->
+          <div class="form-section">
+              <h3><i class="fas fa-user"></i> Основная информация</h3>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="mb-3">
+                          <label for="id_first_name" class="form-label">Имя</label>
+                          <input type="text" name="first_name" class="form-control" maxlength="150"
+                                 id="id_first_name">
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="mb-3">
+                          <label for="id_last_name" class="form-label">Фамилия</label>
+                          <input type="text" name="last_name" class="form-control" maxlength="150" id="id_last_name">
+                      </div>
+                  </div>
+              </div>
+              <div class="mb-3">
+                  <label for="id_email" class="form-label">Email</label>
+                  <input type="email" name="email" value="user1@example.com" class="form-control" maxlength="254"
+                         id="id_email">
+              </div>
+          </div>
+          <!-- Профиль -->
+          <div class="form-section">
+              <h3><i class="fas fa-id-card"></i> Профиль</h3>
+
+              <div class="row">
+                  <div class="col-md-4">
+                      <div class="avatar-preview" id="avatarPreview">
+                          <img src="/media/avatars/cat.png" alt="Текущий аватар" class="avatar-preview">
+                      </div>
+
+                      <div class="avatar-upload">
+                          <label for="id_avatar" class="avatar-upload-label">
+                              <i class="fas fa-camera"></i> Выбрать фото
+                          </label>
+                      </div>
+
+                  </div>
+                  <div class="col-md-8">
+                      <div class="mb-3">
+                          <label for="id_bio" class="form-label">О себе</label>
+                          <textarea name="bio" cols="40" rows="4" class="form-control" maxlength="500" id="id_bio">
+                          </textarea>
+                          <div class="form-text">Расскажите немного о себе (максимум 500 символов)</div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="id_website" class="form-label">Веб-сайт</label>
+                          <input type="url" name="website" class="form-control" maxlength="200" id="id_website">
+                          <div class="form-text">URL вашего личного сайта или профиля в социальных сетях</div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Кнопки действий -->
+          <div class="text-center mb-4">
+              <button type="submit" class="btn btn-primary btn-lg me-3">
+                  <i class="fas fa-save"></i> Сохранить изменения
+              </button>
+              <a href="/profile/" class="btn btn-secondary btn-lg">
+                  <i class="fas fa-times"></i> Отмена
+              </a>
+          </div>
+      </form>
+  </div>
+
+</main>
+<!-- Optional JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"></script>
+</body>
+</html>
