@@ -1,4 +1,5 @@
 from django.urls import path
+from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf.urls.static import static
 from django.conf import settings
 from MainApp import views
@@ -33,8 +34,15 @@ urlpatterns = [
     path('api/is_authenticated', views.is_authenticated, name="unread_notifications_count"),
     path('api/comment/like', views.add_comment_like, name="add_comment_like"),
 
-]
+] + debug_toolbar_urls()
 
+# if settings.DEBUG:
+#    import debug_toolbar
+#
+#    urlpatterns += [
+#        path('__debug__/', include(debug_toolbar.urls))
+#    ]
+# ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

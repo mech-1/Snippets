@@ -234,3 +234,9 @@ queryset = MyModel.objects.exclude(status='inactive', category='archived')
 2 __ne
 queryset = MyModel.objects.filter(status__ne='inactive')
 
+(.venv) ijn@MacBook-Air-Evgenij Snippets % pip install Pillow
+
+pip install django-debug-toolbar
+
+https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
+
