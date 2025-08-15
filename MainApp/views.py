@@ -398,12 +398,16 @@ def notifications_delete_read(request):
     return redirect('notifications')
 
 
+# profile?tab="info"
+# profile?tab="history"
 def user_profile(request):
+    tab = request.GET.get("tab", "info")
     snippets = Snippet.objects.filter(user=request.user)
     avg_views = snippets.aggregate(average_snippets = Avg('views_count'))['average_snippets']
     top_snippets = snippets.order_by('-views_count')[:5]
     context = {
         'profile_user': request.user,
+        "tab": tab,
         'snippets_count': len(snippets),
         'top_snippets': top_snippets,
         'avg_views': avg_views,

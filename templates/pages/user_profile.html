@@ -96,17 +96,17 @@
 
     <ul class="nav nav-tabs" id="profileTabs" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab">
+            <button class="nav-link {% if tab == 'info' %}active {% endif %}" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab">
                 <i class="fas fa-user"></i> Информация
             </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats" type="button" role="tab">
+            <button class="nav-link  {% if tab == 'stats' %}active {% endif %}" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats" type="button" role="tab">
                 <i class="fas fa-chart-bar"></i> Статистика
             </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab">
+            <button class="nav-link {% if tab == 'history' %}active {% endif %}" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab">
                 <i class="fas fa-history"></i> История
             </button>
         </li>
@@ -114,7 +114,7 @@
 
     <div class="tab-content" id="profileTabContent">
         <!-- Вкладка Информация -->
-        <div class="tab-pane fade show active" id="info" role="tabpanel">
+        <div class="tab-pane fade {% if tab == 'info' %}show active {% endif %}" id="info" role="tabpanel">
             <div class="row">
                 <div class="col-md-6">
                     <h4>Основная информация</h4>
@@ -163,7 +163,7 @@
         </div>
 
         <!-- Вкладка Статистика -->
-        <div class="tab-pane fade" id="stats" role="tabpanel">
+        <div class="tab-pane fade {% if tab == 'stats' %}show active {% endif %}" id="stats" role="tabpanel">
             <div class="row">
                 <div class="col-md-6">
                     <h4>Общая статистика</h4>
@@ -205,7 +205,7 @@
         </div>
 
         <!-- Вкладка История -->
-        <div class="tab-pane fade" id="history" role="tabpanel">
+        <div class="tab-pane fade {% if tab == 'history' %}show active {% endif %}" id="history" role="tabpanel">
             <h4>История действий</h4>
             {% if user_actions %}
                 {% for action in user_actions %}
@@ -233,5 +233,24 @@
 
 {% block scripts %}
     {{ block.super }}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Предварительный просмотр аватара
+            const avatarInput = document.getElementById('{{ profile_form.avatar.id_for_label }}');
+            const avatarPreview = document.getElementById('avatarPreview');
+
+            if (avatarInput) {
+                avatarInput.addEventListener('change', function (e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            avatarPreview.innerHTML = `<img src="${e.target.result}" alt="Предварительный просмотр" class="avatar-preview">`;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+        });
     </script>
 {% endblock %}
