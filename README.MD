@@ -241,7 +241,7 @@ pip install django-debug-toolbar
 https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
 
 ----=----
-annotate
+annotate для каждого, aggregate для всех (например среднее, мин. или макс. кол-во)
 
 snippets = Snippet.objects.annotate(
    comments_count=Count('comments')
@@ -271,3 +271,8 @@ INNER JOIN "auth_user" ON (
    )
 
 аутентификация(пароль) вс авторизация(доступ к ресурсам)
+
+notifications = list(Notification.objects.select_related('comment__snippet').filter(recipient=request.user))
+
+связанные объекты __ comment__snippet_id
+
