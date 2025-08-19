@@ -19,6 +19,7 @@ from MainApp.models import Snippet, Comment, LANG_CHOICES, Notification, LikeDis
 from MainApp.signals import snippet_view
 from django.db.models import F, Q, Count, Avg
 from MainApp.models import LANG_ICONS
+from MainApp.utils import send_activation_email, verify_activation_token
 
 logger = logging.getLogger(__name__)
 
@@ -236,17 +237,35 @@ def login(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-
+        # 1. Если логин/пароль верные и пользователь активный -> авторизуем пользователя
+        # 2. Если логин/пароль верные и пользователь НЕактивный -> error: Ваш аккаунт не подтвержден
+        # 3. Если логин/пароль НЕверные  -> error: Неверные username или password
         user = auth.authenticate(request, username=username, password=password)
-        if user is not None:
+        if user is not None: # variant 1 authentificate and user active
             auth.login(request, user)
             return redirect('home')
-        else:
+        else: # 2 and 3
             context = {
-                "errors": ["Неверные username или password"],
                 "username": username
             }
+            try:
+                user = User.objects.get(username=username)
+                if not user.check_password(password):
+                    raise User.DoesNotExist()
+                # 2
+                context["errors"] = ["Ваш аккаунт не подтвержден. Проверьте email для подтверждения"]
+            except User.DoesNotExist: #3
+                context["errors"] = ["Неверные username или password"]
             return render(request, "pages/index.html", context)
+        #     try:
+        #         user = User.objects.get(username=username)
+        #         if not user.is_active:
+        #             context["errors"] = ["Ваш аккаунт не подтвержден. Проверьте email для подтверждения"]
+        #     except User.DoesNotExist:
+        #         pass
+        #     # finally:
+        #     #     return render(request, "pages/index.html", context)
+        # return render(request, "pages/index.html", context)
 
 
 def user_logout(request):
@@ -266,13 +285,44 @@ def user_registration(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            messages.success(request, f"Пользователь {user.username} успешно зарегистрирован!")
+            send_activation_email(user, request)
+            messages.success(request, f"Подтвердите email пользователя {user.email} .")
+            # messages.success(request, f"Пользователь {user.username} успешно зарегистрирован!")
             return redirect('home')
         else:
             context = {
                 "form": form
             }
             return render(request, "pages/registration.html", context)
+
+
+def activate_account(request, user_id, token):
+    """
+    Подтверждение аккаунта пользователя по токену
+    """
+    try:
+        user = User.objects.get(id=user_id)
+
+        # Проверяем, не подтвержден ли уже аккаунт
+        if user.is_active:
+            messages.info(request, 'Ваш аккаунт уже подтвержден.')
+            return redirect('home')
+
+        # Проверяем токен
+        if verify_activation_token(user, token):
+            user.is_active = True
+            user.save()
+            messages.success(request,
+                             'Ваш аккаунт успешно подтвержден! Теперь вы можете войти в систему.')
+            return redirect('home')
+        else:
+            messages.error(request,
+                           'Недействительная ссылка для подтверждения. Возможно, она устарела.')
+            return redirect('home')
+
+    except User.DoesNotExist:
+        messages.error(request, 'Пользователь не найден.')
+        return redirect('home')
 
 
 # 302 redirect on success or anonymous (redirect to login - @login_required)

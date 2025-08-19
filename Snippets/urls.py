@@ -27,6 +27,7 @@ urlpatterns = [
     path('profile', views.user_profile, name="profile"),
     path('profile/edit', views.edit_profile, name="edit-profile"),
     path('password/change', views.password_change, name="password_change"),
+    path('activate/<int:user_id>/<str:token>/', views.activate_account, name='activate_account'),
     # API endpoints
     path('api/simple-data/', views.simple_api_view, name='simple_api'),
     path('api-page/', views.api_test_page, name='apt-test-page'),
