@@ -493,6 +493,24 @@ def password_change(request):
     pass
 
 
+def resend_email(request):
+    if request.method == 'GET':
+        return render(request, 'pages/resend_email.html')
+    if request.method == 'POST':
+        email = request.POST.get('email')
+#         TODO: add email validation
+#         FIXME: when there is a bug. email field is not unique
+        user = User.objects.get(email=email)
+        try:
+            send_activation_email(user, request)
+            messages.success(request, 'Повторный email отправлен. Проверьте почту.')
+        except:
+            messages.error(request, 'Отправить email не удалось.')
+        return redirect('home')
+    else:
+        raise Http404
+
+
 @csrf_exempt
 @require_http_methods(["GET", "POST"])
 def simple_api_view(request):
