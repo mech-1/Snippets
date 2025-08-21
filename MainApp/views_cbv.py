@@ -1,11 +1,14 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+from django.core.exceptions import PermissionDenied
+from django.db.models import Q
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, ListView
 from django.contrib import messages, auth
 from MainApp.forms import SnippetForm, CommentForm
-from MainApp.models import Snippet
+from MainApp.models import Snippet, LANG_CHOICES
 
 
 class AddSnippetView(LoginRequiredMixin, CreateView):
@@ -91,3 +94,127 @@ class UserLogoutView(LoginRequiredMixin, View):
 # def user_logout(request):
 #     auth.logout(request)
 #     return redirect('home')
+
+
+class SnippetsListView(ListView):
+    """Отображение списка сниппетов с фильтрацией, поиском и сортировкой"""
+    model = Snippet
+    template_name = 'pages/view_snippets.html'
+    context_object_name = 'snippets'
+    paginate_by = 4
+
+    def get_queryset(self):
+        my_snippets = self.kwargs.get('my_snippets', False)
+
+        if my_snippets:
+            if not self.request.user.is_authenticated:
+                raise PermissionDenied
+            queryset = Snippet.objects.filter(user=self.request.user)
+        else:
+            if self.request.user.is_authenticated:  # auth: all public + self private
+                queryset = Snippet.objects.filter(
+                    Q(public=True) | Q(public=False, user=self.request.user)
+                ).select_related("user")
+            else:  # not auth: all public
+                queryset = Snippet.objects.filter(public=True).select_related("user")
+
+        # Поиск
+        search = self.request.GET.get("search")
+        if search:
+            queryset = queryset.filter(
+                Q(name__icontains=search) |
+                Q(code__icontains=search)
+            )
+
+        # Фильтрация по языку
+        lang = self.request.GET.get("lang")
+        if lang:
+            queryset = queryset.filter(lang=lang)
+
+        # Фильтрация по пользователю
+        user_id = self.request.GET.get("user_id")
+        if user_id:
+            queryset = queryset.filter(user__id=user_id)
+
+        # Сортировка
+        sort = self.request.GET.get("sort")
+        if sort:
+            queryset = queryset.order_by(sort)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        my_snippets = self.kwargs.get('my_snippets', False)
+
+        if my_snippets:
+            context['pagename'] = 'Мои сниппеты'
+        else:
+            context['pagename'] = 'Просмотр сниппетов'
+
+        # Получаем пользователей со сниппетами
+        users = User.objects.filter(snippet__isnull=False).distinct()
+
+        context.update({
+            'sort': self.request.GET.get("sort"),
+            'LANG_CHOICES': LANG_CHOICES,
+            'users': users,
+            'lang': self.request.GET.get("lang"),
+            'user_id': self.request.GET.get("user_id")
+        })
+
+        return context
+# def snippets_page(request, my_snippets, num_snippets_on_page=5):
+#     if my_snippets:
+#         if not request.user.is_authenticated:
+#             raise PermissionDenied
+#         pagename = 'Мои сниппеты'
+#         # selected_related can stay before or after filter
+#         snippets = Snippet.objects.select_related('user').filter(user=request.user)
+#     else:
+#         pagename = 'Просмотр сниппетов'
+#         if request.user.is_authenticated:  # auth: all public + self private
+#             snippets = Snippet.objects.select_related('user').filter(Q(public=True) | Q(public=False, user=request.user))
+#         else:  # not auth: all public
+#             snippets = Snippet.objects.filter(public=True).select_related('user')
+#
+#     # search
+#     search = request.GET.get("search")
+#     if search:
+#         snippets = snippets.filter(
+#             Q(name__icontains=search) |
+#             Q(code__icontains=search)
+#         )
+#
+#     # filter
+#     lang = request.GET.get("lang")
+#     if lang:
+#         snippets = snippets.filter(lang=lang)
+#
+#     user_id = request.GET.get("user_id")
+#     if user_id:
+#         snippets = snippets.filter(user__id=user_id)
+#
+#     # sort
+#     sort = request.GET.get("sort")
+#     if sort:
+#         snippets = snippets.order_by(sort)
+#
+#     # TODO: работает или пагинация или сортировка по полю!
+#     paginator = Paginator(snippets, num_snippets_on_page)
+#     page_number = request.GET.get('page')
+#     page_obj = paginator.get_page(page_number)
+#     # users = User.objects.filter(snippet__isnull=False).distinct()
+#     # users = User.objects.filter(snippet__isnull=False).annotate(snippets_count=Count('snippet'))
+#     users = User.objects.filter(snippet__isnull=False).annotate(snippets_count=Count('snippet__id'))
+#     context = {
+#         'pagename': pagename,
+#         'page_obj': page_obj,
+#         'sort': sort,
+#         'LANG_CHOICES': LANG_CHOICES,
+#         'users': users,
+#         'lang': lang,
+#         'user_id': user_id
+#     }
+#     return render(request, 'pages/view_snippets.html', context)
