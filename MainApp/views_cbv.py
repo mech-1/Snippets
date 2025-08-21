@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.contrib import messages, auth
 from MainApp.forms import SnippetForm, CommentForm
 from MainApp.models import Snippet, LANG_CHOICES
@@ -91,6 +91,8 @@ class UserLogoutView(LoginRequiredMixin, View):
     def get(self, request):
         auth.logout(request)
         return redirect('home')
+
+
 # def user_logout(request):
 #     auth.logout(request)
 #     return redirect('home')
@@ -165,6 +167,8 @@ class SnippetsListView(ListView):
         })
 
         return context
+
+
 # def snippets_page(request, my_snippets, num_snippets_on_page=5):
 #     if my_snippets:
 #         if not request.user.is_authenticated:
@@ -218,3 +222,40 @@ class SnippetsListView(ListView):
 #         'user_id': user_id
 #     }
 #     return render(request, 'pages/view_snippets.html', context)
+
+
+class SnippetEditView(LoginRequiredMixin, UpdateView):
+    model = Snippet
+    form_class = SnippetForm
+    template_name = 'pages/add_snippet.html'
+    success_url = reverse_lazy('snippets-list')
+    pk_url_kwarg = 'id'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pagename'] = 'Редактировать Сниппет'
+        # form add automatically
+        context['edit'] = True
+        context['id'] = self.kwargs.get('id')
+        return context
+
+# def snippet_edit(request, id):
+#     if request.method == "GET":
+#         snippet = get_object_or_404(Snippet, id=id)
+#         form = SnippetForm(instance=snippet)
+#         context = {
+#             "pagename": "Редактировать Сниппет",
+#             "form": form,
+#             "edit": True,
+#             "id": id
+#         }
+#         return render(request, 'pages/add_snippet.html', context)
+#
+#     if request.method == "POST":
+#         snippet = get_object_or_404(Snippet, id=id)
+#         form = SnippetForm(request.POST, instance=snippet)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'Сниппет успешно отредактирован')
+#
+#         return redirect('snippets-list')

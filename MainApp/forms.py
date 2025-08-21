@@ -20,7 +20,7 @@ class SnippetForm(forms.ModelForm):
         name = self.cleaned_data["name"]
         if len(name) < 3:
             raise forms.ValidationError("Name too short")
-        elif len(name) > 20:
+        elif len(name) > 40:
             raise forms.ValidationError("Name too long")
         return name
 
