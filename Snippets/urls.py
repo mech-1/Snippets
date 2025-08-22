@@ -25,6 +25,7 @@ urlpatterns = [
     # path('logout', views.user_logout, name='logout'),
     path('logout', views_cbv.UserLogoutView.as_view(), name='logout'),
     path('registration', views.user_registration, name='registration'),
+    path('registration', views_cbv.UserRegistration.as_view(), name='registration'),
     path('comment/add', views.comment_add, name="comment_add"),
     path('send-message/', views.send_message, name='send_message'),
     path('notifications/', views.user_notifications, name="notifications"),

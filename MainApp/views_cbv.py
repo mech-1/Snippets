@@ -7,8 +7,9 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.contrib import messages, auth
-from MainApp.forms import SnippetForm, CommentForm
+from MainApp.forms import SnippetForm, CommentForm, UserRegistrationForm
 from MainApp.models import Snippet, LANG_CHOICES
+from MainApp.utils import send_activation_email
 
 
 class AddSnippetView(LoginRequiredMixin, CreateView):
@@ -85,17 +86,6 @@ class SnippetDetailView(DetailView):
 #         'comment_form': comment_form
 #     }
 #     return render(request, 'pages/snippet_detail.html', context)
-
-
-class UserLogoutView(LoginRequiredMixin, View):
-    def get(self, request):
-        auth.logout(request)
-        return redirect('home')
-
-
-# def user_logout(request):
-#     auth.logout(request)
-#     return redirect('home')
 
 
 class SnippetsListView(ListView):
@@ -259,3 +249,54 @@ class SnippetEditView(LoginRequiredMixin, UpdateView):
 #             messages.success(request, 'Сниппет успешно отредактирован')
 #
 #         return redirect('snippets-list')
+
+
+class UserLogoutView(LoginRequiredMixin, View):
+    def get(self, request):
+        auth.logout(request)
+        return redirect('home')
+
+
+# def user_logout(request):
+#     auth.logout(request)
+#     return redirect('home')
+
+
+class UserRegistration(CreateView):
+    model = User
+    form_class = UserRegistrationForm
+    template_name = 'pages/registration.html'
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pagename'] = 'Регистрация'
+        return context
+
+    def form_valid(self, form):
+        user = form.save()
+        send_activation_email(user, self.request)
+        messages.success(self.request, f"Подтвердите email пользователя {user.email} .")
+        return super().form_valid(form)
+
+# def user_registration(request):
+#     if request.method == "GET":  # page with form
+#         form = UserRegistrationForm()
+#         context = {
+#             "form": form
+#         }
+#         return render(request, "pages/registration.html", context)
+#
+#     if request.method == "POST":  # form data
+#         form = UserRegistrationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             send_activation_email(user, request)
+#             messages.success(request, f"Подтвердите email пользователя {user.email} .")
+#             # messages.success(request, f"Пользователь {user.username} успешно зарегистрирован!")
+#             return redirect('home')
+#         else:
+#             context = {
+#                 "form": form
+#             }
+#             return render(request, "pages/registration.html", context)
