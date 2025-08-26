@@ -50,6 +50,12 @@ class Tag(models.Model):
 class Snippet(models.Model):
     class Meta:
         ordering = ['name', 'lang']
+        indexes = [
+            models.Index(fields=['name', 'lang']),
+            models.Index(fields=['lang', 'name']),
+            # не объязательно только для моих сниппетов
+            # models.Index(fields=['user_id','name', 'lang']),
+        ]
 
     name = models.CharField(max_length=100)
     lang = models.CharField(max_length=30, choices=LANG_CHOICES)
