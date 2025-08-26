@@ -1,5 +1,4 @@
-from django.urls import path
-from debug_toolbar.toolbar import debug_toolbar_urls
+from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from MainApp import views, views_cbv
@@ -45,7 +44,7 @@ urlpatterns = [
     path('api/is_authenticated', views.is_authenticated, name="unread_notifications_count"),
     path('api/comment/like', views.add_comment_like, name="add_comment_like"),
 
-] + debug_toolbar_urls()
+]
 
 # if settings.DEBUG:
 #    import debug_toolbar
@@ -54,7 +53,20 @@ urlpatterns = [
 #        path('__debug__/', include(debug_toolbar.urls))
 #    ]
 # ]
+# Добавляем debug_toolbar URLs только в режиме разработки
 if settings.DEBUG:
+    try:
+        import debug_toolbar
+        urlpatterns += [
+            path('__debug__/', include(debug_toolbar.urls)),
+        ]
+    except ImportError:
+        pass
+
+# Добавляем обработку статических файлов только в режиме разработки
+# В продакшене Django использует встроенную обработку статических файлов
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # url: snippet/2/delete
