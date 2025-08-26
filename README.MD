@@ -276,3 +276,18 @@ notifications = list(Notification.objects.select_related('comment__snippet').fil
 
 связанные объекты __ comment__snippet_id
 
+(.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py showmigrations      
+rollback to 0016 migrations later rollbacks
+(.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py migrate MainApp 0016
+
+python manage.py makemigrations
+python manage.py migrate
+
+(.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py dumpdata MainApp --indent=2 > data.json
+(.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py dumpdata MainApp.Snippet --indent=2 > snippets.json
+(.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py dumpdata MainApp.Comment --indent=2 > comments.json
+(.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py dumpdata auth.user --indent=2 > users.json         
+
+(.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py loaddata MainApp/fixtures/test_data/comments.json
+(.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py loaddata MainApp/fixtures/test_data/snippets.json
+(.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py loaddata MainApp/fixtures/test_data/users.json   
