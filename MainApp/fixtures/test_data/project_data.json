@@ -1,0 +1,4567 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-07-10T08:49:15.191Z",
+    "user": 11,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Tag: python",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-07-10T08:49:20.740Z",
+    "user": 11,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Tag: javascript",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-07-10T08:49:31.171Z",
+    "user": 11,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Tag: basic",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-07-10T08:52:09.767Z",
+    "user": 11,
+    "content_type": 7,
+    "object_id": "41",
+    "object_repr": "Snippet object (41)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Code\", \"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-07-10T08:52:40.751Z",
+    "user": 11,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Snippet object (6)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Code\", \"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-07-10T08:53:15.377Z",
+    "user": 11,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Snippet object (2)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-07-10T08:53:39.882Z",
+    "user": 11,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Snippet object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-07-10T08:53:50.378Z",
+    "user": 11,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Snippet object (1)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-07-10T08:54:12.170Z",
+    "user": 11,
+    "content_type": 7,
+    "object_id": "27",
+    "object_repr": "Snippet object (27)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Code\", \"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-07-10T09:03:08.737Z",
+    "user": 11,
+    "content_type": 9,
+    "object_id": "4",
+    "object_repr": "Tag: c++",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-07-10T09:03:39.150Z",
+    "user": 11,
+    "content_type": 7,
+    "object_id": "27",
+    "object_repr": "Snippet object (27)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add snippet",
+    "content_type": 7,
+    "codename": "add_snippet"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change snippet",
+    "content_type": 7,
+    "codename": "change_snippet"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete snippet",
+    "content_type": 7,
+    "codename": "delete_snippet"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view snippet",
+    "content_type": 7,
+    "codename": "view_snippet"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add comment",
+    "content_type": 8,
+    "codename": "add_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change comment",
+    "content_type": 8,
+    "codename": "change_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete comment",
+    "content_type": 8,
+    "codename": "delete_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view comment",
+    "content_type": 8,
+    "codename": "view_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add tag",
+    "content_type": 9,
+    "codename": "add_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change tag",
+    "content_type": 9,
+    "codename": "change_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete tag",
+    "content_type": 9,
+    "codename": "delete_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view tag",
+    "content_type": 9,
+    "codename": "view_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add notification",
+    "content_type": 10,
+    "codename": "add_notification"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change notification",
+    "content_type": 10,
+    "codename": "change_notification"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete notification",
+    "content_type": 10,
+    "codename": "delete_notification"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view notification",
+    "content_type": 10,
+    "codename": "view_notification"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add like dislike",
+    "content_type": 11,
+    "codename": "add_likedislike"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change like dislike",
+    "content_type": 11,
+    "codename": "change_likedislike"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete like dislike",
+    "content_type": 11,
+    "codename": "delete_likedislike"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view like dislike",
+    "content_type": 11,
+    "codename": "view_likedislike"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add user profile",
+    "content_type": 12,
+    "codename": "add_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change user profile",
+    "content_type": 12,
+    "codename": "change_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete user profile",
+    "content_type": 12,
+    "codename": "delete_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view user profile",
+    "content_type": 12,
+    "codename": "view_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add snippet subscription",
+    "content_type": 13,
+    "codename": "add_snippetsubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change snippet subscription",
+    "content_type": 13,
+    "codename": "change_snippetsubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete snippet subscription",
+    "content_type": 13,
+    "codename": "delete_snippetsubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view snippet subscription",
+    "content_type": 13,
+    "codename": "view_snippetsubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add history entry",
+    "content_type": 14,
+    "codename": "add_historyentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change history entry",
+    "content_type": 14,
+    "codename": "change_historyentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete history entry",
+    "content_type": 14,
+    "codename": "delete_historyentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view history entry",
+    "content_type": 14,
+    "codename": "view_historyentry"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PWBUf1kVZ8yTBoo2X3lgzQ$ForIbMrUG/HPaU/xjf2NyBoeBaan6wI5AdXCFWVvJGE=",
+    "last_login": "2025-08-19T09:50:41.523Z",
+    "is_superuser": false,
+    "username": "user1",
+    "first_name": "",
+    "last_name": "",
+    "email": "user1@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-08T08:48:46.755Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PWBUf1kVZ8yTBoo2X3lgzQ$ForIbMrUG/HPaU/xjf2NyBoeBaan6wI5AdXCFWVvJGE=",
+    "last_login": "2025-08-25T08:18:01.656Z",
+    "is_superuser": false,
+    "username": "user2",
+    "first_name": "Пользователь",
+    "last_name": "Два",
+    "email": "user2@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-08T08:48:46.757Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PWBUf1kVZ8yTBoo2X3lgzQ$ForIbMrUG/HPaU/xjf2NyBoeBaan6wI5AdXCFWVvJGE=",
+    "last_login": "2025-08-15T10:29:22.804Z",
+    "is_superuser": false,
+    "username": "user3",
+    "first_name": "",
+    "last_name": "",
+    "email": "user3@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-08T08:48:46.758Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PWBUf1kVZ8yTBoo2X3lgzQ$ForIbMrUG/HPaU/xjf2NyBoeBaan6wI5AdXCFWVvJGE=",
+    "last_login": "2025-08-12T22:05:51.613Z",
+    "is_superuser": false,
+    "username": "user4",
+    "first_name": "",
+    "last_name": "",
+    "email": "user4@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-08T08:48:46.758Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PWBUf1kVZ8yTBoo2X3lgzQ$ForIbMrUG/HPaU/xjf2NyBoeBaan6wI5AdXCFWVvJGE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user5",
+    "first_name": "",
+    "last_name": "",
+    "email": "user5@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-08T08:48:46.759Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PWBUf1kVZ8yTBoo2X3lgzQ$ForIbMrUG/HPaU/xjf2NyBoeBaan6wI5AdXCFWVvJGE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user6",
+    "first_name": "",
+    "last_name": "",
+    "email": "user6@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-08T08:48:46.759Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PWBUf1kVZ8yTBoo2X3lgzQ$ForIbMrUG/HPaU/xjf2NyBoeBaan6wI5AdXCFWVvJGE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user7",
+    "first_name": "",
+    "last_name": "",
+    "email": "user7@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-08T08:48:46.759Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PWBUf1kVZ8yTBoo2X3lgzQ$ForIbMrUG/HPaU/xjf2NyBoeBaan6wI5AdXCFWVvJGE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user8",
+    "first_name": "",
+    "last_name": "",
+    "email": "user8@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-08T08:48:46.760Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PWBUf1kVZ8yTBoo2X3lgzQ$ForIbMrUG/HPaU/xjf2NyBoeBaan6wI5AdXCFWVvJGE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user9",
+    "first_name": "",
+    "last_name": "",
+    "email": "user9@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-08T08:48:46.760Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PWBUf1kVZ8yTBoo2X3lgzQ$ForIbMrUG/HPaU/xjf2NyBoeBaan6wI5AdXCFWVvJGE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user10",
+    "first_name": "",
+    "last_name": "",
+    "email": "user10@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-08T08:48:46.760Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$iOEFNl0nhV6ONxT5tVSSj1$6UwGb+lXfsFCTPdygoYaLHjncupy+Yk2Ccx54gdVi1A=",
+    "last_login": "2025-08-08T07:52:32.674Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-07-10T08:00:34.089Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$y5mbtn1rHH315O0ewzeI1M$NHQHpfk4FFB/DeHoV9RbYzBJ0Zzoi7peO1jAkRdzZfM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_0",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_0@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:24.985Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$cEu5yNaukStXMoeAGpSp0t$6wjOin/cJym2TmhyRCJKs5Ks9GvPiSTCKNKG+Y4h8Og=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_1",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_1@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:25.368Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$v7pJPY0pNSFEEoUGdN1zDQ$T6igCVUnYBwMje3f6JszQKnkFPEw8ZJgHKA84LWdl0o=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_2",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_2@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:25.714Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$L6LVuQtEXhFOFLQ2cmxzGy$VQJYeSgsz7dXeN4tOBRa3qcNxfHR20pbvriSat6p3mk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_3",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_3@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:26.053Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$zXXiWdkJgfi6nIElqVxB3L$/M5qDIcRiTzqZqjgCUdCNoCydSNChwbf/kOsWoatUm0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "john_doe",
+    "first_name": "",
+    "last_name": "",
+    "email": "john@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:26.401Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Wfp8bQs0ZHv8vIxWj37m4M$oJm55WiTKjB7Xvo519TY6L0oAVTvqEuJ/r8LVAyYA6I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_5",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_5@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:26.740Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$7tLarLv2wHQkqpMS4bP0CE$6PWBltCkLqGN56KHYokN3DlZRa5TM7k6fpxNKRayLOI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_6",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_6@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:27.084Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 19,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$7oRVaa17hDJabtOfffCDTc$kWyM78MXWQ1Jrg0hz88bZ/Pf0qCTpci+xPsKu3Ild4k=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_7",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_7@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:27.422Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 20,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$hufszLtC2hruKMpNZ6liHE$hYd/gcy2oocVRDu+yZWs7J9QqXhlHq0Y4Xj9ptuhggs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_8",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_8@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:27.765Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 21,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$UG6sl5UY2LgppWRpuzNih0$nY9XyuVg3li295yvWLsdqVVdZmJqRxtW4whoQREQFXQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_9",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_9@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:28.103Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 22,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$kAnKCMLUbwvDKzqkcTss48$Hfov6IHYS/lhtg1bbJGoNvFcY5LZUWHSexw9GR+QXt0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_10",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_10@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:28.443Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 23,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$7Aq2hMCaAhmEh5nGvITIB5$r2bJuACEzFi2EnbmiFfZOpcupK7lLkXgsVAVB5JZA0w=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_11",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_11@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:28.785Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 24,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$o6yRplMzC3AVEjIB5S2T5X$X8ePAod+/kbWOR2hXJyfXVy1boxNsx7MzyTqrvxzLKg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_12",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_12@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:29.136Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 25,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ZSrNXSPN0Yies2X4tbrxYG$4X1c11wRMPZbjecsPWZeKLgtS/ebLX2Nii/ubtpvpzQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_13",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_13@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:29.510Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 26,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$eDUOcaGPa5pST5x6EHxVjc$lw51PgMfD4rjgt0TjfDj3Gag0+PqbaMZPFcj4Z55W/s=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_14",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_14@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:29.852Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 27,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$nbvXARaIxLoNIzHcfBnfU9$T9/lntgtDvM4cQEpTsrIo9iIlV3MIcYBMgYoDiiKmps=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_15",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_15@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:30.194Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 28,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$B2lfxRNTkcBnBuOBuY3xWj$PxnoY+Wf2knMN5pi3WjAq2ToD5X2nPj0PZZzAz5Wz04=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_16",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_16@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:30.539Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 29,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$uBxurG2F3N9J5ctDAVUQdj$CO6UNkrTd5CLb/1SbWXQHldHndlM8uqij4eJbntDp2Y=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_17",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_17@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:30.882Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 30,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$sz6N4EYd5eY5yGWRp70107$rH9s+hcVP0ZwfMz4d2DNR0k4xyE5xii6NbqyZACgxMc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_18",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_18@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:31.226Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 31,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$HIs092SghjKV47iqgGRc7E$48shLclXGEcTdn8AQlSp4CIAfkV1DNOrhp8uc9qBbXg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_19",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_19@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:31.577Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 32,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$dWnUms36D14UdU2qIjL2GI$ojRzbQU59pPX6LWLD8ZDPHmPtTQ7XSz2yzpnudNpYmc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_20",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_20@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:31.923Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 33,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$bCqn0yvhu6Oqb51lzWMDnC$NFNJAd46A/UpePxAjSqqMzRrnNlPDuevNyTkvGRCODQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_21",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_21@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:32.267Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 34,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$QaHiVCFmtwg1PC3v2TUNJM$/zz94KVpmAkUvwwJ5d503HsUVEUKfX9anNoPnv4wJRo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_22",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_22@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:32.614Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 35,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$EX7KcqOGWcwQzSXqQ8dMAp$ugXovzq9GHRoCZCu/iUXuV/zNm9WYbXSZlZgdFcuQ1o=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_23",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_23@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:32.959Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 36,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$bV42Bzl7kJTEpZKSB9pYz7$Ir3SAFqiVbvAl4tWpg80U7ifUePNbREVMxDQfOmp95s=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_24",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_24@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:33.306Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 37,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$TrczIpduRU4cDYrFnTSTgo$oSzlJNPACRka3MLr+gxTW9lkeds8TULUf2fk2NViSUQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_25",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_25@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:33.685Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 38,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Q3yLOoIes4uhS77gizrVF9$2kQSnxsZUTyQwd4aJFWNIEa6AaVX5xkpLAXphAoLO9I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_26",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_26@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:34.056Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 39,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$waw9W0WMCoRW9Zk9XH4UsL$qowTlfWldHDnbX48YcRMZ1F9Un4ncNhC8CzWq9AFmds=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_27",
+    "first_name": "",
+    "last_name": "",
+    "email": "user_27@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-30T10:21:34.673Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 40,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$RuoMqeFrjHcB9egummLFge$QnQQRWVJ1QVe/8pSKppJPE6hjWy8zWWlzf9voorwmXw=",
+    "last_login": "2025-08-19T09:26:53.626Z",
+    "is_superuser": false,
+    "username": "user_a1",
+    "first_name": "",
+    "last_name": "",
+    "email": "a1@a.aa",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-08-19T08:54:01.431Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 41,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$crDLQMAfRi0VkS9BZWdQjn$dYfBEnuALOdNsX0i/g3bIxM6MaecyM3wMpEcA+y0FDI=",
+    "last_login": "2025-08-19T09:51:33.722Z",
+    "is_superuser": false,
+    "username": "user_a2",
+    "first_name": "",
+    "last_name": "",
+    "email": "a2@a.aa",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-08-19T08:58:15.896Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 42,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$LQ7IiFdA5cK1S2yV6TQwsc$pOFuxThd0igMdElc0xrxEyIQlful17i3JkPSmtnU9n4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_a3",
+    "first_name": "",
+    "last_name": "",
+    "email": "a3@a.aa",
+    "is_staff": false,
+    "is_active": false,
+    "date_joined": "2025-08-19T10:35:06.338Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 43,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$OkusfGiJhQn5ZdtYEiH8IJ$DtYmiJnPQDPTJgg3LKd1svSh2XAOA8cLGTYTZmXw3A4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_a4",
+    "first_name": "",
+    "last_name": "",
+    "email": "a4@a.aa",
+    "is_staff": false,
+    "is_active": false,
+    "date_joined": "2025-08-21T09:50:54.662Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "MainApp",
+    "model": "snippet"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "MainApp",
+    "model": "comment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "MainApp",
+    "model": "tag"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "MainApp",
+    "model": "notification"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "MainApp",
+    "model": "likedislike"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "MainApp",
+    "model": "userprofile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "MainApp",
+    "model": "snippetsubscription"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "debug_toolbar",
+    "model": "historyentry"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0j9dro0tm5inmb646gof4uhfgr8uac9h",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBgqHRcuu8ZyACDVA0kpV0Z765NutDtf-_9l_C0rcVvnRc_J3ERIE6_W6D44LqDdKd6azK2ui5zkLsiD9rl1BI_r4f7d1Col29tmZVJFMioPDjNMGpQDrI2RHQeRgSHymHQ2QZSjggwRIaMxmpAheL9AdylN2I:1umrgY:EQNneHqV9YnhFV_rJk2jx3f8os66hNVIJTDo1WVlS6Q",
+    "expire_date": "2025-08-29T10:29:22.814Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ads6ni1serjnwbcv0shepjk63x9akqw0",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP_C2RBgqXQ9evcNZIFFqgaS0p6MfzckPeh1ZjJv4Wnfit87r35J4iKsOP2yQPHJdYj0oHpvMra6rUuQI5GH7fLWEr-uR_s3KNTL2DIrkyiQUXlymmHWoBxkbYjoPM0IDpXDoLMNpBwRYIgMGY3VgArF5wvdPjdj:1ulx7v:IPbDmZ-OvLBHqyy8l0USaBKqCMOtndCsEn95ZIvRMCE",
+    "expire_date": "2025-08-26T22:05:51.615Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "b5nkjccmc8ph5emtxmanw0lazyac5yaa",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBgqHRcuu8ZyACDVA0kpV0Z765NutDtf-_9l_C0rcVvnRc_J3ERWpx-t0DxwXUH6U711mRsdV3mIHdFHrTLqSV-Xg_376BQL9_aMiuTKJBReXCaYdSgHGRtiOg8jAgOlcOgsw2kHBFgiAwZjdWACsX7A9tzN2A:1ukJjQ:zkSuKjx7Gppax7IZwGQXURlEvgcJUIrJCexTgMh4lsI",
+    "expire_date": "2025-08-22T09:49:48.381Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "cu5euykear2aeompkmz6bt09khphbmhy",
+  "fields": {
+    "session_data": ".eJxVjEsOAiEQBe_C2hB-2rRL956BNDTIqIFkmFkZ766TzEK3r6reSwRalxrWkecwsTgLrcXhd4yUHrlthO_Ubl2m3pZ5inJT5E6HvHbOz8vu_h1UGvVbF5-5eLDoHEBEx5iV5SMqE73SSKcC7EpCgy4BGXaUlQENxVrPYFi8PwBFN8Y:1uZmDk:PnNbnU-aeccetysLjd3iJ8xO6UZtWKY2X3GeyHojS38",
+    "expire_date": "2025-07-24T08:01:32.598Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ea9e1xfxvtjqd16slc3o3jwgfof33gju",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBgqHRcuu8ZyACDVA0kpV0Z765NutDtf-_9l_C0rcVvnRc_J3ERIE6_W6D44LqDdKd6azK2ui5zkLsiD9rl1BI_r4f7d1Col29tmZVJFMioPDjNMGpQDrI2RHQeRgSHymHQ2QZSjggwRIaMxmpAheL9AdylN2I:1ulPZV:V3ZD3RH9P5KAoa5oEDmCkO_XcZ2IhbC82RHnDAamEBs",
+    "expire_date": "2025-08-25T10:16:05.637Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "glxlbd5rw6bwss4wcahqpdx7olr42b8e",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBgqHRcuu8ZyACDVA0kpV0Z765NutDtf-_9l_C0rcVvnRc_J3ERWpx-t0DxwXUH6U711mRsdV3mIHdFHrTLqSV-Xg_376BQL9_aMiuTKJBReXCaYdSgHGRtiOg8jAgOlcOgsw2kHBFgiAwZjdWACsX7A9tzN2A:1uaAnY:eRh0eI6tiAHoLBLhSqvnHxMc3cJk7Dmwqy6vXOBaZ6I",
+    "expire_date": "2025-07-25T10:16:08.687Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jf1l0h2aymxajw2xuxhi01935qc0s2cd",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBgqHRcuu8ZyACDVA0kpV0Z765NutDtf-_9l_C0rcVvnRc_J3ERRpx-t0DxwXUH6U711mRsdV3mIHdFHrTLqSV-Xg_376BQL9_aMiuTKJBReXCaYdSgHGRtiOg8jAgOlcOgsw2kHBFgiAwZjdWACsX7A9wMN2E:1uqSOv:sdeOZg8o1ErIr9OOKJZDvy7rzP0yIQrvAcFe20gEoKs",
+    "expire_date": "2025-09-08T08:18:01.666Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ss2yjl6sjsth2ysicou0fi1ky0nx7oq4",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBgqHRcuu8ZyACDVA0kpV0Z765NutDtf-_9l_C0rcVvnRc_J3ERIE6_W6D44LqDdKd6azK2ui5zkLsiD9rl1BI_r4f7d1Col29tmZVJFMioPDjNMGpQDrI2RHQeRgSHymHQ2QZSjggwRIaMxmpAheL9AdylN2I:1ukIgX:JPWtgtUwUEvL0IG33TQNpIBthkzc2-XjfuJ9DxmHK8M",
+    "expire_date": "2025-08-22T08:42:45.298Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "znui0biwkj3rluun9wleuke7k4yn3ah9",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBgqHRcuu8ZyACDVA0kpV0Z765NutDtf-_9l_C0rcVvnRc_J3ERWpx-t0DxwXUH6U711mRsdV3mIHdFHrTLqSV-Xg_376BQL9_aMiuTKJBReXCaYdSgHGRtiOg8jAgOlcOgsw2kHBFgiAwZjdWACsX7A9tzN2A:1uh30g:43wJVYFouWBU-2Wmt7YJG2QkfZT9E6nGkNjY-JGZgWU",
+    "expire_date": "2025-08-13T09:22:06.884Z"
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 3,
+  "fields": {
+    "vote": -1,
+    "user": 3,
+    "content_type": 8,
+    "object_id": 1
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 4,
+  "fields": {
+    "vote": 1,
+    "user": 3,
+    "content_type": 8,
+    "object_id": 37
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 5,
+  "fields": {
+    "vote": 1,
+    "user": 3,
+    "content_type": 8,
+    "object_id": 54
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 6,
+  "fields": {
+    "vote": -1,
+    "user": 3,
+    "content_type": 8,
+    "object_id": 55
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 7,
+  "fields": {
+    "vote": 1,
+    "user": 3,
+    "content_type": 8,
+    "object_id": 60
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 8,
+  "fields": {
+    "vote": -1,
+    "user": 3,
+    "content_type": 8,
+    "object_id": 59
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 9,
+  "fields": {
+    "vote": 1,
+    "user": 3,
+    "content_type": 8,
+    "object_id": 58
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 11,
+  "fields": {
+    "vote": 1,
+    "user": 4,
+    "content_type": 8,
+    "object_id": 56
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 13,
+  "fields": {
+    "vote": -1,
+    "user": 4,
+    "content_type": 8,
+    "object_id": 55
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 18,
+  "fields": {
+    "vote": -1,
+    "user": 4,
+    "content_type": 8,
+    "object_id": 37
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 19,
+  "fields": {
+    "vote": 1,
+    "user": 4,
+    "content_type": 8,
+    "object_id": 57
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 31,
+  "fields": {
+    "vote": 1,
+    "user": 1,
+    "content_type": 8,
+    "object_id": 1
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 32,
+  "fields": {
+    "vote": 1,
+    "user": 2,
+    "content_type": 8,
+    "object_id": 1
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 33,
+  "fields": {
+    "vote": 1,
+    "user": 2,
+    "content_type": 8,
+    "object_id": 2
+  }
+},
+{
+  "model": "MainApp.likedislike",
+  "pk": 34,
+  "fields": {
+    "vote": 1,
+    "user": 2,
+    "content_type": 8,
+    "object_id": 3
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 1,
+  "fields": {
+    "name": "python"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 2,
+  "fields": {
+    "name": "javascript"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 3,
+  "fields": {
+    "name": "basic"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 4,
+  "fields": {
+    "name": "c++"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 5,
+  "fields": {
+    "name": "tag_0"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 6,
+  "fields": {
+    "name": "tag_1"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 7,
+  "fields": {
+    "name": "tag_2"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 8,
+  "fields": {
+    "name": "tag_3"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 9,
+  "fields": {
+    "name": "tag_4"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 10,
+  "fields": {
+    "name": "tag_5"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 11,
+  "fields": {
+    "name": "tag_6"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 12,
+  "fields": {
+    "name": "tag_7"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 13,
+  "fields": {
+    "name": "tag_8"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 14,
+  "fields": {
+    "name": "tag_9"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 15,
+  "fields": {
+    "name": "tag_10"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 16,
+  "fields": {
+    "name": "tag_11"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 17,
+  "fields": {
+    "name": "tag_12"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 18,
+  "fields": {
+    "name": "tag_13"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 19,
+  "fields": {
+    "name": "tag_14"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 20,
+  "fields": {
+    "name": "tag_15"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 21,
+  "fields": {
+    "name": "tag_16"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 22,
+  "fields": {
+    "name": "tag_17"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 23,
+  "fields": {
+    "name": "tag_18"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 24,
+  "fields": {
+    "name": "tag_19"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 25,
+  "fields": {
+    "name": "tag_20"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 26,
+  "fields": {
+    "name": "tag_21"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 27,
+  "fields": {
+    "name": "tag_22"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 28,
+  "fields": {
+    "name": "tag_23"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 29,
+  "fields": {
+    "name": "tag_24"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 30,
+  "fields": {
+    "name": "tag_25"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 31,
+  "fields": {
+    "name": "tag_26"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 32,
+  "fields": {
+    "name": "tag_27"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 33,
+  "fields": {
+    "name": "tag_28"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 34,
+  "fields": {
+    "name": "tag_29"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 35,
+  "fields": {
+    "name": "tag_30"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 36,
+  "fields": {
+    "name": "tag_31"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 37,
+  "fields": {
+    "name": "tag_32"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 38,
+  "fields": {
+    "name": "tag_33"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 39,
+  "fields": {
+    "name": "tag_34"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 40,
+  "fields": {
+    "name": "tag_35"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 41,
+  "fields": {
+    "name": "tag_36"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 42,
+  "fields": {
+    "name": "tag_39"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 43,
+  "fields": {
+    "name": "tag_40"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 44,
+  "fields": {
+    "name": "tag_41"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 45,
+  "fields": {
+    "name": "tag_42"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 46,
+  "fields": {
+    "name": "tag_43"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 47,
+  "fields": {
+    "name": "tag_44"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 48,
+  "fields": {
+    "name": "tag_45"
+  }
+},
+{
+  "model": "MainApp.tag",
+  "pk": 49,
+  "fields": {
+    "name": "tag_46"
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 1,
+  "fields": {
+    "name": "Python: Hello World",
+    "lang": "python",
+    "code": "print('Hello, World!')",
+    "creation_date": "2025-06-30T10:00:00Z",
+    "update_at": "2025-07-10T08:53:50.370Z",
+    "description": "",
+    "views_count": 159,
+    "public": true,
+    "user": 1,
+    "tags": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 2,
+  "fields": {
+    "name": "Python: List Comprehension",
+    "lang": "python",
+    "code": "squares = [x**2 for x in range(10)]",
+    "creation_date": "2025-06-30T10:05:00Z",
+    "update_at": "2025-07-10T08:53:15.373Z",
+    "description": "",
+    "views_count": 80,
+    "public": true,
+    "user": 1,
+    "tags": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 3,
+  "fields": {
+    "name": "Python: Dictionary Iteration",
+    "lang": "python",
+    "code": "my_dict = {'a': 1, 'b': 2}\nfor key, value in my_dict.items():\n    print(f'{key}: {value}')",
+    "creation_date": "2025-06-30T10:10:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 65,
+    "public": true,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 4,
+  "fields": {
+    "name": "Python: File Reading",
+    "lang": "python",
+    "code": "with open('file.txt', 'r') as f:\n    content = f.read()",
+    "creation_date": "2025-06-30T10:15:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 105,
+    "public": true,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 5,
+  "fields": {
+    "name": "Python: Function with Args",
+    "lang": "python",
+    "code": "def greet(name):\n    return f'Hello, {name}!'",
+    "creation_date": "2025-06-30T10:20:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 75,
+    "public": true,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 6,
+  "fields": {
+    "name": "Python: Class Definition",
+    "lang": "python",
+    "code": "class MyClass:\r\n    def __init__(self, value):\r\n        self.value = value",
+    "creation_date": "2025-06-30T10:25:00Z",
+    "update_at": "2025-07-10T08:52:40.747Z",
+    "description": "",
+    "views_count": 51,
+    "public": true,
+    "user": 1,
+    "tags": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 7,
+  "fields": {
+    "name": "Python: Exception Handling",
+    "lang": "python",
+    "code": "try:\n    result = 1 / 0\nexcept ZeroDivisionError:\n    print('Cannot divide by zero!')",
+    "creation_date": "2025-06-30T10:30:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 60,
+    "public": true,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 8,
+  "fields": {
+    "name": "Python: Lambda Function",
+    "lang": "python",
+    "code": "add_one = lambda x: x + 1",
+    "creation_date": "2025-06-30T10:35:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 45,
+    "public": true,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 9,
+  "fields": {
+    "name": "Python: Decorator Example",
+    "lang": "python",
+    "code": "def my_decorator(func):\n    def wrapper():\n        print('Something is happening before the function is called.')\n        func()\n        print('Something is happening after the function is called.')\n    return wrapper\n\n@my_decorator\ndef say_hello():\n    print('Hello!')",
+    "creation_date": "2025-06-30T10:40:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 72,
+    "public": true,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 10,
+  "fields": {
+    "name": "Python: Regular Expression",
+    "lang": "python",
+    "code": "import re\npattern = r'\\d+'\ntext = 'There are 123 numbers.'\nmatches = re.findall(pattern, text)",
+    "creation_date": "2025-06-30T10:45:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 55,
+    "public": true,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 11,
+  "fields": {
+    "name": "Python: Private Function",
+    "lang": "python",
+    "code": "def _private_func():\n    print('This is a private function.')",
+    "creation_date": "2025-06-30T10:50:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 10,
+    "public": false,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 12,
+  "fields": {
+    "name": "Python: Secret Key Generator",
+    "lang": "python",
+    "code": "import os\nsecret_key = os.urandom(24)",
+    "creation_date": "2025-06-30T10:55:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 5,
+    "public": false,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 13,
+  "fields": {
+    "name": "Python: Internal Data Processing",
+    "lang": "python",
+    "code": "data = [1, 2, 3, 4, 5]\nprocessed_data = [x * 2 for x in data]",
+    "creation_date": "2025-06-30T11:00:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 12,
+    "public": false,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 14,
+  "fields": {
+    "name": "Python: Configuration Settings",
+    "lang": "python",
+    "code": "CONFIG = {\n    'DEBUG': True,\n    'PORT': 8000\n}",
+    "creation_date": "2025-06-30T11:05:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 8,
+    "public": false,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 15,
+  "fields": {
+    "name": "Python: Testing Utility",
+    "lang": "python",
+    "code": "def test_function():\n    assert True",
+    "creation_date": "2025-06-30T11:10:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 7,
+    "public": false,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 16,
+  "fields": {
+    "name": "JavaScript: Console Log",
+    "lang": "javascript",
+    "code": "console.log('Hello from JS!');",
+    "creation_date": "2025-06-30T11:15:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 151,
+    "public": true,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 17,
+  "fields": {
+    "name": "JavaScript: Array Map",
+    "lang": "javascript",
+    "code": "const numbers = [1, 2, 3];\r\nconst doubled = numbers.map(num => num * 2);",
+    "creation_date": "2025-06-30T11:20:00Z",
+    "update_at": "2025-08-21T09:32:37.958Z",
+    "description": "",
+    "views_count": 110,
+    "public": true,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 18,
+  "fields": {
+    "name": "JavaScript: Fetch API",
+    "lang": "javascript",
+    "code": "fetch('https://api.example.com/data')\n  .then(response => response.json())\n  .then(data => console.log(data));",
+    "creation_date": "2025-06-30T11:25:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 97,
+    "public": true,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 19,
+  "fields": {
+    "name": "JavaScript: DOM Manipulation",
+    "lang": "javascript",
+    "code": "document.getElementById('myElement').textContent = 'New Text';",
+    "creation_date": "2025-06-30T11:30:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 130,
+    "public": true,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 20,
+  "fields": {
+    "name": "JavaScript: Event Listener",
+    "lang": "javascript",
+    "code": "document.getElementById('myButton').addEventListener('click', () => {\n  alert('Button clicked!');\n});",
+    "creation_date": "2025-06-30T11:35:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 105,
+    "public": true,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 21,
+  "fields": {
+    "name": "JavaScript: Async Await",
+    "lang": "javascript",
+    "code": "async function fetchData() {\n  const response = await fetch('https://api.example.com/data');\n  const data = await response.json();\n  console.log(data);\n}",
+    "creation_date": "2025-06-30T11:40:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 85,
+    "public": true,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 22,
+  "fields": {
+    "name": "JavaScript: Local Storage",
+    "lang": "javascript",
+    "code": "localStorage.setItem('username', 'JohnDoe');\nconst user = localStorage.getItem('username');",
+    "creation_date": "2025-06-30T11:45:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 70,
+    "public": true,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 23,
+  "fields": {
+    "name": "JavaScript: Set Timeout",
+    "lang": "javascript",
+    "code": "setTimeout(() => {\n  console.log('Delayed message');\n}, 1000);",
+    "creation_date": "2025-06-30T11:50:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 60,
+    "public": true,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 24,
+  "fields": {
+    "name": "JavaScript: Destructuring Assignment",
+    "lang": "javascript",
+    "code": "const person = { name: 'Alice', age: 30 };\nconst { name, age } = person;",
+    "creation_date": "2025-06-30T11:55:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 75,
+    "public": false,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 25,
+  "fields": {
+    "name": "JavaScript: Spread Operator",
+    "lang": "javascript",
+    "code": "const arr1 = [1, 2];\nconst arr2 = [...arr1, 3, 4];",
+    "creation_date": "2025-06-30T12:00:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 68,
+    "public": false,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 26,
+  "fields": {
+    "name": "C++: Hello World",
+    "lang": "cpp",
+    "code": "#include <iostream>\nint main() {\n    std::cout << \"Hello, C++!\" << std::endl;\n    return 0;\n}",
+    "creation_date": "2025-06-30T12:05:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 200,
+    "public": true,
+    "user": 3,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 27,
+  "fields": {
+    "name": "C++: Basic Loop",
+    "lang": "cpp",
+    "code": "#include <iostream>\r\nint main() {\r\n    for (int i = 0; i < 5; ++i) {\r\n        std::cout << i << std::endl;\r\n    }\r\n    return 0;\r\n}",
+    "creation_date": "2025-06-30T12:10:00Z",
+    "update_at": "2025-08-06T10:29:45.752Z",
+    "description": "",
+    "views_count": 341,
+    "public": true,
+    "user": 3,
+    "tags": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 28,
+  "fields": {
+    "name": "C++: Function Example",
+    "lang": "cpp",
+    "code": "#include <iostream>\nint add(int a, int b) {\n    return a + b;\n}\nint main() {\n    std::cout << add(5, 3) << std::endl;\n    return 0;\n}",
+    "creation_date": "2025-06-30T12:15:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 170,
+    "public": true,
+    "user": 3,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 29,
+  "fields": {
+    "name": "C++: Vector Initialization",
+    "lang": "cpp",
+    "code": "#include <vector>\n#include <iostream>\nint main() {\n    std::vector<int> numbers = {1, 2, 3, 4, 5};\n    for (int num : numbers) {\n        std::cout << num << \" \";\n    }\n    std::cout << std::endl;\n    return 0;\n}",
+    "creation_date": "2025-06-30T12:20:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 160,
+    "public": true,
+    "user": 3,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 31,
+  "fields": {
+    "name": "Java: Basic Class",
+    "lang": "java",
+    "code": "public class MyClass {\n    public static void main(String[] args) {\n        System.out.println(\"Hello from Java!\");\n    }\n}",
+    "creation_date": "2025-06-30T12:30:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 190,
+    "public": true,
+    "user": 3,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 32,
+  "fields": {
+    "name": "Java: If-Else Statement",
+    "lang": "java",
+    "code": "public class CheckNumber {\n    public static void main(String[] args) {\n        int num = 10;\n        if (num > 5) {\n            System.out.println(\"Number is greater than 5\");\n        } else {\n            System.out.println(\"Number is not greater than 5\");\n        }\n    }\n}",
+    "creation_date": "2025-06-30T12:35:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 155,
+    "public": true,
+    "user": 3,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 34,
+  "fields": {
+    "name": "Python: Private Data Filter",
+    "lang": "python",
+    "code": "private_data = [{'id': 1, 'status': 'private'}, {'id': 2, 'status': 'public'}]\nfiltered_data = [item for item in private_data if item['status'] == 'private']",
+    "creation_date": "2025-06-30T12:45:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 220,
+    "public": true,
+    "user": 3,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 35,
+  "fields": {
+    "name": "JavaScript: Internal Config",
+    "lang": "javascript",
+    "code": "const config = { debugMode: true, apiEndpoint: '/internal/api' };",
+    "creation_date": "2025-06-30T12:50:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 5,
+    "public": false,
+    "user": 3,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 36,
+  "fields": {
+    "name": "Java: Basic Class",
+    "lang": "java",
+    "code": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, Java!\");\n    }\n}",
+    "creation_date": "2025-06-30T12:55:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 90,
+    "public": true,
+    "user": 4,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 37,
+  "fields": {
+    "name": "Java: For Loop",
+    "lang": "java",
+    "code": "for (int i = 0; i < 5; i++) {\n    System.out.println(i);\n}",
+    "creation_date": "2025-06-30T13:00:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 85,
+    "public": true,
+    "user": 4,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 38,
+  "fields": {
+    "name": "C++: Console Output",
+    "lang": "cpp",
+    "code": "#include <iostream>\nint main() {\n    std::cout << \"Hello, C++ again!\" << std::endl;\n    return 0;\n}",
+    "creation_date": "2025-06-30T13:05:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 70,
+    "public": true,
+    "user": 5,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 39,
+  "fields": {
+    "name": "C++: Conditional Statement",
+    "lang": "cpp",
+    "code": "#include <iostream>\nint main() {\n    int x = 10;\n    if (x > 5) {\n        std::cout << \"X is greater than 5\" << std::endl;\n    }\n    return 0;\n}",
+    "creation_date": "2025-06-30T13:10:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 70,
+    "public": true,
+    "user": 5,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 40,
+  "fields": {
+    "name": "JavaScript: Simple Output",
+    "lang": "javascript",
+    "code": "alert(\"Hello, JavaScript from PHP's replacement!\");",
+    "creation_date": "2025-06-30T13:15:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 55,
+    "public": true,
+    "user": 6,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 41,
+  "fields": {
+    "name": "JavaScript: Array Example",
+    "lang": "javascript",
+    "code": "const colors = [\"red\", \"green\", \"blue\"];\r\nconsole.log(colors);",
+    "creation_date": "2025-06-30T13:20:00Z",
+    "update_at": "2025-07-10T08:52:09.765Z",
+    "description": "",
+    "views_count": 50,
+    "public": true,
+    "user": 6,
+    "tags": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 42,
+  "fields": {
+    "name": "Python: Print Statement",
+    "lang": "python",
+    "code": "print('Hello, Python from Ruby replacement!')",
+    "creation_date": "2025-06-30T13:25:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 45,
+    "public": true,
+    "user": 7,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 43,
+  "fields": {
+    "name": "Python: Class Example",
+    "lang": "python",
+    "code": "class Greeter:\n  def __init__(self, name):\n    self.name = name\n  def say_hi(self):\n    print(f'Hi {self.name}')",
+    "creation_date": "2025-06-30T13:30:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 40,
+    "public": true,
+    "user": 7,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 44,
+  "fields": {
+    "name": "Java: Another Hello World",
+    "lang": "java",
+    "code": "public class AnotherHelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, another Java world!\");\n    }\n}",
+    "creation_date": "2025-06-30T13:35:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 35,
+    "public": true,
+    "user": 8,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 45,
+  "fields": {
+    "name": "Java: Basic Function",
+    "lang": "java",
+    "code": "public class Adder {\n    public int add(int a, int b) {\n        return a + b;\n    }\n    public static void main(String[] args) {\n        Adder adder = new Adder();\n        System.out.println(adder.add(5, 3));\n    }\n}",
+    "creation_date": "2025-06-30T13:40:00Z",
+    "update_at": "2025-07-09T08:26:16.086Z",
+    "description": "",
+    "views_count": 30,
+    "public": true,
+    "user": 8,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 49,
+  "fields": {
+    "name": "sdfdf",
+    "lang": "python",
+    "code": "asdff",
+    "creation_date": "2025-07-11T11:54:33.710Z",
+    "update_at": "2025-07-11T11:54:33.711Z",
+    "description": "",
+    "views_count": 0,
+    "public": true,
+    "user": 1,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 50,
+  "fields": {
+    "name": "snippet_0",
+    "lang": "python",
+    "code": "If one public minute degree keep. Nearly every suddenly half.\nMoment next after order. Report culture yard hundred tree serious.\nHuman fill quality nothing western voice very. Card like audience boy measure. Song know base much budget.\nAdult relationship hope walk citizen. Save together imagine section show evidence. Security rest almost ago read garden former total.\nAsk seven thing box. Paper speak color live buy dinner sometimes. Situation north perform network.\nArm late everyone. Century very personal sound around sing again. Another boy available group important.\nRepublican lead land manage according. National contain guess child cut bar.\nBegin positive up quite meeting spring truth. Hope yeah week federal.\nHome poor clear black high anyone. Reflect bad exactly great usually. Hundred enough west stop store smile wish knowledge.\nData push project myself.",
+    "creation_date": "2025-07-30T10:21:25.708Z",
+    "update_at": "2025-07-30T10:21:25.713Z",
+    "description": "",
+    "views_count": 727,
+    "public": true,
+    "user": 13,
+    "tags": [
+      6
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 51,
+  "fields": {
+    "name": "snippet_1",
+    "lang": "cpp",
+    "code": "Of plant go official. Collection teacher structure put story. Research class security main.\nParticular money tonight end once.\nOut popular little we cup. My south us piece create. Simple cup traditional similar.\nHelp machine keep sister. Support sit store main method inside. Collection including conference left might.\nHospital including best tend theory. Everyone its cultural poor model structure artist present. Sign none film here consider.\nLeg feel community lot. List enter process act. Society bank visit author dark.\nPartner hand direction later off strategy teacher. Teach thousand perhaps throughout environmental. Old movement much ago resource vote star.\nPresident set pretty. Town responsibility order front final. Talk mean never son religious yet huge.\nSection make question strategy miss collection interview agent. Go law exactly picture carry community. Long somebody point art tree.\nImagine past best turn evening film bill. Kind hit several until.",
+    "creation_date": "2025-07-30T10:21:26.393Z",
+    "update_at": "2025-07-30T10:21:26.399Z",
+    "description": "",
+    "views_count": 330,
+    "public": true,
+    "user": 15,
+    "tags": [
+      7,
+      8,
+      9
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 52,
+  "fields": {
+    "name": "My Python Code",
+    "lang": "python",
+    "code": "print(\"Hello, World!\")",
+    "creation_date": "2025-07-30T10:21:27.078Z",
+    "update_at": "2025-07-30T10:21:27.082Z",
+    "description": "",
+    "views_count": 638,
+    "public": true,
+    "user": 17,
+    "tags": [
+      10,
+      11
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 53,
+  "fields": {
+    "name": "snippet_3",
+    "lang": "java",
+    "code": "Leave floor sort produce cut know. Push drug all. Skill particular writer coach almost.\nIt dream personal affect oil ahead lose girl. Look personal discuss.\nCan party we. Together save enjoy amount.\nEspecially thought always TV why including others short.\nThrow that perform responsibility blue research.\nStory either sea room. Street level everybody program fast thing. However country in perhaps that. Hotel window north much future.\nFoot ability low part consider onto cost.\nSong clear box subject voice. Process series to financial. List physical just matter Congress significant.\nHave also address traditional environmental position know. Firm along owner situation. Customer attention positive against agent.\nFederal moment professional manager fish simply. Event behavior upon energy decision specific opportunity you.\nKey simply information stop prepare do while policy.\nPattern decision pressure whatever practice. Student can edge stock. Bar perhaps safe involve herself.",
+    "creation_date": "2025-07-30T10:21:29.128Z",
+    "update_at": "2025-07-30T10:21:29.135Z",
+    "description": "",
+    "views_count": 272,
+    "public": false,
+    "user": 23,
+    "tags": [
+      15,
+      16
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 54,
+  "fields": {
+    "name": "snippet_4",
+    "lang": "javascript",
+    "code": "Another section write light. Cup production house society morning.\nPeace dark assume third direction issue. Suggest physical study hit. Once particularly low.\nWill husband determine pick another future. Although their information hard. Crime thousand left parent play specific instead.\nTruth suddenly third rest year. Rest bed final capital system.\nCase best issue its account. Agree single board public drug phone. Nice race although.\nSimple performance true meeting every myself good spring. Shake pattern task change.\nThem Republican let care. Election effect market clear. Leg most who great at onto.\nResult today your sense. Must common animal.\nStock mother new benefit building the talk letter. Culture dark watch him. Because agent memory language.\nThrough structure possible someone school experience. Himself term mention article most federal note. Last service main never daughter point recent.\nWish its money wish moment. Space break but red such get arm must.",
+    "creation_date": "2025-07-30T10:21:29.503Z",
+    "update_at": "2025-07-30T10:21:29.508Z",
+    "description": "",
+    "views_count": 583,
+    "public": true,
+    "user": 24,
+    "tags": [
+      17,
+      18,
+      19
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 55,
+  "fields": {
+    "name": "snippet_5",
+    "lang": "python",
+    "code": "Generation question maybe we. Company once popular home firm on.\nMajority shoulder beyond behind fight agree tree range. Physical exist large ability give least administration.\nCountry keep wide blood adult rather. Quite major join hospital kid hundred future. Teacher cultural want before reality much least. Under full ten professional perhaps outside improve central.\nAgreement produce down fast. Machine various degree month hair. Husband past a protect agreement. Ball realize term vote skin minute think example.\nUpon white single Congress nothing material. Prevent PM side strategy team much. Large three interest finish among.\nOnto above for exist. Employee through skill job ago.\nStudy however look statement argue suggest. Wide food value find season. Top you rate.\nHope out writer assume. Major ago teach green resource. Store word center involve stock thought.\nAccording town story drop could community. Affect structure give by.",
+    "creation_date": "2025-07-30T10:21:29.847Z",
+    "update_at": "2025-07-30T10:21:29.850Z",
+    "description": "",
+    "views_count": 147,
+    "public": false,
+    "user": 25,
+    "tags": [
+      20
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 56,
+  "fields": {
+    "name": "snippet_6",
+    "lang": "cpp",
+    "code": "Candidate child career organization. Nor page for difficult. Member ground away break source.\nMarket above thought tough detail long. College night staff a. Kid per play already give.\nCover see indicate attention stay. Send hotel yet provide detail cover use great.\nWait western employee professor hard state. Without age well nation. President happy than. Inside sure protect production system.\nEdge water or believe catch. Her discussion range later all maintain.\nAge cold listen wear hand. Anything position example start. City morning seek draw commercial. Read design similar much civil arm.\nWorld rather party woman stay. Amount fund serious head fish sea.\nFederal operation record understand even international rather. Office born that us plant.\nCourt and finish change any answer goal. Want themselves opportunity enjoy if can. Place fight example challenge industry cold.\nPower term news term similar work. Tv themselves require edge prepare gas. And leave event cold.",
+    "creation_date": "2025-07-30T10:21:30.190Z",
+    "update_at": "2025-07-30T10:21:30.192Z",
+    "description": "",
+    "views_count": 74,
+    "public": true,
+    "user": 26,
+    "tags": [
+      21
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 57,
+  "fields": {
+    "name": "snippet_7",
+    "lang": "java",
+    "code": "Plan debate develop professor modern. Budget four call reveal food.\nDraw station explain five baby. Team manage structure only half girl approach positive.\nStudy certainly laugh follow. Social well feel exist apply increase southern.\nUs nation easy enter arm bed management social.\nMove rate art level agreement company. Score record media ready number. Reflect region mission teach.\nNational speak draw realize owner return. Deep question low film add nearly.\nDecide community as event kind. Become reflect teacher far real.\nWhole sense social. People but trade short result street. Total research drug improve interview either. Scene explain seem.\nFamily start miss agreement ten. Instead boy past you feel example exactly.\nGive vote different development. Like organization whose onto real conference stand federal. Could anything arm speech enjoy everything.\nSupport picture author area face minute population machine.",
+    "creation_date": "2025-07-30T10:21:30.532Z",
+    "update_at": "2025-07-30T10:21:30.538Z",
+    "description": "",
+    "views_count": 925,
+    "public": true,
+    "user": 27,
+    "tags": [
+      22,
+      23,
+      24
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 58,
+  "fields": {
+    "name": "snippet_8",
+    "lang": "javascript",
+    "code": "Watch cut result treat sea. American dream back sing child. Should behind bad before life general.\nSouth model attention line among. Us feeling mouth perform country. Effort foreign drug commercial administration boy its coach.\nSend need catch for person win. Cost Mr carry conference.\nLife family either character red. Shake fast pattern. Add staff answer hear.\nNew interesting feel buy film pretty specific. Better teacher score example develop middle his machine. Me class hard authority.\nDinner house need floor run. Man hit travel weight film central stuff.\nBody leg crime military loss.\nImage certain argue account of speak. Important article real let statement condition.\nManagement break conference onto myself. Single guy force not. Week to figure major the including.\nAhead manage speech life miss day rich.\nPurpose whatever always. Only loss top specific color media.\nHistory coach stage floor dark trouble. Way war consider lead. Shake they number.",
+    "creation_date": "2025-07-30T10:21:30.877Z",
+    "update_at": "2025-07-30T10:21:30.881Z",
+    "description": "",
+    "views_count": 447,
+    "public": true,
+    "user": 28,
+    "tags": [
+      25,
+      26
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 59,
+  "fields": {
+    "name": "snippet_9",
+    "lang": "python",
+    "code": "Business fact easy sing buy always speech foreign. Who however movement stock just use.\nMention avoid class professional option political. Shake cup wonder.\nQuite four hot east card.\nDegree mission drive process. Fund gas election other chance wind suffer.\nPlace long thing south include. Letter design thought how fear.\nOil at evening. Road environmental that herself energy himself wrong.\nArgue experience five campaign. Join treatment other exist audience hair. Bring expert act interest wish.\nUp green officer until approach close trade. Industry drug coach.\nOil scene likely sort thousand behavior risk. Ten artist cover fly rock. Example network reveal life black. Food people wall letter.\nFollow area nation water let material. Pm structure prepare adult.\nMagazine condition mother suggest. Food pay against couple age model top everyone.\nBed himself visit half avoid company open many. Job ability future. Man apply through according police despite.",
+    "creation_date": "2025-07-30T10:21:31.220Z",
+    "update_at": "2025-07-30T10:21:31.225Z",
+    "description": "",
+    "views_count": 378,
+    "public": true,
+    "user": 29,
+    "tags": [
+      27,
+      28,
+      29
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 60,
+  "fields": {
+    "name": "snippet_10",
+    "lang": "cpp",
+    "code": "Cost keep their offer party understand they. Possible late wall suggest.\nVarious east low realize candidate. Hope another town manage whom. Ahead personal budget sister only leg. Might choose air save seat result various.\nCurrent other together than. Teach some past only.\nEnvironmental arrive attorney population consumer positive. Sometimes task reason feel. Key organization small.\nRange long majority fight. Edge blood might simply.\nBecause computer size TV. Fire while minute hour second new someone.\nWill attorney read may. Line lead create second finally project whose.\nDevelop nor professional head office difference party. Sort plant bill place report tell.\nJust scene step lead defense receive. Certainly specific product suggest Congress. On while image can.\nResource call certainly save. Fight claim him or avoid area. Performance attack rich situation half camera fire born.\nNorth fast natural same upon close take worry. On PM east road allow. Arrive relate clearly those.",
+    "creation_date": "2025-07-30T10:21:31.566Z",
+    "update_at": "2025-07-30T10:21:31.571Z",
+    "description": "",
+    "views_count": 151,
+    "public": false,
+    "user": 30,
+    "tags": [
+      30,
+      31,
+      32
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 61,
+  "fields": {
+    "name": "snippet_11",
+    "lang": "java",
+    "code": "When visit accept yet help feeling choose. Next offer traditional what car allow. Style rise above ground.\nCar conference Mrs. Everything reveal message face. Image quite thus.\nProtect she smile wide whether. Trouble class business guy hair international.\nSize standard call difference everybody office memory.\nOffice fast few government. Visit feel answer experience glass available. Draw laugh green yes especially analysis.\nOne head family road nearly. Enough cold establish mouth play. Avoid throughout agreement history piece during idea.\nManage at better window reason level. Computer direction agreement measure defense true.\nEnough past wife live claim radio. Affect find want gun statement tax bring fly. Ten indeed way purpose fast. Return attack left spring eight why.\nSoon material guess follow thousand certainly. Administration structure all door station among finish.\nCreate offer career behind serve population. Claim tonight leader matter pull even.\nWho human child help might.",
+    "creation_date": "2025-07-30T10:21:31.915Z",
+    "update_at": "2025-07-30T10:21:31.921Z",
+    "description": "",
+    "views_count": 647,
+    "public": true,
+    "user": 31,
+    "tags": [
+      33,
+      34,
+      35
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 62,
+  "fields": {
+    "name": "snippet_12",
+    "lang": "javascript",
+    "code": "Leave teacher hit suggest open material force trouble. After month own so gas science remain. House bag message stand.\nRight itself later subject section. Production feel not mission various.\nWater piece feeling future. American better although central.\nScience some everything institution. Report moment everybody consider take look account tax. Deal total get kitchen important guy. Same seek keep involve top building wrong.\nBox know bill win statement suddenly. With yes second that.\nIssue stage worry carry director woman since. Measure beyond less agreement cell. Agreement number young part.\nLeg key official idea own discussion song green.\nHit yeah mission new. Help impact second word. May trouble truth free.\nAccount seem say us.\nYet capital evidence and performance easy firm. Finish mother democratic center.\nAs blood reveal. Pull blue where myself. Story specific meet give item gun.",
+    "creation_date": "2025-07-30T10:21:32.261Z",
+    "update_at": "2025-07-30T10:21:32.266Z",
+    "description": "",
+    "views_count": 757,
+    "public": false,
+    "user": 32,
+    "tags": [
+      36,
+      37,
+      38
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 63,
+  "fields": {
+    "name": "snippet_13",
+    "lang": "python",
+    "code": "Cause various experience hour total wrong use. Hundred trouble successful less few perhaps again. Rather Democrat accept what Mrs short start. Section miss population decide executive its wait.\nSound body participant fear. Career policy oil of system. Old level continue face.\nSuffer bar might card far catch. Hand challenge view work case those since.\nPrevent order result risk energy. Project attention player note.\nReally speech again kitchen sit language. Few account who event report admit laugh guess. Physical simply approach cost cell off knowledge.\nKeep writer present ahead tonight population. Daughter wife style indeed indicate. Daughter send blue region identify focus.\nBuy executive industry authority society. Become example me. Shoulder themselves off determine hope. Stock special Mrs list.\nWhose career general born discover yard. Compare movement view boy. White environmental argue participant trip.\nFive certainly catch. One hour work back treatment answer medical.",
+    "creation_date": "2025-07-30T10:21:32.606Z",
+    "update_at": "2025-07-30T10:21:32.611Z",
+    "description": "",
+    "views_count": 423,
+    "public": true,
+    "user": 33,
+    "tags": [
+      39,
+      40,
+      41
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 64,
+  "fields": {
+    "name": "snippet_14",
+    "lang": "cpp",
+    "code": "Sign everything term soon hear forward. Foreign financial south action man know political. Cover central while million.\nCenter bad attack decision performance tough. Now music there relate. Local card behind loss forget.\nCandidate tax matter. Allow sport beautiful source indeed. Really story tonight only series.\nEffort also drug week reality. Suggest sport nor look arm most blood.\nFinancial like trial professional me. Reason wide organization although from.\nTravel while out individual TV occur.\nSpecific question treatment one strong say. Fall manager treat simple resource there everybody. Rather together cup issue join.\nDream study assume knowledge election learn loss there. Ability message painting seem. City individual office better.\nThough sing research Democrat board general same. Task look economic learn picture dog.\nPass study will special threat. Realize wear line friend past spend yard.\nFree among son recent east data. Phone its real fill.",
+    "creation_date": "2025-07-30T10:21:32.951Z",
+    "update_at": "2025-07-30T10:21:32.954Z",
+    "description": "",
+    "views_count": 118,
+    "public": false,
+    "user": 34,
+    "tags": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 65,
+  "fields": {
+    "name": "snippet_15",
+    "lang": "java",
+    "code": "Course once get offer adult try. Account I or suggest.\nStatement space whose require attack. Argue break wall task call party.\nWorld me option agree recently generation. Arm of myself across agree result. Sometimes rather quickly.\nAnyone technology why place able. Structure thus with lot. Actually receive former analysis fire able policy.\nHim cold citizen bill design necessary line. Second white health wind have. Reach order work condition eat never.\nAnd cultural different tell serve. Sport remain front cover. Certainly individual white well wonder we way.\nChallenge enough leader market. But environment state read.\nPrepare among why. Degree drive business operation partner of break.\nMaintain some feeling eat not commercial she. Avoid old board include factor fire have.\nCharge participant scene right someone law. Within out southern statement our cost training. Recognize play ten.\nNetwork red there leader attention nice. Perform draw follow week history region.",
+    "creation_date": "2025-07-30T10:21:32.955Z",
+    "update_at": "2025-07-30T10:21:32.957Z",
+    "description": "",
+    "views_count": 189,
+    "public": false,
+    "user": null,
+    "tags": [
+      42
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 66,
+  "fields": {
+    "name": "snippet_16",
+    "lang": "javascript",
+    "code": "Develop peace management standard door. Attorney less within theory environmental. Somebody mother alone mean.\nLast whatever long economic sure may on. Religious huge friend bill threat thought make still.\nRemain huge for group night whether. Fine buy sit edge. Scientist respond be management marriage while pick.\nBillion unit mean activity well staff author. Identify seat end deep. Around firm watch style.\nParent age almost job boy strategy center. Apply nor miss civil.\nCamera table social under ten admit data better. Risk wish reason money prove current smile. West machine mouth clearly manage right.\nSometimes eye than service without. Movie group whole memory page color air senior.\nThis represent less old majority their thank. Past child chance pressure phone.\nShare add trouble news he. Rich cut interesting.\nFine market war computer knowledge turn. Option media seem office degree make. Say site southern woman meet enough.",
+    "creation_date": "2025-07-30T10:21:33.299Z",
+    "update_at": "2025-07-30T10:21:33.305Z",
+    "description": "",
+    "views_count": 554,
+    "public": false,
+    "user": 35,
+    "tags": [
+      43,
+      44,
+      45
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 67,
+  "fields": {
+    "name": "snippet_17",
+    "lang": "python",
+    "code": "Try nor century hundred guess although. Even focus east worry.\nInside hit hot before end analysis fact us. Pick reflect series adult change wrong wind. Become point sometimes happen hard trade risk. Allow brother environment out degree pattern run several.\nActivity page ten yet administration ball. Partner necessary together son detail. One drop sit else.\nCommon one window artist manager expect.\nShe five after much remember again. Coach past simple plan.\nTreat look develop myself commercial. Size or tough huge out. Wide resource both itself.\nFund most pick people. Feel occur trouble bed edge operation.\nThousand Democrat pretty response present. Skin practice politics night. Spend address threat western move stuff.\nPlayer street image against nice. Dog institution relate job deal resource. Woman record short.\nPast save author impact. East happy decision hard method wear.\nMessage street avoid mean task apply ok.",
+    "creation_date": "2025-07-30T10:21:33.679Z",
+    "update_at": "2025-07-30T10:21:33.683Z",
+    "description": "",
+    "views_count": 5000,
+    "public": false,
+    "user": 36,
+    "tags": [
+      46,
+      47
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 68,
+  "fields": {
+    "name": "snippet_18",
+    "lang": "cpp",
+    "code": "Film business share modern social machine prevent. Price care need especially.\nEnvironmental it manage process.\nSame sense increase lawyer very president action lot. Such too nice unit movement. Reach test eye relate price bank tonight.\nLand present space there east discuss. Himself interesting more.\nVarious from else final feel focus middle. Happen manager language water along well tree. Everyone role bed final change television better.\nWide market process own cup.\nCompare sister argue. Step north ground central.\nFish successful much whole. Experience home court raise set school. Find send best end policy factor statement leader.\nFamily number while own job.\nEconomic rise special crime president plan. Technology card avoid public. Hit lot forget writer.\nArticle according similar ago. Collection personal look already then political. Cup meet station.\nWear per fight must. Must person population painting music travel.",
+    "creation_date": "2025-07-30T10:21:34.049Z",
+    "update_at": "2025-07-30T10:21:34.055Z",
+    "description": "",
+    "views_count": 365,
+    "public": true,
+    "user": 37,
+    "tags": [
+      48,
+      49
+    ]
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 69,
+  "fields": {
+    "name": "new class based view",
+    "lang": "cpp",
+    "code": "cbv test",
+    "creation_date": "2025-08-20T08:57:35.796Z",
+    "update_at": "2025-08-20T08:57:35.796Z",
+    "description": "",
+    "views_count": 1,
+    "public": true,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.snippet",
+  "pk": 70,
+  "fields": {
+    "name": "new class based view",
+    "lang": "cpp",
+    "code": "cbv test",
+    "creation_date": "2025-08-20T08:59:03.231Z",
+    "update_at": "2025-08-20T08:59:03.231Z",
+    "description": "",
+    "views_count": 0,
+    "public": true,
+    "user": 2,
+    "tags": []
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 1,
+  "fields": {
+    "text": "Отличный способ начать! Просто и понятно.",
+    "creation_date": "2025-07-01T09:00:00Z",
+    "author": 1,
+    "snippet": 1
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 2,
+  "fields": {
+    "text": "Мне очень помог этот сниппет. Спасибо!",
+    "creation_date": "2025-07-01T09:05:00Z",
+    "author": 2,
+    "snippet": 1
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 3,
+  "fields": {
+    "text": "Пригодится для быстрой проверки.",
+    "creation_date": "2025-07-01T09:10:00Z",
+    "author": 3,
+    "snippet": 1
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 4,
+  "fields": {
+    "text": "Обожаю генераторы списков, это так лаконично!",
+    "creation_date": "2025-07-01T09:15:00Z",
+    "author": 1,
+    "snippet": 2
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 5,
+  "fields": {
+    "text": "Лучший способ создания списков в Python.",
+    "creation_date": "2025-07-01T09:20:00Z",
+    "author": 4,
+    "snippet": 2
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 6,
+  "fields": {
+    "text": "Всегда забываю синтаксис, этот пример очень кстати.",
+    "creation_date": "2025-07-01T09:25:00Z",
+    "author": 5,
+    "snippet": 3
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 7,
+  "fields": {
+    "text": "Функция items() очень удобна.",
+    "creation_date": "2025-07-01T09:30:00Z",
+    "author": 6,
+    "snippet": 3
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 8,
+  "fields": {
+    "text": "Стандартная практика, но всегда полезно иметь под рукой.",
+    "creation_date": "2025-07-01T09:35:00Z",
+    "author": 7,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 9,
+  "fields": {
+    "text": "Не забывайте закрывать файлы!",
+    "creation_date": "2025-07-01T09:40:00Z",
+    "author": 8,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 10,
+  "fields": {
+    "text": "Простой, но мощный пример.",
+    "creation_date": "2025-07-01T09:45:00Z",
+    "author": 1,
+    "snippet": 5
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 11,
+  "fields": {
+    "text": "Начинал с этого, хорошие воспоминания.",
+    "creation_date": "2025-07-01T09:50:00Z",
+    "author": 2,
+    "snippet": 5
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 12,
+  "fields": {
+    "text": "Базовый, но необходимый.",
+    "creation_date": "2025-07-01T09:55:00Z",
+    "author": 3,
+    "snippet": 6
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 13,
+  "fields": {
+    "text": "Хороший пример __init__.",
+    "creation_date": "2025-07-01T10:00:00Z",
+    "author": 4,
+    "snippet": 6
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 14,
+  "fields": {
+    "text": "Важно помнить об обработке исключений.",
+    "creation_date": "2025-07-01T10:05:00Z",
+    "author": 1,
+    "snippet": 7
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 15,
+  "fields": {
+    "text": "Полезно для избежания крашей.",
+    "creation_date": "2025-07-01T10:10:00Z",
+    "author": 5,
+    "snippet": 7
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 16,
+  "fields": {
+    "text": "Лямбды - сила Python!",
+    "creation_date": "2025-07-01T10:15:00Z",
+    "author": 6,
+    "snippet": 8
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 17,
+  "fields": {
+    "text": "Очень удобно для простых функций.",
+    "creation_date": "2025-07-01T10:20:00Z",
+    "author": 7,
+    "snippet": 8
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 18,
+  "fields": {
+    "text": "Декораторы всегда сбивают с толку, но этот пример понятен.",
+    "creation_date": "2025-07-01T10:25:00Z",
+    "author": 8,
+    "snippet": 9
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 19,
+  "fields": {
+    "text": "Отличный пример применения декоратора.",
+    "creation_date": "2025-07-01T10:30:00Z",
+    "author": 1,
+    "snippet": 9
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 20,
+  "fields": {
+    "text": "Регулярные выражения - мощный инструмент.",
+    "creation_date": "2025-07-01T10:35:00Z",
+    "author": 2,
+    "snippet": 10
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 21,
+  "fields": {
+    "text": "Хорошо для парсинга текста.",
+    "creation_date": "2025-07-01T10:40:00Z",
+    "author": 3,
+    "snippet": 10
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 22,
+  "fields": {
+    "text": "Просто 'Hello, World!' - классика!",
+    "creation_date": "2025-07-01T10:45:00Z",
+    "author": 2,
+    "snippet": 16
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 23,
+  "fields": {
+    "text": "С этого все начинают в JS.",
+    "creation_date": "2025-07-01T10:50:00Z",
+    "author": 3,
+    "snippet": 16
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 24,
+  "fields": {
+    "text": "Map - незаменимый метод для массивов.",
+    "creation_date": "2025-07-01T10:55:00Z",
+    "author": 2,
+    "snippet": 17
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 25,
+  "fields": {
+    "text": "Современный JavaScript без map уже не представить.",
+    "creation_date": "2025-07-01T11:00:00Z",
+    "author": 4,
+    "snippet": 17
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 26,
+  "fields": {
+    "text": "Fetch API упрощает работу с запросами.",
+    "creation_date": "2025-07-01T11:05:00Z",
+    "author": 2,
+    "snippet": 18
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 27,
+  "fields": {
+    "text": "Хороший пример для работы с REST API.",
+    "creation_date": "2025-07-01T11:10:00Z",
+    "author": 5,
+    "snippet": 18
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 28,
+  "fields": {
+    "text": "Основа интерактивного веба.",
+    "creation_date": "2025-07-01T11:15:00Z",
+    "author": 2,
+    "snippet": 19
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 29,
+  "fields": {
+    "text": "Без этого никуда во фронтенде.",
+    "creation_date": "2025-07-01T11:20:00Z",
+    "author": 6,
+    "snippet": 19
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 30,
+  "fields": {
+    "text": "Обработчики событий - ключ к динамичности.",
+    "creation_date": "2025-07-01T11:25:00Z",
+    "author": 2,
+    "snippet": 20
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 31,
+  "fields": {
+    "text": "Async/await делает асинхронный код намного чище.",
+    "creation_date": "2025-07-01T11:30:00Z",
+    "author": 2,
+    "snippet": 21
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 32,
+  "fields": {
+    "text": "Важно для сохранения данных на клиенте.",
+    "creation_date": "2025-07-01T11:35:00Z",
+    "author": 2,
+    "snippet": 22
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 33,
+  "fields": {
+    "text": "Отложенные действия - очень полезно.",
+    "creation_date": "2025-07-01T11:40:00Z",
+    "author": 2,
+    "snippet": 23
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 34,
+  "fields": {
+    "text": "Деструктуризация упрощает код.",
+    "creation_date": "2025-07-01T11:45:00Z",
+    "author": 2,
+    "snippet": 24
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 35,
+  "fields": {
+    "text": "Spread оператор - супер удобно!",
+    "creation_date": "2025-07-01T11:50:00Z",
+    "author": 2,
+    "snippet": 25
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 36,
+  "fields": {
+    "text": "С этого начинается любой код на C++.",
+    "creation_date": "2025-07-01T11:55:00Z",
+    "author": 3,
+    "snippet": 26
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 37,
+  "fields": {
+    "text": "Базовый цикл, хороший старт.",
+    "creation_date": "2025-07-01T12:00:00Z",
+    "author": 3,
+    "snippet": 27
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 38,
+  "fields": {
+    "text": "Пример функции для новичков.",
+    "creation_date": "2025-07-01T12:05:00Z",
+    "author": 3,
+    "snippet": 28
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 39,
+  "fields": {
+    "text": "Использование векторов - это очень по-современному для C++.",
+    "creation_date": "2025-07-01T12:10:00Z",
+    "author": 3,
+    "snippet": 29
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 41,
+  "fields": {
+    "text": "Базовый класс Java, классика.",
+    "creation_date": "2025-07-01T12:20:00Z",
+    "author": 3,
+    "snippet": 31
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 42,
+  "fields": {
+    "text": "Условные операторы - основа логики в Java.",
+    "creation_date": "2025-07-01T12:25:00Z",
+    "author": 3,
+    "snippet": 32
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 44,
+  "fields": {
+    "text": "Фильтрация данных - полезно для безопасности.",
+    "creation_date": "2025-07-01T12:35:00Z",
+    "author": 3,
+    "snippet": 34
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 45,
+  "fields": {
+    "text": "Очень важный сниппет для внутренней конфигурации.",
+    "creation_date": "2025-07-01T12:40:00Z",
+    "author": 4,
+    "snippet": 35
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 46,
+  "fields": {
+    "text": "Еще один хороший пример для начинающих на Java.",
+    "creation_date": "2025-07-01T12:45:00Z",
+    "author": 4,
+    "snippet": 36
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 47,
+  "fields": {
+    "text": "Циклы - это хлеб и масло программирования на Java.",
+    "creation_date": "2025-07-01T12:50:00Z",
+    "author": 5,
+    "snippet": 37
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 48,
+  "fields": {
+    "text": "Простой вывод в C++, то что нужно.",
+    "creation_date": "2025-07-01T12:55:00Z",
+    "author": 6,
+    "snippet": 38
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 49,
+  "fields": {
+    "text": "Условные операторы - основа логики в C++.",
+    "creation_date": "2025-07-01T13:00:00Z",
+    "author": 7,
+    "snippet": 39
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 50,
+  "fields": {
+    "text": "Отличный простой пример функции на Java.",
+    "creation_date": "2025-07-01T13:05:00Z",
+    "author": 8,
+    "snippet": 45
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 51,
+  "fields": {
+    "text": "Whole modern account eight. Whole budget their. Field front push home pass push.\nBaby subject little. Reason stock care different. Fly fill especially.\nImpact late girl camera. All oil drive just pressure medical kind wife. Others less fill four rise whose.\nStop everyone avoid practice growth himself style. More audience politics during body.\nCollege Mrs on it claim experience good. Defense war character medical face.",
+    "creation_date": "2025-07-30T10:21:26.400Z",
+    "author": 14,
+    "snippet": 51
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 52,
+  "fields": {
+    "text": "Our follow player most identify ok. Government day then when year.\nFormer break production color dog attack it. Least series drop recognize. Must amount staff military clear.\nExample direction place similar. Let reflect executive where.\nDirection data scientist relate there section least. Score little management play answer.",
+    "creation_date": "2025-07-30T10:21:32.612Z",
+    "author": 33,
+    "snippet": 63
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 53,
+  "fields": {
+    "text": "Nation police other program. Might away how game indicate fish each then.\nShe laugh himself else. Address move after capital wall yeah ok. Industry anything outside level.\nFirm Mr involve because. Cultural particularly issue stock stock.\nInclude describe treatment health policy book. Individual information throw use say. Bill suggest song skill. Compare teach per anything none.",
+    "creation_date": "2025-07-30T10:21:34.671Z",
+    "author": 38,
+    "snippet": 68
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 54,
+  "fields": {
+    "text": "excellent code",
+    "creation_date": "2025-08-08T07:57:11.673Z",
+    "author": 11,
+    "snippet": 27
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 55,
+  "fields": {
+    "text": "excellent code",
+    "creation_date": "2025-08-08T08:13:51.614Z",
+    "author": 11,
+    "snippet": 27
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 56,
+  "fields": {
+    "text": "super",
+    "creation_date": "2025-08-08T08:21:02.911Z",
+    "author": 11,
+    "snippet": 27
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 57,
+  "fields": {
+    "text": "toll",
+    "creation_date": "2025-08-08T08:22:36.593Z",
+    "author": 11,
+    "snippet": 27
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 58,
+  "fields": {
+    "text": "beautiful code",
+    "creation_date": "2025-08-08T08:23:50.371Z",
+    "author": 11,
+    "snippet": 27
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 59,
+  "fields": {
+    "text": "2345",
+    "creation_date": "2025-08-08T08:24:50.846Z",
+    "author": 11,
+    "snippet": 27
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 60,
+  "fields": {
+    "text": "test comment",
+    "creation_date": "2025-08-08T09:50:05.944Z",
+    "author": 1,
+    "snippet": 27
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 61,
+  "fields": {
+    "text": "Новый комментарий для проверки 1",
+    "creation_date": "2025-08-11T08:39:57.199Z",
+    "author": 3,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 62,
+  "fields": {
+    "text": "test comment",
+    "creation_date": "2025-08-11T10:16:48.592Z",
+    "author": 3,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 63,
+  "fields": {
+    "text": "test comment2",
+    "creation_date": "2025-08-11T21:53:43.809Z",
+    "author": 3,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 64,
+  "fields": {
+    "text": "test comment 3",
+    "creation_date": "2025-08-11T22:08:29.710Z",
+    "author": 3,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 65,
+  "fields": {
+    "text": "test comment 4",
+    "creation_date": "2025-08-11T22:12:06.974Z",
+    "author": 3,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 66,
+  "fields": {
+    "text": "123",
+    "creation_date": "2025-08-11T22:13:38.479Z",
+    "author": 3,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 67,
+  "fields": {
+    "text": "test1234",
+    "creation_date": "2025-08-11T22:18:14.057Z",
+    "author": 3,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 68,
+  "fields": {
+    "text": "123132",
+    "creation_date": "2025-08-11T22:19:13.546Z",
+    "author": 3,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 69,
+  "fields": {
+    "text": "test comment",
+    "creation_date": "2025-08-12T09:42:27.960Z",
+    "author": 3,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 70,
+  "fields": {
+    "text": "test",
+    "creation_date": "2025-08-12T09:43:42.244Z",
+    "author": 1,
+    "snippet": 4
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 71,
+  "fields": {
+    "text": "good",
+    "creation_date": "2025-08-15T10:30:42.589Z",
+    "author": 2,
+    "snippet": 27
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 72,
+  "fields": {
+    "text": "asd",
+    "creation_date": "2025-08-20T10:19:33.893Z",
+    "author": 2,
+    "snippet": 17
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 73,
+  "fields": {
+    "text": "test",
+    "creation_date": "2025-08-20T10:22:42.965Z",
+    "author": 2,
+    "snippet": 17
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 74,
+  "fields": {
+    "text": "super",
+    "creation_date": "2025-08-20T10:22:57.470Z",
+    "author": 2,
+    "snippet": 17
+  }
+},
+{
+  "model": "MainApp.comment",
+  "pk": 75,
+  "fields": {
+    "text": "good snippet",
+    "creation_date": "2025-08-20T10:25:40.249Z",
+    "author": 2,
+    "snippet": 17
+  }
+},
+{
+  "model": "MainApp.notification",
+  "pk": 1,
+  "fields": {
+    "recipient": 3,
+    "notification_type": "comment",
+    "title": "Новый комментарий от пользователя user3",
+    "comment": null,
+    "message": "text ",
+    "is_read": true,
+    "created_at": "2025-08-08T08:13:51.618Z"
+  }
+},
+{
+  "model": "MainApp.notification",
+  "pk": 2,
+  "fields": {
+    "recipient": 3,
+    "notification_type": "comment",
+    "title": "Новый комментарий к сниппету C++: Basic Loop",
+    "comment": null,
+    "message": "Пользователь {instance.author.username} оставил комментарий {instance.text[:50]} - {\"...\" if len(instance.text) > 50 else \"\"}",
+    "is_read": true,
+    "created_at": "2025-08-08T08:21:02.915Z"
+  }
+},
+{
+  "model": "MainApp.notification",
+  "pk": 3,
+  "fields": {
+    "recipient": 3,
+    "notification_type": "comment",
+    "title": "Новый комментарий к сниппету C++: Basic Loop",
+    "comment": null,
+    "message": "Пользователь \"{instance.author.username}\" оставил комментарий \"{instance.text[:50]} - {\"...\" if len(instance.text) > 50 else \"\"}\"",
+    "is_read": true,
+    "created_at": "2025-08-08T08:22:36.595Z"
+  }
+},
+{
+  "model": "MainApp.notification",
+  "pk": 4,
+  "fields": {
+    "recipient": 3,
+    "notification_type": "comment",
+    "title": "Новый комментарий к сниппету C++: Basic Loop",
+    "comment": null,
+    "message": "Пользователь \"admin\" оставил комментарий \"beautiful code - \"",
+    "is_read": true,
+    "created_at": "2025-08-08T08:23:50.373Z"
+  }
+},
+{
+  "model": "MainApp.notification",
+  "pk": 5,
+  "fields": {
+    "recipient": 3,
+    "notification_type": "comment",
+    "title": "Новый комментарий к сниппету C++: Basic Loop",
+    "comment": null,
+    "message": "Пользователь \"admin\" оставил комментарий \"2345\"",
+    "is_read": true,
+    "created_at": "2025-08-08T08:24:50.848Z"
+  }
+},
+{
+  "model": "MainApp.notification",
+  "pk": 6,
+  "fields": {
+    "recipient": 3,
+    "notification_type": "comment",
+    "title": "Новый комментарий к сниппету C++: Basic Loop",
+    "comment": 60,
+    "message": "Пользователь \"user1\" оставил комментарий \"test comment\"",
+    "is_read": true,
+    "created_at": "2025-08-08T09:50:05.948Z"
+  }
+},
+{
+  "model": "MainApp.notification",
+  "pk": 15,
+  "fields": {
+    "recipient": 1,
+    "notification_type": "comment",
+    "title": "Новый комментарий к сниппету Python: File Reading",
+    "comment": 69,
+    "message": "Пользователь \"user3\" оставил комментарий \"test comment\"",
+    "is_read": true,
+    "created_at": "2025-08-12T09:42:27.964Z"
+  }
+},
+{
+  "model": "MainApp.notification",
+  "pk": 16,
+  "fields": {
+    "recipient": 3,
+    "notification_type": "comment",
+    "title": "Новый комментарий к сниппету C++: Basic Loop",
+    "comment": 71,
+    "message": "Пользователь \"user2\" оставил комментарий \"good\"",
+    "is_read": true,
+    "created_at": "2025-08-15T10:30:42.592Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.496Z",
+    "updated_at": "2025-08-14T08:31:37.496Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "avatar": "",
+    "bio": "что-то",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.497Z",
+    "updated_at": "2025-08-14T22:38:09.999Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.498Z",
+    "updated_at": "2025-08-14T08:31:37.498Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 4,
+  "fields": {
+    "user": 4,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.500Z",
+    "updated_at": "2025-08-14T08:31:37.500Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 5,
+  "fields": {
+    "user": 5,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.502Z",
+    "updated_at": "2025-08-14T08:31:37.502Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 6,
+  "fields": {
+    "user": 6,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.505Z",
+    "updated_at": "2025-08-14T08:31:37.505Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 7,
+  "fields": {
+    "user": 7,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.509Z",
+    "updated_at": "2025-08-14T08:31:37.509Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 8,
+  "fields": {
+    "user": 8,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.513Z",
+    "updated_at": "2025-08-14T08:31:37.514Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 9,
+  "fields": {
+    "user": 9,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.516Z",
+    "updated_at": "2025-08-14T08:31:37.516Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 10,
+  "fields": {
+    "user": 10,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.517Z",
+    "updated_at": "2025-08-14T08:31:37.517Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 11,
+  "fields": {
+    "user": 11,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.519Z",
+    "updated_at": "2025-08-14T08:31:37.520Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 12,
+  "fields": {
+    "user": 12,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.521Z",
+    "updated_at": "2025-08-14T08:31:37.521Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 13,
+  "fields": {
+    "user": 13,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.522Z",
+    "updated_at": "2025-08-14T08:31:37.522Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 14,
+  "fields": {
+    "user": 14,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.523Z",
+    "updated_at": "2025-08-14T08:31:37.523Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 15,
+  "fields": {
+    "user": 15,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.524Z",
+    "updated_at": "2025-08-14T08:31:37.524Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 16,
+  "fields": {
+    "user": 16,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.525Z",
+    "updated_at": "2025-08-14T08:31:37.525Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 17,
+  "fields": {
+    "user": 17,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.526Z",
+    "updated_at": "2025-08-14T08:31:37.526Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 18,
+  "fields": {
+    "user": 18,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.527Z",
+    "updated_at": "2025-08-14T08:31:37.527Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 19,
+  "fields": {
+    "user": 19,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.528Z",
+    "updated_at": "2025-08-14T08:31:37.528Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 20,
+  "fields": {
+    "user": 20,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.530Z",
+    "updated_at": "2025-08-14T08:31:37.530Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 21,
+  "fields": {
+    "user": 21,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.531Z",
+    "updated_at": "2025-08-14T08:31:37.531Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 22,
+  "fields": {
+    "user": 22,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.532Z",
+    "updated_at": "2025-08-14T08:31:37.532Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 23,
+  "fields": {
+    "user": 23,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.534Z",
+    "updated_at": "2025-08-14T08:31:37.534Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 24,
+  "fields": {
+    "user": 24,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.536Z",
+    "updated_at": "2025-08-14T08:31:37.536Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 25,
+  "fields": {
+    "user": 25,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.538Z",
+    "updated_at": "2025-08-14T08:31:37.538Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 26,
+  "fields": {
+    "user": 26,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.539Z",
+    "updated_at": "2025-08-14T08:31:37.539Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 27,
+  "fields": {
+    "user": 27,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.541Z",
+    "updated_at": "2025-08-14T08:31:37.541Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 28,
+  "fields": {
+    "user": 28,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.542Z",
+    "updated_at": "2025-08-14T08:31:37.542Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 29,
+  "fields": {
+    "user": 29,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.544Z",
+    "updated_at": "2025-08-14T08:31:37.544Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 30,
+  "fields": {
+    "user": 30,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.545Z",
+    "updated_at": "2025-08-14T08:31:37.545Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 31,
+  "fields": {
+    "user": 31,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.547Z",
+    "updated_at": "2025-08-14T08:31:37.547Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 32,
+  "fields": {
+    "user": 32,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.549Z",
+    "updated_at": "2025-08-14T08:31:37.549Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 33,
+  "fields": {
+    "user": 33,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.551Z",
+    "updated_at": "2025-08-14T08:31:37.551Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 34,
+  "fields": {
+    "user": 34,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.555Z",
+    "updated_at": "2025-08-14T08:31:37.555Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 35,
+  "fields": {
+    "user": 35,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.557Z",
+    "updated_at": "2025-08-14T08:31:37.557Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 36,
+  "fields": {
+    "user": 36,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.559Z",
+    "updated_at": "2025-08-14T08:31:37.559Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 37,
+  "fields": {
+    "user": 37,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.564Z",
+    "updated_at": "2025-08-14T08:31:37.565Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 38,
+  "fields": {
+    "user": 38,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.568Z",
+    "updated_at": "2025-08-14T08:31:37.568Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 39,
+  "fields": {
+    "user": 39,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-14T08:31:37.571Z",
+    "updated_at": "2025-08-14T08:31:37.571Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 40,
+  "fields": {
+    "user": 40,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-19T08:54:01.879Z",
+    "updated_at": "2025-08-19T08:54:01.879Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 41,
+  "fields": {
+    "user": 41,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-19T08:58:16.296Z",
+    "updated_at": "2025-08-19T08:58:16.296Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 42,
+  "fields": {
+    "user": 42,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-19T10:35:06.782Z",
+    "updated_at": "2025-08-19T10:35:06.782Z"
+  }
+},
+{
+  "model": "MainApp.userprofile",
+  "pk": 43,
+  "fields": {
+    "user": 43,
+    "avatar": "",
+    "bio": "",
+    "website": "",
+    "created_at": "2025-08-21T09:50:55.056Z",
+    "updated_at": "2025-08-21T09:50:55.056Z"
+  }
+}
+]

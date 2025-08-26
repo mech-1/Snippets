@@ -15,3 +15,6 @@ echo "Количество файлов: $(find staticfiles/ -type f | wc -l)"
 
 # Применение миграций
 python manage.py migrate
+
+# Load fixture
+python manage.py loaddata MainApp/fixtures/test_data/project_data.json

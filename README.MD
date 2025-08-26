@@ -283,6 +283,9 @@ rollback to 0016 migrations later rollbacks
 python manage.py makemigrations
 python manage.py migrate
 
+python manage.py dumpdata --indent=2 > MainApp/fixtures/test_data/project_data.json
+python manage.py loaddata MainApp/fixtures/test_data/project_data.json
+
 (.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py dumpdata MainApp --indent=2 > data.json
 (.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py dumpdata MainApp.Snippet --indent=2 > snippets.json
 (.venv) ijn@MacBook-Air-Evgenij Snippets % python manage.py dumpdata MainApp.Comment --indent=2 > comments.json
