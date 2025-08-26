@@ -14,7 +14,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
-from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm, UserProfileForm, UserEditForm
+from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm, UserProfileForm, UserEditForm, \
+    SnippetSubscriptionForm
 from MainApp.models import Snippet, Comment, LANG_CHOICES, Notification, LikeDislike
 from MainApp.signals import snippet_view
 from django.db.models import F, Q, Count, Avg
@@ -232,6 +233,31 @@ def snippet_edit(request, id):
 
         return redirect('snippets-list')
 
+@require_http_methods(["POST"])
+@login_required
+def snippet_subscribe(request, id):
+    pass
+    # if request.method == "POST":
+    #     snippet_subscription_form = SnippetSubscriptionForm(request.POST)
+    #     snippet_id = request.POST.get('snippet_id')  # Получаем ID сниппета из формы
+    #     snippet = get_object_or_404(Snippet, id=snippet_id)
+    #
+    #     if comment_form.is_valid():
+    #         comment = comment_form.save(commit=False)
+    #         comment.author = request.user  # Текущий авторизованный пользователь
+    #         comment.snippet = snippet
+    #         comment.save()
+    #         messages.success(request, 'Сниппет успешно подписан')
+    #
+    #     return redirect('snippet-detail', id=snippet_id)
+    # raise Http404
+    #
+    # snippet_id = request.POST.get("snippet_id")
+    #     user = request.user
+
+
+def snippet_unsubscribe(request, id):
+    pass
 
 def login(request):
     if request.method == "POST":

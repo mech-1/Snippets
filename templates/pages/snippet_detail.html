@@ -47,6 +47,13 @@
 
 {% block content %}
     <div class="container">
+        <div>
+            <form action="{% url 'snippet-subscribe' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="snippet_id" value="{{ snippet.id }}">
+                <button type="submit" class="btn btn-primary">Подписаться</button>
+            </form>
+            </div>
         <div class="row">
             <div class="col">
                 <fieldset disabled>

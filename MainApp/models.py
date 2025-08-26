@@ -17,6 +17,9 @@ LANG_ICONS = {
     "java": "fa-java",
 }
 
+# change User model -> email unique
+User._meta.get_field('email')._unique = True
+
 
 class LikeDislike(models.Model):
     LIKE = 1
@@ -66,6 +69,19 @@ class Snippet(models.Model):
 
     def __repr__(self):
         return f"S: {self.name}|{self.lang} views:{self.views_count} public:{self.public} user:{self.user}"
+
+
+class SnippetSubscription(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='subscriptions')
+    snippet = models.ForeignKey(to=Snippet, on_delete=models.CASCADE, related_name='subscriptions')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ['user', 'snippet']
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.user.username} | {self.snippet.name}"
 
 
 class Comment(models.Model):
