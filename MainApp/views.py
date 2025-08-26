@@ -14,8 +14,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
-from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm, UserProfileForm, UserEditForm, \
-    SnippetSubscriptionForm
+from MainApp.forms import SnippetForm, UserRegistrationForm, CommentForm, UserProfileForm, UserEditForm
 from MainApp.models import Snippet, Comment, LANG_CHOICES, Notification, LikeDislike
 from MainApp.signals import snippet_view
 from django.db.models import F, Q, Count, Avg
